@@ -69,6 +69,10 @@
       <Project>{04BFA4D7-86C8-4341-B34C-3F1D88D19827}</Project>
       <Name>SD.IOC.StubInterface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SD.IOC.UnityProvider\SD.IOC.UnityProvider.csproj">
+      <Project>{b97b2940-b1af-412e-8c6b-25ba148324be}</Project>
+      <Name>SD.IOC.UnityProvider</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

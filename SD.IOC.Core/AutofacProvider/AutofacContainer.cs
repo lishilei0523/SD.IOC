@@ -173,7 +173,7 @@ namespace SD.IOC.Core.AutofacProvider
                 foreach (Type type in types)
                 {
                     Type proxyType = proxyGenericType.MakeGenericType(type);
-                    PropertyInfo propChannel = proxyType.GetProperty("Channel", type);
+                    PropertyInfo propChannel = proxyType.GetProperty(ServiceProxy.ChannelPropertyName, type);
 
                     builder.RegisterType(proxyType);
                     builder.Register(container => propChannel.GetValue(container.Resolve(proxyType))).
