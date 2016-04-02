@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("SD.IOC")]
-[assembly: AssemblyDescription("一体化项目组 - 基础设施 - 依赖注入基础")]
+[assembly: AssemblyTitle("SD.IOC.Core")]
+[assembly: AssemblyDescription("依赖注入基础")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("山河软件")]
-[assembly: AssemblyProduct("SD.IOC")]
-[assembly: AssemblyCopyright("Copyright © ShSoft 2015")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SD.IOC.Core")]
+[assembly: AssemblyCopyright("Copyright © SD 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
