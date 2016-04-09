@@ -8,7 +8,7 @@ namespace SD.IOC.Integration.MVC
     /// <summary>
     /// MVC依赖解决者
     /// </summary>
-    internal class MvcDependencyResolver : IDependencyResolver
+    public class MvcDependencyResolver : IDependencyResolver
     {
         /// <summary>
         /// 解析支持任意对象创建的一次注册的服务
