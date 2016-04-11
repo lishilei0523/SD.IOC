@@ -26,7 +26,7 @@ namespace SD.IOC.Core.Configuration
 
             if (_Setting == null)
             {
-                throw new ApplicationException("依赖注入节点未配置，请检查程序！");
+                throw new ApplicationException("依赖注入注册节点未配置，请检查程序！");
             }
 
             #endregion
