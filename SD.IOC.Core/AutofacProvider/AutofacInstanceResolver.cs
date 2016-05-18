@@ -24,7 +24,18 @@ namespace SD.IOC.Core.AutofacProvider
         /// </summary>
         public AutofacInstanceResolver()
         {
-            this._container = AutofacContainer.Current;
+            try
+            {
+                this._container = AutofacContainer.Current;
+            }
+            catch (TypeInitializationException exception)
+            {
+                if (exception.InnerException != null)
+                {
+                    throw exception.InnerException;
+                }
+                throw;
+            }
         }
 
         #endregion
