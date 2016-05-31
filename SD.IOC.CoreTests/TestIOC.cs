@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SD.IOC.Core.Mediator;
-using SD.IOC.StubIAppService.Interfaces;
+using SD.IOC.StubInterface.Interfaces;
 
 namespace SD.IOC.CoreTests
 {
