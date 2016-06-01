@@ -63,14 +63,25 @@ namespace SD.IOC.Core.WcfTools
         {
             lock (_Sync)
             {
-                ChannelFactory factory;
-                if (!_Factories.TryGetValue(typeof(T), out factory))
+                ChannelFactory factory = null;
+                try
                 {
-                    factory = new ChannelFactory<T>(typeof(T).FullName);
-                    factory.Open();
-                    _Factories.Add(typeof(T), factory);
+                    if (!_Factories.TryGetValue(typeof(T), out factory))
+                    {
+                        factory = new ChannelFactory<T>(typeof(T).FullName);
+                        _Factories.Add(typeof(T), factory);
+                    }
+                    return factory as ChannelFactory<T>;
                 }
-                return factory as ChannelFactory<T>;
+                catch
+                {
+                    if (factory != null)
+                    {
+                        factory.CloseChannel();
+                    }
+                    throw;
+                }
+
             }
         }
         #endregion

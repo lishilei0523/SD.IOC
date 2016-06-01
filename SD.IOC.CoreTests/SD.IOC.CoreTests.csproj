@@ -64,7 +64,7 @@
       <Name>SD.IOC.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\SD.IOC.StubImplement\SD.IOC.StubImplement.csproj">
-      <Project>{a9f7d041-ecf8-434d-b083-5f57ad348564}</Project>
+      <Project>{b8698d54-2a18-45c3-a390-f1885e56f5a0}</Project>
       <Name>SD.IOC.StubImplement</Name>
     </ProjectReference>
     <ProjectReference Include="..\SD.IOC.StubInterface\SD.IOC.StubInterface.csproj">

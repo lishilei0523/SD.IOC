@@ -65,9 +65,10 @@ namespace SD.IOC.Core.WcfTools
                     {
                         this._channel.CloseChannel();
                     }
+
                     ChannelFactory<T> factory = ChannelFactoryManager.Current.GetFactory<T>();
                     this._channel = factory.CreateChannel();
-                    ((IClientChannel)this._channel).Open();
+
                     return this._channel;
                 }
             }
