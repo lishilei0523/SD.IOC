@@ -2,7 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Text;
 using Autofac;
+using Autofac.Core;
 using SD.IOC.Core.Interfaces;
 
 namespace SD.IOC.Core.AutofacProvider
@@ -32,9 +35,36 @@ namespace SD.IOC.Core.AutofacProvider
             {
                 if (exception.InnerException != null)
                 {
+                    if (exception.InnerException is ReflectionTypeLoadException)
+                    {
+                        ReflectionTypeLoadException innerException = (ReflectionTypeLoadException)exception.InnerException;
+
+                        StringBuilder builder = new StringBuilder();
+
+                        foreach (Exception item in innerException.LoaderExceptions)
+                        {
+                            if (item is TypeLoadException)
+                            {
+                                TypeLoadException typeLoadException = (TypeLoadException)item;
+                                builder.AppendFormat("'{0}'", typeLoadException.TypeName);
+                                builder.Append(',');
+                            }
+                        }
+
+                        string message = builder.Length > 0
+                            ? builder.ToString().Substring(0, builder.Length - 1)
+                            : string.Empty;
+
+                        throw new TypeLoadException(string.Format("无法加载类型\"{0}\"！", message));
+                    }
+
                     throw exception.InnerException;
                 }
                 throw;
+            }
+            catch (DependencyResolutionException exception)
+            {
+
             }
         }
 
