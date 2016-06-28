@@ -12,31 +12,6 @@ namespace SD.IOC.Core.Mediator
     /// </summary>
     public static class ResolveMediator
     {
-        #region # 字段及构造器
-
-        /// <summary>
-        /// Autofac依赖注入容器
-        /// </summary>
-        private static readonly IContainer _Container;
-
-        /// <summary>
-        /// 静态构造器
-        /// </summary>
-        static ResolveMediator()
-        {
-            ContainerBuilder builder = new ContainerBuilder();
-
-            //读取配置文件获取依赖注入提供者
-            Assembly cacheImpAssembly = Assembly.Load(InjectionProviderConfiguration.Setting.Assembly);
-            Type cacheImplType = cacheImpAssembly.GetType(InjectionProviderConfiguration.Setting.Type);
-
-            builder.RegisterType(cacheImplType).As(typeof(IInstanceResolver)).InstancePerDependency();
-
-            _Container = builder.Build();
-        }
-
-        #endregion
-
         #region # 解析实例 —— static T Resolve<T>()
         /// <summary>
         /// 解析实例
@@ -45,8 +20,7 @@ namespace SD.IOC.Core.Mediator
         /// <returns>实例</returns>
         public static T Resolve<T>()
         {
-            IInstanceResolver instanceResolver = _Container.Resolve<IInstanceResolver>();
-            return instanceResolver.Resolve<T>();
+            return InstanceProvider.Current.Resolve<T>();
         }
         #endregion
 
@@ -58,10 +32,7 @@ namespace SD.IOC.Core.Mediator
         /// <returns>实例</returns>
         public static object Resolve(Type type)
         {
-            using (IInstanceResolver instanceResolver = _Container.Resolve<IInstanceResolver>())
-            {
-                return instanceResolver.Resolve(type);
-            }
+            return InstanceProvider.Current.Resolve(type);
         }
         #endregion
 
@@ -73,10 +44,7 @@ namespace SD.IOC.Core.Mediator
         /// <returns>实例，如未注册则返回null</returns>
         public static T ResolveOptional<T>() where T : class
         {
-            using (IInstanceResolver instanceResolver = _Container.Resolve<IInstanceResolver>())
-            {
-                return instanceResolver.ResolveOptional<T>();
-            }
+            return InstanceProvider.Current.ResolveOptional<T>();
         }
         #endregion
 
@@ -88,11 +56,7 @@ namespace SD.IOC.Core.Mediator
         /// <returns>实例，如未注册则返回null</returns>
         public static object ResolveOptional(Type type)
         {
-            using (IInstanceResolver instanceResolver = _Container.Resolve<IInstanceResolver>())
-            {
-                return instanceResolver.ResolveOptional(type);
-            }
-
+            return InstanceProvider.Current.ResolveOptional(type);
         }
         #endregion
 
@@ -104,10 +68,7 @@ namespace SD.IOC.Core.Mediator
         /// <returns>实例集</returns>
         public static IEnumerable<T> ResolveAll<T>()
         {
-            using (IInstanceResolver instanceResolver = _Container.Resolve<IInstanceResolver>())
-            {
-                return instanceResolver.ResolveAll<T>();
-            }
+            return InstanceProvider.Current.ResolveAll<T>();
         }
         #endregion
 
@@ -119,9 +80,19 @@ namespace SD.IOC.Core.Mediator
         /// <returns>实例集</returns>
         public static IEnumerable<object> ResolveAll(Type type)
         {
-            using (IInstanceResolver instanceResolver = _Container.Resolve<IInstanceResolver>())
+            return InstanceProvider.Current.ResolveAll(type);
+        }
+        #endregion
+
+        #region # 释放资源 —— static void Dispose()
+        /// <summary>
+        /// 释放资源
+        /// </summary>
+        public static void Dispose()
+        {
+            if (InstanceProvider.Current != null)
             {
-                return instanceResolver.ResolveAll(type);
+                InstanceProvider.Current.Dispose();
             }
         }
         #endregion

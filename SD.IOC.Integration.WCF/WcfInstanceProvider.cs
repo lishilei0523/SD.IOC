@@ -3,7 +3,6 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Dispatcher;
 using SD.IOC.Core.Mediator;
-using SD.IOC.Core.WcfTools;
 
 namespace SD.IOC.Integration.WCF
 {
@@ -63,8 +62,7 @@ namespace SD.IOC.Integration.WCF
         /// <param name="instance">服务契约实例</param>
         public virtual void ReleaseInstance(InstanceContext instanceContext, object instance)
         {
-            //清理WCF上下文
-            instanceContext.CloseChannel();
+            ResolveMediator.Dispose();
         }
         #endregion
     }

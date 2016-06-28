@@ -63,10 +63,6 @@ namespace SD.IOC.Core.AutofacProvider
                 }
                 throw;
             }
-            catch (DependencyResolutionException exception)
-            {
-
-            }
         }
 
         #endregion

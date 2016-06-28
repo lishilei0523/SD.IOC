@@ -26,7 +26,12 @@ namespace SD.IOC.CoreTests
         public void TestResolveOptionalType()
         {
             object productContract = ResolveMediator.ResolveOptional(typeof(IProductContract));
+            object productContract2 = ResolveMediator.ResolveOptional(typeof(IProductContract));
             Assert.IsNotNull(productContract);
+            Assert.IsNotNull(productContract2);
+            ResolveMediator.Dispose();
+            object productContract3 = ResolveMediator.ResolveOptional(typeof(IProductContract));
+            object productContract4 = ResolveMediator.ResolveOptional(typeof(IProductContract));
         }
 
         /// <summary>
@@ -45,6 +50,7 @@ namespace SD.IOC.CoreTests
         public void TestResolveOptionalGeneric()
         {
             IProductContract productContract = ResolveMediator.ResolveOptional<IProductContract>();
+
             Assert.IsNotNull(productContract);
         }
 
@@ -57,6 +63,5 @@ namespace SD.IOC.CoreTests
             string products = Proxy<IProductContract>.Instance.GetProducts();
             Assert.IsNotNull(products);
         }
-
     }
 }
