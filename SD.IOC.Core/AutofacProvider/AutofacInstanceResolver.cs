@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using Autofac;
 using Autofac.Core;
+using Autofac.Core.Lifetime;
 using SD.IOC.Core.Interfaces;
 
 namespace SD.IOC.Core.AutofacProvider
@@ -20,7 +21,7 @@ namespace SD.IOC.Core.AutofacProvider
         /// <summary>
         /// Autofac容器
         /// </summary>
-        private readonly IContainer _container;
+        private readonly ILifetimeScope _container;
 
         /// <summary>
         /// 构造器
@@ -29,7 +30,7 @@ namespace SD.IOC.Core.AutofacProvider
         {
             try
             {
-                this._container = AutofacContainer.Current;
+                this._container = AutofacContainer.Current.BeginLifetimeScope();
             }
             catch (TypeInitializationException exception)
             {
@@ -146,6 +147,19 @@ namespace SD.IOC.Core.AutofacProvider
                 return ((IEnumerable)instance).Cast<object>();
             }
             return Enumerable.Empty<object>();
+        }
+        #endregion
+
+        #region # 释放资源 —— void Dispose()
+        /// <summary>
+        /// 释放资源
+        /// </summary>
+        public void Dispose()
+        {
+            if (this._container != null)
+            {
+                this._container.Dispose();
+            }
         }
         #endregion
     }

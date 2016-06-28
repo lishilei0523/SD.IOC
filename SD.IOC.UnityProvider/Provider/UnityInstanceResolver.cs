@@ -22,7 +22,7 @@ namespace SD.IOC.UnityProvider.Provider
         /// </summary>
         public UnityInstanceResolver()
         {
-            this._container = UnityContainer.Current;
+            this._container = UnityContainer.Current.CreateChildContainer();
         }
 
         #endregion
@@ -97,6 +97,19 @@ namespace SD.IOC.UnityProvider.Provider
         public IEnumerable<object> ResolveAll(Type type)
         {
             return this._container.ResolveAll(type);
+        }
+        #endregion
+
+        #region # 释放资源 —— void Dispose()
+        /// <summary>
+        /// 释放资源
+        /// </summary>
+        public void Dispose()
+        {
+            if (this._container != null)
+            {
+                this._container.Dispose();
+            }
         }
         #endregion
     }

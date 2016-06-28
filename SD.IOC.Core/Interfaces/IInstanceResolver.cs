@@ -6,7 +6,7 @@ namespace SD.IOC.Core.Interfaces
     /// <summary>
     /// 实例解析者接口
     /// </summary>
-    public interface IInstanceResolver
+    public interface IInstanceResolver : IDisposable
     {
         #region # 解析实例 —— T Resolve<T>()
         /// <summary>

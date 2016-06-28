@@ -30,7 +30,7 @@ namespace SD.IOC.Core.Mediator
             Assembly cacheImpAssembly = Assembly.Load(InjectionProviderConfiguration.Setting.Assembly);
             Type cacheImplType = cacheImpAssembly.GetType(InjectionProviderConfiguration.Setting.Type);
 
-            builder.RegisterType(cacheImplType).As(typeof(IInstanceResolver)).SingleInstance();
+            builder.RegisterType(cacheImplType).As(typeof(IInstanceResolver)).InstancePerDependency();
 
             _Container = builder.Build();
         }
@@ -58,8 +58,10 @@ namespace SD.IOC.Core.Mediator
         /// <returns>实例</returns>
         public static object Resolve(Type type)
         {
-            IInstanceResolver instanceResolver = _Container.Resolve<IInstanceResolver>();
-            return instanceResolver.Resolve(type);
+            using (IInstanceResolver instanceResolver = _Container.Resolve<IInstanceResolver>())
+            {
+                return instanceResolver.Resolve(type);
+            }
         }
         #endregion
 
@@ -71,8 +73,10 @@ namespace SD.IOC.Core.Mediator
         /// <returns>实例，如未注册则返回null</returns>
         public static T ResolveOptional<T>() where T : class
         {
-            IInstanceResolver instanceResolver = _Container.Resolve<IInstanceResolver>();
-            return instanceResolver.ResolveOptional<T>();
+            using (IInstanceResolver instanceResolver = _Container.Resolve<IInstanceResolver>())
+            {
+                return instanceResolver.ResolveOptional<T>();
+            }
         }
         #endregion
 
@@ -84,8 +88,11 @@ namespace SD.IOC.Core.Mediator
         /// <returns>实例，如未注册则返回null</returns>
         public static object ResolveOptional(Type type)
         {
-            IInstanceResolver instanceResolver = _Container.Resolve<IInstanceResolver>();
-            return instanceResolver.ResolveOptional(type);
+            using (IInstanceResolver instanceResolver = _Container.Resolve<IInstanceResolver>())
+            {
+                return instanceResolver.ResolveOptional(type);
+            }
+
         }
         #endregion
 
@@ -97,8 +104,10 @@ namespace SD.IOC.Core.Mediator
         /// <returns>实例集</returns>
         public static IEnumerable<T> ResolveAll<T>()
         {
-            IInstanceResolver instanceResolver = _Container.Resolve<IInstanceResolver>();
-            return instanceResolver.ResolveAll<T>();
+            using (IInstanceResolver instanceResolver = _Container.Resolve<IInstanceResolver>())
+            {
+                return instanceResolver.ResolveAll<T>();
+            }
         }
         #endregion
 
@@ -110,8 +119,10 @@ namespace SD.IOC.Core.Mediator
         /// <returns>实例集</returns>
         public static IEnumerable<object> ResolveAll(Type type)
         {
-            IInstanceResolver instanceResolver = _Container.Resolve<IInstanceResolver>();
-            return instanceResolver.ResolveAll(type);
+            using (IInstanceResolver instanceResolver = _Container.Resolve<IInstanceResolver>())
+            {
+                return instanceResolver.ResolveAll(type);
+            }
         }
         #endregion
     }
