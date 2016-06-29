@@ -1,43 +1,42 @@
 using System;
 using System.Web;
+using System.Web.Mvc;
 using SD.IOC.Core.Mediator;
 
 namespace SD.IOC.Integration.MVC
 {
     /// <summary>
-    /// An <see cref="IHttpModule"/> and <see cref="ILifetimeScopeProvider"/> implementation 
-    /// that creates a nested lifetime scope for each HTTP request.
+    /// 依赖注入HttpModule
     /// </summary>
     internal class RequestLifetimeHttpModule : IHttpModule
     {
         /// <summary>
         /// Initializes a module and prepares it to handle requests.
         /// </summary>
-        /// <param name="context">An <see cref="T:System.Web.HttpApplication"/> that provides access to the 
-        /// methods, properties, and events common to all application objects within an ASP.NET application</param>
-        /// <exception cref="System.ArgumentNullException">
-        /// Thrown if <paramref name="context" /> is <see langword="null" />.
-        /// </exception>
+        /// <param name="context">应用程序上下文</param>
         public void Init(HttpApplication context)
         {
             if (context == null)
             {
                 throw new ArgumentNullException("context");
             }
-            context.EndRequest += OnEndRequest;
+
+            DependencyResolver.SetResolver(new MvcDependencyResolver());
+            context.EndRequest += this.OnEndRequest;
         }
+
 
         /// <summary>
-        /// Disposes of the resources (other than memory) used by the module that implements <see cref="T:System.Web.IHttpModule"/>.
+        /// 请求结束事件
         /// </summary>
-        public void Dispose()
-        {
-
-        }
-
-        static void OnEndRequest(object sender, EventArgs e)
+        private void OnEndRequest(object sender, EventArgs e)
         {
             ResolveMediator.Dispose();
         }
+
+        /// <summary>
+        /// 释放资源
+        /// </summary>
+        public void Dispose() { }
     }
 }

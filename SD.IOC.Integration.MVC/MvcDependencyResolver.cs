@@ -6,9 +6,9 @@ using SD.IOC.Core.Mediator;
 namespace SD.IOC.Integration.MVC
 {
     /// <summary>
-    /// MVC依赖解决者
+    /// MVC依赖解析者
     /// </summary>
-    public class MvcDependencyResolver : IDependencyResolver
+    internal class MvcDependencyResolver : IDependencyResolver
     {
         /// <summary>
         /// 解析支持任意对象创建的一次注册的服务

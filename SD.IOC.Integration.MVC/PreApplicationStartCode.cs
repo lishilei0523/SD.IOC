@@ -1,51 +1,29 @@
-﻿// This software is part of the Autofac IoC container
-// Copyright © 2011 Autofac Contributors
-// http://autofac.org
-//
-// Permission is hereby granted, free of charge, to any person
-// obtaining a copy of this software and associated documentation
-// files (the "Software"), to deal in the Software without
-// restriction, including without limitation the rights to use,
-// copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the
-// Software is furnished to do so, subject to the following
-// conditions:
-//
-// The above copyright notice and this permission notice shall be
-// included in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-// OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-// NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-// HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-// WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-// OTHER DEALINGS IN THE SOFTWARE.
-
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
 namespace SD.IOC.Integration.MVC
 {
     /// <summary>
-    /// Container class for the ASP.NET application startup method.
+    /// MVC应用程序依赖注入
     /// </summary>
     [EditorBrowsable(EditorBrowsableState.Never)]
-    public static class PreApplicationStartCode
+    public static class PreApplicationStart
     {
-        private static bool _StartWasCalled;
+        /// <summary>
+        /// 是否已初始化
+        /// </summary>
+        private static bool _InitWasCalled;
 
         /// <summary>
-        /// Performs ASP.NET application startup logic early in the pipeline.
+        /// 初始化依赖注入
         /// </summary>
-        public static void Start()
+        public static void InitInjection()
         {
-            // Guard against multiple calls. All Start calls are made on the same thread, so no lock needed here.
-            if (_StartWasCalled) return;
-
-            _StartWasCalled = true;
-            DynamicModuleUtility.RegisterModule(typeof(RequestLifetimeHttpModule));
+            if (!_InitWasCalled)
+            {
+                _InitWasCalled = true;
+                DynamicModuleUtility.RegisterModule(typeof(RequestLifetimeHttpModule));
+            }
         }
     }
 }

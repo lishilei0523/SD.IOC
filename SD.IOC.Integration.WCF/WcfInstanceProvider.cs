@@ -9,7 +9,7 @@ namespace SD.IOC.Integration.WCF
     /// <summary>
     /// WCF实例提供者基类
     /// </summary>
-    public abstract class WcfInstanceProvider : IInstanceProvider
+    public class WcfInstanceProvider : IInstanceProvider
     {
         #region # 字段及构造器
 
@@ -29,14 +29,14 @@ namespace SD.IOC.Integration.WCF
 
         #endregion
 
-        #region # 获取服务契约实例 —— object GetInstance(InstanceContext instanceContext...
+        #region # 获取服务契约实例 —— virtual object GetInstance(InstanceContext instanceContext...
         /// <summary>
         /// 获取服务契约实例
         /// </summary>
         /// <param name="instanceContext">WCF上下文对象</param>
         /// <param name="message">消息</param>
         /// <returns>服务契约实例</returns>
-        public object GetInstance(InstanceContext instanceContext, Message message)
+        public virtual object GetInstance(InstanceContext instanceContext, Message message)
         {
             return this.GetInstance(instanceContext);
         }
