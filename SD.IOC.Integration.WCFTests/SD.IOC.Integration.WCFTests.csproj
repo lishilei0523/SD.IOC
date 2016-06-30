@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -57,9 +58,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Hosts\ProductService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implements\ProductService.cs" />
+    <Compile Include="Interfaces\IProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +73,20 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SD.IOC.Integration.WCF\SD.IOC.Integration.WCF.csproj">
+      <Project>{6df15f4a-2ce8-468c-a659-49650c4c01c7}</Project>
+      <Name>SD.IOC.Integration.WCF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SD.IOC.StubImplement\SD.IOC.StubImplement.csproj">
+      <Project>{b8698d54-2a18-45c3-a390-f1885e56f5a0}</Project>
+      <Name>SD.IOC.StubImplement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SD.IOC.StubInterface\SD.IOC.StubInterface.csproj">
+      <Project>{04BFA4D7-86C8-4341-B34C-3F1D88D19827}</Project>
+      <Name>SD.IOC.StubInterface</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

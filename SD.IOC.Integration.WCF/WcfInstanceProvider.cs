@@ -22,7 +22,7 @@ namespace SD.IOC.Integration.WCF
         /// 构造器
         /// </summary>
         /// <param name="serviceType">服务契约类型</param>
-        protected WcfInstanceProvider(Type serviceType)
+        public WcfInstanceProvider(Type serviceType)
         {
             this._serviceType = serviceType;
         }
