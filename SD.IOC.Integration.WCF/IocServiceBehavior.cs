@@ -26,7 +26,7 @@ namespace SD.IOC.Integration.WCF
                 {
                     if (!endpoint.IsSystemEndpoint)
                     {
-                        endpoint.DispatchRuntime.InstanceProvider = new WcfInstanceProvider(serviceDescription.ServiceType);
+                        endpoint.DispatchRuntime.InstanceProvider = new InstanceProvider(serviceDescription.ServiceType);
                     }
                 }
             }
