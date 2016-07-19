@@ -7,7 +7,7 @@ namespace SD.IOC.Integration.MVC
     /// MVC应用程序依赖注入
     /// </summary>
     [EditorBrowsable(EditorBrowsableState.Never)]
-    public static class PreApplicationStart
+    public static class PreAppStart
     {
         /// <summary>
         /// 是否已初始化

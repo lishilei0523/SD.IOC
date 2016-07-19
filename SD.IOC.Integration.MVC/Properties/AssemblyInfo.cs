@@ -37,4 +37,4 @@ using SD.IOC.Integration.MVC;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 //注射至MVC应用程序
-[assembly: PreApplicationStartMethod(typeof(PreApplicationStart), "InitInjection")]
+[assembly: PreApplicationStartMethod(typeof(PreAppStart), "InitInjection")]
