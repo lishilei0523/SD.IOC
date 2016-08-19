@@ -6,7 +6,7 @@ using SD.IOC.Core.Mediator;
 namespace SD.IOC.Integration.WebApi
 {
     /// <summary>
-    /// WebApi依赖解决者
+    /// WebApi依赖解析者
     /// </summary>
     public class WebApiDependencyResolver : IDependencyResolver
     {
