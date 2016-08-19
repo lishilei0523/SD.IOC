@@ -52,7 +52,7 @@ namespace SD.IOC.Core.AutofacProvider
         }
         #endregion
 
-        #region # 注册接口形式程序集 —— static void RegisterInterfaceAssemblies(ContainerBuilder builder)
+        #region # 注册接口形式程序集 —— static void RegisterInterfaceAssemblies(ContainerBuilder...
         /// <summary>
         /// 注册接口形式程序集
         /// </summary>

@@ -49,7 +49,7 @@ namespace SD.IOC.UnityProvider.Provider
         }
         #endregion
 
-        #region # 注册接口形式程序集 —— static void RegisterInterfaceAssemblies(IUnityContainer container)
+        #region # 注册接口形式程序集 —— static void RegisterInterfaceAssemblies(IUnityContainer...
         /// <summary>
         /// 注册接口形式程序集
         /// </summary>
