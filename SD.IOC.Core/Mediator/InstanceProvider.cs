@@ -15,6 +15,19 @@ namespace SD.IOC.Core.Mediator
         #region # 常量、字段及构造器
 
         /// <summary>
+        /// 同步锁
+        /// </summary>
+        private static readonly object _Sync;
+
+        /// <summary>
+        /// 静态构造器
+        /// </summary>
+        static InstanceProvider()
+        {
+            _Sync = new object();
+        }
+
+        /// <summary>
         /// 实例解析者
         /// </summary>
         private readonly IInstanceResolver _instanceResolver;
@@ -41,15 +54,18 @@ namespace SD.IOC.Core.Mediator
         {
             get
             {
-                InstanceProvider provider = (InstanceProvider)CallContext.GetData(typeof(InstanceProvider).FullName);
-
-                if (provider == null)
+                lock (_Sync)
                 {
-                    provider = new InstanceProvider();
-                    CallContext.SetData(typeof(InstanceProvider).FullName, provider);
-                }
+                    InstanceProvider provider = CallContext.GetData(typeof(InstanceProvider).FullName) as InstanceProvider;
 
-                return provider;
+                    if (provider == null)
+                    {
+                        provider = new InstanceProvider();
+                        CallContext.SetData(typeof(InstanceProvider).FullName, provider);
+                    }
+
+                    return provider;
+                }
             }
         }
         #endregion
