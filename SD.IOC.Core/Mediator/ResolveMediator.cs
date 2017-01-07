@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
-using Autofac;
-using SD.IOC.Core.Configuration;
-using SD.IOC.Core.Interfaces;
 
 namespace SD.IOC.Core.Mediator
 {

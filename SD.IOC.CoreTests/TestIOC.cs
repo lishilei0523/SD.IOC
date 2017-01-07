@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SD.IOC.Core.Mediator;
+using SD.IOC.StubImplement.Implements;
 using SD.IOC.StubInterface.Interfaces;
 
 namespace SD.IOC.CoreTests
@@ -17,6 +18,8 @@ namespace SD.IOC.CoreTests
         public void TestResolveType()
         {
             object productContract = ResolveMediator.Resolve(typeof(IProductContract));
+
+            Assert.IsNotNull(productContract);
         }
 
         /// <summary>
@@ -25,13 +28,9 @@ namespace SD.IOC.CoreTests
         [TestMethod]
         public void TestResolveOptionalType()
         {
-            object productContract = ResolveMediator.ResolveOptional(typeof(IProductContract));
-            object productContract2 = ResolveMediator.ResolveOptional(typeof(IProductContract));
-            Assert.IsNotNull(productContract);
-            Assert.IsNotNull(productContract2);
-            ResolveMediator.Dispose();
-            object productContract3 = ResolveMediator.ResolveOptional(typeof(IProductContract));
-            object productContract4 = ResolveMediator.ResolveOptional(typeof(IProductContract));
+            object productContract = ResolveMediator.ResolveOptional(typeof(ProductContract));
+
+            Assert.IsNull(productContract);
         }
 
         /// <summary>
@@ -41,6 +40,8 @@ namespace SD.IOC.CoreTests
         public void TestResolveGeneric()
         {
             IProductContract productContract = ResolveMediator.Resolve<IProductContract>();
+
+            Assert.IsNotNull(productContract);
         }
 
         /// <summary>
@@ -49,9 +50,9 @@ namespace SD.IOC.CoreTests
         [TestMethod]
         public void TestResolveOptionalGeneric()
         {
-            IProductContract productContract = ResolveMediator.ResolveOptional<IProductContract>();
+            IProductContract productContract = ResolveMediator.ResolveOptional<ProductContract>();
 
-            Assert.IsNotNull(productContract);
+            Assert.IsNull(productContract);
         }
 
         /// <summary>

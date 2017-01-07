@@ -1,8 +1,8 @@
-﻿using System;
+﻿using SD.IOC.Core.Mediator;
+using System;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Dispatcher;
-using SD.IOC.Core.Mediator;
 
 namespace SD.IOC.Integration.WCF
 {

@@ -1,13 +1,11 @@
-﻿using System;
+﻿using Autofac;
+using SD.IOC.Core.Interfaces;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using Autofac;
-using Autofac.Core;
-using Autofac.Core.Lifetime;
-using SD.IOC.Core.Interfaces;
 
 namespace SD.IOC.Core.AutofacProvider
 {

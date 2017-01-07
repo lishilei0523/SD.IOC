@@ -1,5 +1,5 @@
-﻿using System.ComponentModel;
-using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+﻿using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+using System.ComponentModel;
 
 namespace SD.IOC.Integration.MVC
 {

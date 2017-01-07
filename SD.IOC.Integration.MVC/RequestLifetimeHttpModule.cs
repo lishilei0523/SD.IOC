@@ -1,7 +1,7 @@
+using SD.IOC.Core.Mediator;
 using System;
 using System.Web;
 using System.Web.Mvc;
-using SD.IOC.Core.Mediator;
 
 namespace SD.IOC.Integration.MVC
 {

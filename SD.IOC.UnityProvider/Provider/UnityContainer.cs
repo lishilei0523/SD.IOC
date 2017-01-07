@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Microsoft.Practices.Unity;
+using SD.IOC.Core.Configuration;
+using SD.IOC.Core.WcfTools;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Microsoft.Practices.Unity;
-using SD.IOC.Core.Configuration;
-using SD.IOC.Core.WcfTools;
 
 namespace SD.IOC.UnityProvider.Provider
 {
@@ -121,6 +121,15 @@ namespace SD.IOC.UnityProvider.Provider
                 Assembly currentAssembly = Assembly.Load(element.Assembly.Trim());
                 Type type = currentAssembly.GetType(element.Name.Trim());
 
+                #region # 验证类型
+
+                if (type == null)
+                {
+                    throw new NullReferenceException(string.Format("程序集\"{0}\"中不存在类型\"{1}\"！", element.Assembly.Trim(), element.Name.Trim()));
+                }
+
+                #endregion
+
                 foreach (Type interfaceType in type.GetInterfaces())
                 {
                     container.RegisterType(interfaceType, type);
@@ -141,6 +150,15 @@ namespace SD.IOC.UnityProvider.Provider
                 Assembly currentAssembly = Assembly.Load(element.Assembly.Trim());
                 Type type = currentAssembly.GetType(element.Name.Trim());
 
+                #region # 验证类型
+
+                if (type == null)
+                {
+                    throw new NullReferenceException(string.Format("程序集\"{0}\"中不存在类型\"{1}\"！", element.Assembly.Trim(), element.Name.Trim()));
+                }
+
+                #endregion
+
                 container.RegisterType(type.BaseType, type);
             }
         }
@@ -157,6 +175,15 @@ namespace SD.IOC.UnityProvider.Provider
             {
                 Assembly currentAssembly = Assembly.Load(element.Assembly.Trim());
                 Type type = currentAssembly.GetType(element.Name.Trim());
+
+                #region # 验证类型
+
+                if (type == null)
+                {
+                    throw new NullReferenceException(string.Format("程序集\"{0}\"中不存在类型\"{1}\"！", element.Assembly.Trim(), element.Name.Trim()));
+                }
+
+                #endregion
 
                 container.RegisterType(type);
             }

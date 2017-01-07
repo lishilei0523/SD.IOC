@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Autofac;
+using SD.IOC.Core.Configuration;
+using SD.IOC.Core.WcfTools;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Autofac;
-using SD.IOC.Core.Configuration;
-using SD.IOC.Core.WcfTools;
 
 namespace SD.IOC.Core.AutofacProvider
 {
@@ -112,6 +112,15 @@ namespace SD.IOC.Core.AutofacProvider
                 Assembly currentAssembly = Assembly.Load(element.Assembly.Trim());
                 Type type = currentAssembly.GetType(element.Name.Trim());
 
+                #region # 验证类型
+
+                if (type == null)
+                {
+                    throw new NullReferenceException(string.Format("程序集\"{0}\"中不存在类型\"{1}\"！", element.Assembly.Trim(), element.Name.Trim()));
+                }
+
+                #endregion
+
                 builder.RegisterType(type).AsImplementedInterfaces();
             }
         }
@@ -129,6 +138,15 @@ namespace SD.IOC.Core.AutofacProvider
                 Assembly currentAssembly = Assembly.Load(element.Assembly.Trim());
                 Type type = currentAssembly.GetType(element.Name.Trim());
 
+                #region # 验证类型
+
+                if (type == null)
+                {
+                    throw new NullReferenceException(string.Format("程序集\"{0}\"中不存在类型\"{1}\"！", element.Assembly.Trim(), element.Name.Trim()));
+                }
+
+                #endregion
+
                 builder.RegisterType(type).As(type.BaseType);
             }
         }
@@ -145,6 +163,15 @@ namespace SD.IOC.Core.AutofacProvider
             {
                 Assembly currentAssembly = Assembly.Load(element.Assembly.Trim());
                 Type type = currentAssembly.GetType(element.Name.Trim());
+
+                #region # 验证类型
+
+                if (type == null)
+                {
+                    throw new NullReferenceException(string.Format("程序集\"{0}\"中不存在类型\"{1}\"！", element.Assembly.Trim(), element.Name.Trim()));
+                }
+
+                #endregion
 
                 builder.RegisterType(type);
             }

@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Practices.Unity;
+﻿using Microsoft.Practices.Unity;
 using SD.IOC.Core.Interfaces;
+using System;
+using System.Collections.Generic;
 
 namespace SD.IOC.UnityProvider.Provider
 {

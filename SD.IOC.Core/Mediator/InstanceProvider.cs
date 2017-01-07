@@ -1,9 +1,9 @@
-﻿using System;
+﻿using SD.IOC.Core.Configuration;
+using SD.IOC.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.Remoting.Messaging;
-using SD.IOC.Core.Configuration;
-using SD.IOC.Core.Interfaces;
 
 namespace SD.IOC.Core.Mediator
 {
@@ -20,11 +20,25 @@ namespace SD.IOC.Core.Mediator
         private static readonly object _Sync;
 
         /// <summary>
+        /// 程序集名称
+        /// </summary>
+        private static readonly string _AssemblyName;
+
+        /// <summary>
+        /// 类型全名
+        /// </summary>
+        private static readonly string _TypeFullName;
+
+        /// <summary>
         /// 静态构造器
         /// </summary>
         static InstanceProvider()
         {
             _Sync = new object();
+
+            //读取配置文件获取依赖注入提供者
+            _AssemblyName = InjectionProviderConfiguration.Setting.Assembly;
+            _TypeFullName = InjectionProviderConfiguration.Setting.Type;
         }
 
         /// <summary>
@@ -33,13 +47,13 @@ namespace SD.IOC.Core.Mediator
         private readonly IInstanceResolver _instanceResolver;
 
         /// <summary>
-        /// 静态构造器
+        /// 私有构造器
         /// </summary>
         private InstanceProvider()
         {
             //读取配置文件获取依赖注入提供者
-            Assembly impAssembly = Assembly.Load(InjectionProviderConfiguration.Setting.Assembly);
-            Type implType = impAssembly.GetType(InjectionProviderConfiguration.Setting.Type);
+            Assembly impAssembly = Assembly.Load(_AssemblyName);
+            Type implType = impAssembly.GetType(_TypeFullName);
 
             this._instanceResolver = (IInstanceResolver)Activator.CreateInstance(implType);
         }
