@@ -1,7 +1,7 @@
-﻿using System;
+﻿using SD.IOC.Core.Mediator;
+using System;
 using System.Collections.Generic;
 using System.Web.Http.Dependencies;
-using SD.IOC.Core.Mediator;
 
 namespace SD.IOC.Integration.WebApi
 {
@@ -11,12 +11,27 @@ namespace SD.IOC.Integration.WebApi
     public class WebApiDependencyResolver : IDependencyResolver
     {
         /// <summary>
+        /// 获取服务契约实例事件
+        /// </summary>
+        public static event Action OnGetInstance;
+
+        /// <summary>
+        /// 销毁服务契约实例事件
+        /// </summary>
+        public static event Action OnReleaseInstance;
+
+        /// <summary>
         /// 解析支持任意对象创建的一次注册的服务
         /// </summary>
         /// <param name="serviceType">所请求的服务或对象的类型</param>
         /// <returns> 请求的服务或对象 </returns>
         public virtual object GetService(Type serviceType)
         {
+            if (OnGetInstance != null)
+            {
+                OnGetInstance.Invoke();
+            }
+
             return ResolveMediator.ResolveOptional(serviceType);
         }
 
@@ -27,6 +42,11 @@ namespace SD.IOC.Integration.WebApi
         /// <returns>请求的服务</returns>
         public virtual IEnumerable<object> GetServices(Type serviceType)
         {
+            if (OnGetInstance != null)
+            {
+                OnGetInstance.Invoke();
+            }
+
             return ResolveMediator.ResolveAll(serviceType);
         }
 
@@ -46,6 +66,11 @@ namespace SD.IOC.Integration.WebApi
         /// </summary>
         public virtual void Dispose()
         {
+            if (OnReleaseInstance != null)
+            {
+                OnReleaseInstance.Invoke();
+            }
+
             ResolveMediator.Dispose();
         }
     }

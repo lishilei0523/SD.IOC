@@ -53,14 +53,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="SD.IOC.Core, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SD.IOC.Core.1.0.5\lib\net45\SD.IOC.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="SD.IOC.Integration.WebApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SD.IOC.Integration.WebApi.1.0.3\lib\net45\SD.IOC.Integration.WebApi.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -109,6 +101,14 @@
     <Content Include="Scripts\_references.js" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SD.IOC.Core\SD.IOC.Core.csproj">
+      <Project>{891d9124-0462-4841-b1f6-8fff2fd0b7be}</Project>
+      <Name>SD.IOC.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SD.IOC.Integration.WebApi\SD.IOC.Integration.WebApi.csproj">
+      <Project>{0f47a784-7b75-4b2e-8f61-7b150c62c159}</Project>
+      <Name>SD.IOC.Integration.WebApi</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SD.IOC.StubImplement\SD.IOC.StubImplement.csproj">
       <Project>{b8698d54-2a18-45c3-a390-f1885e56f5a0}</Project>
       <Name>SD.IOC.StubImplement</Name>
