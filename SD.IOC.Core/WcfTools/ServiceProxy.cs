@@ -61,10 +61,7 @@ namespace SD.IOC.Core.WcfTools
             {
                 lock (_Sync)
                 {
-                    if (this._channel != null)
-                    {
-                        this._channel.CloseChannel();
-                    }
+                    this.Close();
 
                     ChannelFactory<T> factory = ChannelFactoryManager.Current.GetFactory<T>();
                     this._channel = factory.CreateChannel();

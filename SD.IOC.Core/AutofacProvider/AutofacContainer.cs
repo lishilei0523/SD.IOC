@@ -61,7 +61,20 @@ namespace SD.IOC.Core.AutofacProvider
         {
             foreach (AssemblyElement element in InjectionRegisterConfiguration.Setting.AsInterfaceAssemblies)
             {
-                builder.RegisterAssemblyTypes(Assembly.Load(element.Name.Trim())).AsImplementedInterfaces();
+                Assembly currentAssembly = Assembly.Load(element.Name.Trim());
+
+                if (element.LifetimeMode == LifetimeMode.PerCall || element.LifetimeMode == null)
+                {
+                    builder.RegisterAssemblyTypes(currentAssembly).AsImplementedInterfaces();
+                }
+                if (element.LifetimeMode == LifetimeMode.PerSession)
+                {
+                    builder.RegisterAssemblyTypes(currentAssembly).AsImplementedInterfaces().InstancePerLifetimeScope();
+                }
+                if (element.LifetimeMode == LifetimeMode.Singleton)
+                {
+                    builder.RegisterAssemblyTypes(currentAssembly).AsImplementedInterfaces().SingleInstance();
+                }
             }
         }
         #endregion
@@ -80,7 +93,18 @@ namespace SD.IOC.Core.AutofacProvider
 
                 foreach (Type type in types)
                 {
-                    builder.RegisterType(type).As(type.BaseType);
+                    if (element.LifetimeMode == LifetimeMode.PerCall || element.LifetimeMode == null)
+                    {
+                        builder.RegisterType(type).As(type.BaseType);
+                    }
+                    if (element.LifetimeMode == LifetimeMode.PerSession)
+                    {
+                        builder.RegisterType(type).As(type.BaseType).InstancePerLifetimeScope();
+                    }
+                    if (element.LifetimeMode == LifetimeMode.Singleton)
+                    {
+                        builder.RegisterType(type).As(type.BaseType).SingleInstance();
+                    }
                 }
             }
         }
@@ -95,7 +119,20 @@ namespace SD.IOC.Core.AutofacProvider
         {
             foreach (AssemblyElement element in InjectionRegisterConfiguration.Setting.AsSelfAssemblies)
             {
-                builder.RegisterAssemblyTypes(Assembly.Load(element.Name.Trim()));
+                Assembly currentAssembly = Assembly.Load(element.Name.Trim());
+
+                if (element.LifetimeMode == LifetimeMode.PerCall || element.LifetimeMode == null)
+                {
+                    builder.RegisterAssemblyTypes(currentAssembly);
+                }
+                if (element.LifetimeMode == LifetimeMode.PerSession)
+                {
+                    builder.RegisterAssemblyTypes(currentAssembly).InstancePerLifetimeScope();
+                }
+                if (element.LifetimeMode == LifetimeMode.Singleton)
+                {
+                    builder.RegisterAssemblyTypes(currentAssembly).SingleInstance();
+                }
             }
         }
         #endregion
@@ -121,7 +158,18 @@ namespace SD.IOC.Core.AutofacProvider
 
                 #endregion
 
-                builder.RegisterType(type).AsImplementedInterfaces();
+                if (element.LifetimeMode == LifetimeMode.PerCall || element.LifetimeMode == null)
+                {
+                    builder.RegisterType(type).AsImplementedInterfaces();
+                }
+                if (element.LifetimeMode == LifetimeMode.PerSession)
+                {
+                    builder.RegisterType(type).AsImplementedInterfaces().InstancePerLifetimeScope();
+                }
+                if (element.LifetimeMode == LifetimeMode.Singleton)
+                {
+                    builder.RegisterType(type).AsImplementedInterfaces().SingleInstance();
+                }
             }
         }
         #endregion
@@ -147,7 +195,18 @@ namespace SD.IOC.Core.AutofacProvider
 
                 #endregion
 
-                builder.RegisterType(type).As(type.BaseType);
+                if (element.LifetimeMode == LifetimeMode.PerCall || element.LifetimeMode == null)
+                {
+                    builder.RegisterType(type).As(type.BaseType);
+                }
+                if (element.LifetimeMode == LifetimeMode.PerSession)
+                {
+                    builder.RegisterType(type).As(type.BaseType).InstancePerLifetimeScope();
+                }
+                if (element.LifetimeMode == LifetimeMode.Singleton)
+                {
+                    builder.RegisterType(type).As(type.BaseType).SingleInstance();
+                }
             }
         }
         #endregion
@@ -173,7 +232,18 @@ namespace SD.IOC.Core.AutofacProvider
 
                 #endregion
 
-                builder.RegisterType(type);
+                if (element.LifetimeMode == LifetimeMode.PerCall || element.LifetimeMode == null)
+                {
+                    builder.RegisterType(type);
+                }
+                if (element.LifetimeMode == LifetimeMode.PerSession)
+                {
+                    builder.RegisterType(type).InstancePerLifetimeScope();
+                }
+                if (element.LifetimeMode == LifetimeMode.Singleton)
+                {
+                    builder.RegisterType(type).SingleInstance();
+                }
             }
         }
         #endregion
@@ -202,7 +272,7 @@ namespace SD.IOC.Core.AutofacProvider
                     Type proxyType = proxyGenericType.MakeGenericType(type);
                     PropertyInfo propChannel = proxyType.GetProperty(ServiceProxy.ChannelPropertyName, type);
 
-                    builder.RegisterType(proxyType);
+                    builder.RegisterType(proxyType).OnRelease(proxy => ((IDisposable)proxy).Dispose());
                     builder.Register(container => propChannel.GetValue(container.Resolve(proxyType))).
                         As(type).
                         OnRelease(channel => channel.CloseChannel());

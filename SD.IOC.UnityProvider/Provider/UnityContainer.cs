@@ -61,11 +61,34 @@ namespace SD.IOC.UnityProvider.Provider
                 Assembly currentAssembly = Assembly.Load(element.Name.Trim());
                 IEnumerable<Type> types = currentAssembly.GetTypes().Where(x => !x.IsInterface && !x.IsAbstract);
 
+                #region # 实例生命周期管理
+
+                LifetimeManager lifetimeManager;
+
+                if (element.LifetimeMode == LifetimeMode.PerCall)
+                {
+                    lifetimeManager = new TransientLifetimeManager();
+                }
+                else if (element.LifetimeMode == LifetimeMode.PerSession)
+                {
+                    lifetimeManager = new PerThreadLifetimeManager();
+                }
+                else if (element.LifetimeMode == LifetimeMode.Singleton)
+                {
+                    lifetimeManager = new ContainerControlledLifetimeManager();
+                }
+                else
+                {
+                    lifetimeManager = new TransientLifetimeManager();
+                }
+
+                #endregion
+
                 foreach (Type type in types)
                 {
                     foreach (Type interfaceType in type.GetInterfaces())
                     {
-                        container.RegisterType(interfaceType, type);
+                        container.RegisterType(interfaceType, type, lifetimeManager);
                     }
                 }
             }
@@ -84,9 +107,32 @@ namespace SD.IOC.UnityProvider.Provider
                 Assembly currentAssembly = Assembly.Load(element.Name.Trim());
                 IEnumerable<Type> types = currentAssembly.GetTypes().Where(x => !x.IsAbstract && !x.IsInterface);
 
+                #region # 实例生命周期管理
+
+                LifetimeManager lifetimeManager;
+
+                if (element.LifetimeMode == LifetimeMode.PerCall)
+                {
+                    lifetimeManager = new TransientLifetimeManager();
+                }
+                else if (element.LifetimeMode == LifetimeMode.PerSession)
+                {
+                    lifetimeManager = new PerThreadLifetimeManager();
+                }
+                else if (element.LifetimeMode == LifetimeMode.Singleton)
+                {
+                    lifetimeManager = new ContainerControlledLifetimeManager();
+                }
+                else
+                {
+                    lifetimeManager = new TransientLifetimeManager();
+                }
+
+                #endregion
+
                 foreach (Type type in types)
                 {
-                    container.RegisterType(type.BaseType, type);
+                    container.RegisterType(type.BaseType, type, lifetimeManager);
                 }
             }
         }
@@ -104,7 +150,30 @@ namespace SD.IOC.UnityProvider.Provider
                 Assembly currentAssembly = Assembly.Load(element.Name.Trim());
                 IEnumerable<Type> types = currentAssembly.GetTypes().Where(type => !type.IsInterface && !type.IsAbstract);
 
-                container.RegisterTypes(types, null, type => type.Name);
+                #region # 实例生命周期管理
+
+                LifetimeManager lifetimeManager;
+
+                if (element.LifetimeMode == LifetimeMode.PerCall)
+                {
+                    lifetimeManager = new TransientLifetimeManager();
+                }
+                else if (element.LifetimeMode == LifetimeMode.PerSession)
+                {
+                    lifetimeManager = new PerThreadLifetimeManager();
+                }
+                else if (element.LifetimeMode == LifetimeMode.Singleton)
+                {
+                    lifetimeManager = new ContainerControlledLifetimeManager();
+                }
+                else
+                {
+                    lifetimeManager = new TransientLifetimeManager();
+                }
+
+                #endregion
+
+                container.RegisterTypes(types, null, type => type.Name, x => lifetimeManager);
             }
         }
         #endregion
@@ -130,9 +199,32 @@ namespace SD.IOC.UnityProvider.Provider
 
                 #endregion
 
+                #region # 实例生命周期管理
+
+                LifetimeManager lifetimeManager;
+
+                if (element.LifetimeMode == LifetimeMode.PerCall)
+                {
+                    lifetimeManager = new TransientLifetimeManager();
+                }
+                else if (element.LifetimeMode == LifetimeMode.PerSession)
+                {
+                    lifetimeManager = new PerThreadLifetimeManager();
+                }
+                else if (element.LifetimeMode == LifetimeMode.Singleton)
+                {
+                    lifetimeManager = new ContainerControlledLifetimeManager();
+                }
+                else
+                {
+                    lifetimeManager = new TransientLifetimeManager();
+                }
+
+                #endregion
+
                 foreach (Type interfaceType in type.GetInterfaces())
                 {
-                    container.RegisterType(interfaceType, type);
+                    container.RegisterType(interfaceType, type, lifetimeManager);
                 }
             }
         }
@@ -159,7 +251,30 @@ namespace SD.IOC.UnityProvider.Provider
 
                 #endregion
 
-                container.RegisterType(type.BaseType, type);
+                #region # 实例生命周期管理
+
+                LifetimeManager lifetimeManager;
+
+                if (element.LifetimeMode == LifetimeMode.PerCall)
+                {
+                    lifetimeManager = new TransientLifetimeManager();
+                }
+                else if (element.LifetimeMode == LifetimeMode.PerSession)
+                {
+                    lifetimeManager = new PerThreadLifetimeManager();
+                }
+                else if (element.LifetimeMode == LifetimeMode.Singleton)
+                {
+                    lifetimeManager = new ContainerControlledLifetimeManager();
+                }
+                else
+                {
+                    lifetimeManager = new TransientLifetimeManager();
+                }
+
+                #endregion
+
+                container.RegisterType(type.BaseType, type, lifetimeManager);
             }
         }
         #endregion
@@ -185,7 +300,30 @@ namespace SD.IOC.UnityProvider.Provider
 
                 #endregion
 
-                container.RegisterType(type);
+                #region # 实例生命周期管理
+
+                LifetimeManager lifetimeManager;
+
+                if (element.LifetimeMode == LifetimeMode.PerCall)
+                {
+                    lifetimeManager = new TransientLifetimeManager();
+                }
+                else if (element.LifetimeMode == LifetimeMode.PerSession)
+                {
+                    lifetimeManager = new PerThreadLifetimeManager();
+                }
+                else if (element.LifetimeMode == LifetimeMode.Singleton)
+                {
+                    lifetimeManager = new ContainerControlledLifetimeManager();
+                }
+                else
+                {
+                    lifetimeManager = new TransientLifetimeManager();
+                }
+
+                #endregion
+
+                container.RegisterType(type, type, lifetimeManager);
             }
         }
         #endregion
@@ -215,7 +353,7 @@ namespace SD.IOC.UnityProvider.Provider
                     PropertyInfo propChannel = proxyType.GetProperty(ServiceProxy.ChannelPropertyName, type);
 
                     container.RegisterType(proxyType);
-                    container.RegisterInstance(type, propChannel.GetValue(container.Resolve(proxyType)), new TransientLifetimeManager());
+                    container.RegisterInstance(type, propChannel.GetValue(container.Resolve(proxyType)));
                 }
             }
         }

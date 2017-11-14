@@ -52,6 +52,7 @@
     <Compile Include="AutofacProvider\AutofacContainer.cs" />
     <Compile Include="AutofacProvider\AutofacInstanceResolver.cs" />
     <Compile Include="Configuration\InjectionProviderConfiguration.cs" />
+    <Compile Include="Configuration\LifetimeMode.cs" />
     <Compile Include="Mediator\InstanceProvider.cs" />
     <Compile Include="WcfTools\ChannelFactoryManager.cs" />
     <Compile Include="Interfaces\IInstanceResolver.cs" />

@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 
 namespace SD.IOC.Core.Configuration
 {
@@ -16,6 +17,29 @@ namespace SD.IOC.Core.Configuration
         {
             get { return (string)this["name"]; }
             set { this["name"] = value; }
+        }
+        #endregion
+
+        #region # 实例生命周期模式 —— LifetimeMode? LifetimeMode
+        /// <summary>
+        /// 实例生命周期模式
+        /// </summary>
+        [ConfigurationProperty("lifetimeMode", IsRequired = false, IsKey = true)]
+        public LifetimeMode? LifetimeMode
+        {
+            get
+            {
+                object lifetimeMode = this["lifetimeMode"];
+                if (lifetimeMode == null)
+                {
+                    return null;
+                }
+                return (LifetimeMode)Enum.Parse(typeof(LifetimeMode), lifetimeMode.ToString());
+            }
+            set
+            {
+                this["lifetimeMode"] = value;
+            }
         }
         #endregion
     }
