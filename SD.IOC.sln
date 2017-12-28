@@ -10,13 +10,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{FF4ABE
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.StubInterface", "SD.IOC.StubInterface\SD.IOC.StubInterface.csproj", "{04BFA4D7-86C8-4341-B34C-3F1D88D19827}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.StubInterface", "tests\SD.IOC.StubInterface\SD.IOC.StubInterface.csproj", "{04BFA4D7-86C8-4341-B34C-3F1D88D19827}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Core", "SD.IOC.Core\SD.IOC.Core.csproj", "{891D9124-0462-4841-B1F6-8FFF2FD0B7BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Core", "sources\SD.IOC.Core\SD.IOC.Core.csproj", "{891D9124-0462-4841-B1F6-8FFF2FD0B7BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.CoreTests", "SD.IOC.CoreTests\SD.IOC.CoreTests.csproj", "{C3129779-5C2F-4A43-BD2A-250DF71AF069}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Core.Tests", "tests\SD.IOC.Core.Tests\SD.IOC.Core.Tests.csproj", "{C3129779-5C2F-4A43-BD2A-250DF71AF069}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.UnityProvider", "SD.IOC.UnityProvider\SD.IOC.UnityProvider.csproj", "{B97B2940-B1AF-412E-8C6B-25BA148324BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.UnityProvider", "sources\SD.IOC.UnityProvider\SD.IOC.UnityProvider.csproj", "{B97B2940-B1AF-412E-8C6B-25BA148324BE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Core", "01 - Core", "{93B7797F-9749-4A3E-B5D9-7FA5EC2F871D}"
 EndProject
@@ -26,22 +26,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Integrations", "03 - I
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Tests", "04 - Tests", "{2F45755F-8A6A-4904-984A-154369472BA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.MVC", "SD.IOC.Integration.MVC\SD.IOC.Integration.MVC.csproj", "{A055DC24-C2D0-4401-9AFB-0EDC3FCAC469}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.MVC", "sources\SD.IOC.Integration.MVC\SD.IOC.Integration.MVC.csproj", "{A055DC24-C2D0-4401-9AFB-0EDC3FCAC469}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.WCF", "SD.IOC.Integration.WCF\SD.IOC.Integration.WCF.csproj", "{6DF15F4A-2CE8-468C-A659-49650C4C01C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.WCF", "sources\SD.IOC.Integration.WCF\SD.IOC.Integration.WCF.csproj", "{6DF15F4A-2CE8-468C-A659-49650C4C01C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.WebApi", "SD.IOC.Integration.WebApi\SD.IOC.Integration.WebApi.csproj", "{0F47A784-7B75-4B2E-8F61-7B150C62C159}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.WebApi", "sources\SD.IOC.Integration.WebApi\SD.IOC.Integration.WebApi.csproj", "{0F47A784-7B75-4B2E-8F61-7B150C62C159}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.StubImplement", "SD.IOC.StubImplement\SD.IOC.StubImplement.csproj", "{B8698D54-2A18-45C3-A390-F1885E56F5A0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.StubImplement", "tests\SD.IOC.StubImplement\SD.IOC.StubImplement.csproj", "{B8698D54-2A18-45C3-A390-F1885E56F5A0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00 - Documentations", "00 - Documentations", "{4A3154E4-5F72-4501-BBD2-A870AEA4D4C6}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.MVCTests", "SD.IOC.Integration.MVCTests\SD.IOC.Integration.MVCTests.csproj", "{7BBFCE82-2CBE-46AA-B108-7C5C736E4D8A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.MVC.Tests", "tests\SD.IOC.Integration.MVC.Tests\SD.IOC.Integration.MVC.Tests.csproj", "{7BBFCE82-2CBE-46AA-B108-7C5C736E4D8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.WCFTests", "SD.IOC.Integration.WCFTests\SD.IOC.Integration.WCFTests.csproj", "{112EDD14-5B74-43FF-9B74-162A563BAE0A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.WCF.Tests", "tests\SD.IOC.Integration.WCF.Tests\SD.IOC.Integration.WCF.Tests.csproj", "{112EDD14-5B74-43FF-9B74-162A563BAE0A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Stubs", "01 - Stubs", "{F66A8467-FB9C-4BF8-BD4C-26372F14BB9F}"
 EndProject
@@ -49,7 +49,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - UnitTests", "02 - Unit
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - IntegrationTests", "03 - IntegrationTests", "{6011C8A1-C6A2-48F6-A5D9-A5A9953DD27D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.WebApiTests", "SD.IOC.Integration.WebApiTests\SD.IOC.Integration.WebApiTests.csproj", "{CEAA98F3-5246-4CD5-BC76-EEAD14D94F94}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.WebApi.Tests", "tests\SD.IOC.Integration.WebApi.Tests\SD.IOC.Integration.WebApi.Tests.csproj", "{CEAA98F3-5246-4CD5-BC76-EEAD14D94F94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
