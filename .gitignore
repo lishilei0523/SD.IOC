@@ -188,3 +188,7 @@ GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 /.vs/config/applicationhost.config
+*.lock
+*.ide
+*.ide-shm
+*.ide-wal
