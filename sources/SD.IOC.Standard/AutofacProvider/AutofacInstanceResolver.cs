@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using SD.IOC.Core.Interfaces;
+using SD.IOC.Standard.Interfaces;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace SD.IOC.Core.AutofacProvider
+namespace SD.IOC.Standard.AutofacProvider
 {
     /// <summary>
     /// Autofac实例解析者

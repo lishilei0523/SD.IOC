@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<configuration>
+﻿<configuration>
   <configSections>
     <!--依赖注入提供者配置节点-->
     <section name="injectionProviderConfiguration" type="SD.IOC.Standard.Configuration.InjectionProviderConfiguration,SD.IOC.Standard"/>
@@ -9,12 +8,4 @@
 
   <!--依赖注入提供者配置，默认采用Autofac-->
   <injectionProviderConfiguration type="SD.IOC.Standard.AutofacProvider.AutofacInstanceResolver" assembly="SD.IOC.Standard"/>
-
-  <!--依赖注入注册配置-->
-  <injectionRegisterConfiguration>
-    <!--As接口程序集列表-->
-    <asInterfaceAssemblies>
-      <assembly name="SD.IOC.StubImplement"/>
-    </asInterfaceAssemblies>
-  </injectionRegisterConfiguration>
 </configuration>

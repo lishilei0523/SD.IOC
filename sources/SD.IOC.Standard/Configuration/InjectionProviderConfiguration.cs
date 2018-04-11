@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Configuration;
 
-namespace SD.IOC.Core.Configuration
+namespace SD.IOC.Standard.Configuration
 {
     /// <summary>
     /// 依赖注入提供者配置
@@ -20,11 +20,11 @@ namespace SD.IOC.Core.Configuration
         /// </summary>
         static InjectionProviderConfiguration()
         {
-            _Setting = (InjectionProviderConfiguration)ConfigurationManager.GetSection("injectionProviderConfiguration");
+            InjectionProviderConfiguration._Setting = (InjectionProviderConfiguration)ConfigurationManager.GetSection("injectionProviderConfiguration");
 
             #region # 非空验证
 
-            if (_Setting == null)
+            if (InjectionProviderConfiguration._Setting == null)
             {
                 throw new ApplicationException("依赖注入提供者节点未配置，请检查程序！");
             }
@@ -40,7 +40,7 @@ namespace SD.IOC.Core.Configuration
         /// </summary>
         public static InjectionProviderConfiguration Setting
         {
-            get { return _Setting; }
+            get { return InjectionProviderConfiguration._Setting; }
         }
         #endregion
 

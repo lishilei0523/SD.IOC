@@ -1,11 +1,11 @@
 ﻿using Autofac;
-using SD.IOC.Core.Configuration;
+using SD.IOC.Standard.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace SD.IOC.Core.AutofacProvider
+namespace SD.IOC.Standard.AutofacProvider
 {
     /// <summary>
     /// Autofac依赖注入容器
@@ -18,7 +18,7 @@ namespace SD.IOC.Core.AutofacProvider
         /// </summary>
         public static IContainer Current
         {
-            get { return _Container; }
+            get { return AutofacContainer._Container; }
         }
         #endregion
 
@@ -38,15 +38,15 @@ namespace SD.IOC.Core.AutofacProvider
             //实例化容器建造者
             ContainerBuilder builder = new ContainerBuilder();
 
-            RegisterInterfaceAssemblies(builder);
-            RegisterBaseAssemblies(builder);
-            RegisterSelfAssemblies(builder);
-            RegisterInterfaceTypes(builder);
-            RegisterBaseTypes(builder);
-            RegisterSelfTypes(builder);
+            AutofacContainer.RegisterInterfaceAssemblies(builder);
+            AutofacContainer.RegisterBaseAssemblies(builder);
+            AutofacContainer.RegisterSelfAssemblies(builder);
+            AutofacContainer.RegisterInterfaceTypes(builder);
+            AutofacContainer.RegisterBaseTypes(builder);
+            AutofacContainer.RegisterSelfTypes(builder);
 
             //得到容器对象
-            _Container = builder.Build();
+            AutofacContainer._Container = builder.Build();
         }
         #endregion
 

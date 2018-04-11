@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace SD.IOC.Core.Configuration
+namespace SD.IOC.Standard.Configuration
 {
     /// <summary>
     /// 程序集节点集合

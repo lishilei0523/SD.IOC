@@ -1,4 +1,4 @@
-﻿namespace SD.IOC.Core.Mediator
+﻿namespace SD.IOC.Standard.Mediator
 {
     /// <summary>
     /// 实例代理

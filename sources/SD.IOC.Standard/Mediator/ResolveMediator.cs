@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SD.IOC.Core.Mediator
+namespace SD.IOC.Standard.Mediator
 {
     /// <summary>
     /// 解析中介者

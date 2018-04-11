@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Configuration;
 
-namespace SD.IOC.Core.Configuration
+namespace SD.IOC.Standard.Configuration
 {
     /// <summary>
     /// 类型节点

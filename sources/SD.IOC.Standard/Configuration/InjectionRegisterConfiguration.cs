@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Configuration;
 
-namespace SD.IOC.Core.Configuration
+namespace SD.IOC.Standard.Configuration
 {
     /// <summary>
     /// 依赖注入注册配置
@@ -20,11 +20,11 @@ namespace SD.IOC.Core.Configuration
         /// </summary>
         static InjectionRegisterConfiguration()
         {
-            _Setting = (InjectionRegisterConfiguration)ConfigurationManager.GetSection("injectionRegisterConfiguration");
+            InjectionRegisterConfiguration._Setting = (InjectionRegisterConfiguration)ConfigurationManager.GetSection("injectionRegisterConfiguration");
 
             #region # 非空验证
 
-            if (_Setting == null)
+            if (InjectionRegisterConfiguration._Setting == null)
             {
                 throw new ApplicationException("依赖注入注册节点未配置，请检查程序！");
             }
@@ -40,7 +40,7 @@ namespace SD.IOC.Core.Configuration
         /// </summary>
         public static InjectionRegisterConfiguration Setting
         {
-            get { return _Setting; }
+            get { return InjectionRegisterConfiguration._Setting; }
         }
         #endregion
 

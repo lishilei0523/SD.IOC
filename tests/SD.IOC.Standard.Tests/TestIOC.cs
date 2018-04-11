@@ -1,9 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SD.IOC.Core.Mediator;
+using SD.IOC.Standard.Mediator;
 using SD.IOC.StubImplement.Implements;
 using SD.IOC.StubInterface.Interfaces;
 
-namespace SD.IOC.Core.Tests
+namespace SD.IOC.Standard.Tests
 {
     /// <summary>
     /// 测试依赖注入

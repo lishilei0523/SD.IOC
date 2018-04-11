@@ -2,16 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>SD.IOC.Core</AssemblyName>
-    <RootNamespace>SD.IOC.Core</RootNamespace>
+    <AssemblyName>SD.IOC.Standard</AssemblyName>
+    <RootNamespace>SD.IOC.Standard</RootNamespace>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard2.0\SD.IOC.Core.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\netstandard2.0\SD.IOC.Standard.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\netstandard2.0\SD.IOC.Core.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\netstandard2.0\SD.IOC.Standard.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

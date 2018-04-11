@@ -1,11 +1,11 @@
-﻿using SD.IOC.Core.Configuration;
-using SD.IOC.Core.Interfaces;
+﻿using SD.IOC.Standard.Configuration;
+using SD.IOC.Standard.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Threading;
 
-namespace SD.IOC.Core.Mediator
+namespace SD.IOC.Standard.Mediator
 {
     /// <summary>
     /// 实例解析者实例
@@ -34,11 +34,11 @@ namespace SD.IOC.Core.Mediator
         /// </summary>
         static InstanceProvider()
         {
-            _Sync = new object();
+            InstanceProvider._Sync = new object();
 
             //读取配置文件获取依赖注入提供者
-            _AssemblyName = InjectionProviderConfiguration.Setting.Assembly;
-            _TypeFullName = InjectionProviderConfiguration.Setting.Type;
+            InstanceProvider._AssemblyName = InjectionProviderConfiguration.Setting.Assembly;
+            InstanceProvider._TypeFullName = InjectionProviderConfiguration.Setting.Type;
         }
 
         /// <summary>
@@ -52,8 +52,8 @@ namespace SD.IOC.Core.Mediator
         private InstanceProvider()
         {
             //读取配置文件获取依赖注入提供者
-            Assembly impAssembly = Assembly.Load(_AssemblyName);
-            Type implType = impAssembly.GetType(_TypeFullName);
+            Assembly impAssembly = Assembly.Load(InstanceProvider._AssemblyName);
+            Type implType = impAssembly.GetType(InstanceProvider._TypeFullName);
 
             this._instanceResolver = (IInstanceResolver)Activator.CreateInstance(implType);
         }
@@ -68,7 +68,7 @@ namespace SD.IOC.Core.Mediator
         {
             get
             {
-                lock (_Sync)
+                lock (InstanceProvider._Sync)
                 {
                     LocalDataStoreSlot slot = Thread.GetNamedDataSlot(typeof(InstanceProvider).FullName);
 

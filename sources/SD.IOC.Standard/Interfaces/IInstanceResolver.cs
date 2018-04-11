@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SD.IOC.Core.Interfaces
+namespace SD.IOC.Standard.Interfaces
 {
     /// <summary>
     /// 实例解析者接口

@@ -1,4 +1,4 @@
-﻿namespace SD.IOC.Core.Configuration
+﻿namespace SD.IOC.Standard.Configuration
 {
     /// <summary>
     /// 实例生命周期模式
