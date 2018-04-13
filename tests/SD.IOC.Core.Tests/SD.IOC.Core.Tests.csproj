@@ -59,7 +59,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\sources\SD.IOC.Core\SD.IOC.Core.csproj">
+    <ProjectReference Include="..\..\src\SD.IOC.Core\SD.IOC.Core.csproj">
       <Project>{891d9124-0462-4841-b1f6-8fff2fd0b7be}</Project>
       <Name>SD.IOC.Core</Name>
     </ProjectReference>
@@ -71,7 +71,7 @@
       <Project>{04BFA4D7-86C8-4341-B34C-3F1D88D19827}</Project>
       <Name>SD.IOC.StubInterface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\sources\SD.IOC.UnityProvider\SD.IOC.UnityProvider.csproj">
+    <ProjectReference Include="..\..\src\SD.IOC.UnityProvider\SD.IOC.UnityProvider.csproj">
       <Project>{b97b2940-b1af-412e-8c6b-25ba148324be}</Project>
       <Name>SD.IOC.UnityProvider</Name>
     </ProjectReference>

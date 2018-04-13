@@ -70,12 +70,12 @@ namespace SD.IOC.Core.Mediator
             {
                 lock (_Sync)
                 {
-                    InstanceProvider provider = CallContext.GetData(typeof(InstanceProvider).FullName) as InstanceProvider;
+                    InstanceProvider provider = CallContext.LogicalGetData(typeof(InstanceProvider).FullName) as InstanceProvider;
 
                     if (provider == null)
                     {
                         provider = new InstanceProvider();
-                        CallContext.SetData(typeof(InstanceProvider).FullName, provider);
+                        CallContext.LogicalSetData(typeof(InstanceProvider).FullName, provider);
                     }
 
                     return provider;

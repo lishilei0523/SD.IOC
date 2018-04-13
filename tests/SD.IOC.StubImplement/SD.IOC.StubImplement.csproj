@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -73,7 +74,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\sources\SD.IOC.Core\SD.IOC.Core.csproj">
+    <ProjectReference Include="..\..\src\SD.IOC.Core\SD.IOC.Core.csproj">
       <Project>{891d9124-0462-4841-b1f6-8fff2fd0b7be}</Project>
       <Name>SD.IOC.Core</Name>
     </ProjectReference>

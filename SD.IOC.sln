@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.2002
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{FF4ABECC-5097-4064-95CA-9BF579AEE43C}"
 	ProjectSection(SolutionItems) = preProject
@@ -12,11 +12,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{FF4ABE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.StubInterface", "tests\SD.IOC.StubInterface\SD.IOC.StubInterface.csproj", "{04BFA4D7-86C8-4341-B34C-3F1D88D19827}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Core", "sources\SD.IOC.Core\SD.IOC.Core.csproj", "{891D9124-0462-4841-B1F6-8FFF2FD0B7BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Core", "src\SD.IOC.Core\SD.IOC.Core.csproj", "{891D9124-0462-4841-B1F6-8FFF2FD0B7BE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Core.Tests", "tests\SD.IOC.Core.Tests\SD.IOC.Core.Tests.csproj", "{C3129779-5C2F-4A43-BD2A-250DF71AF069}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.UnityProvider", "sources\SD.IOC.UnityProvider\SD.IOC.UnityProvider.csproj", "{B97B2940-B1AF-412E-8C6B-25BA148324BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.UnityProvider", "src\SD.IOC.UnityProvider\SD.IOC.UnityProvider.csproj", "{B97B2940-B1AF-412E-8C6B-25BA148324BE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Core", "01 - Core", "{93B7797F-9749-4A3E-B5D9-7FA5EC2F871D}"
 EndProject
@@ -26,11 +26,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Integrations", "03 - I
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Tests", "04 - Tests", "{2F45755F-8A6A-4904-984A-154369472BA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.MVC", "sources\SD.IOC.Integration.MVC\SD.IOC.Integration.MVC.csproj", "{A055DC24-C2D0-4401-9AFB-0EDC3FCAC469}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.MVC", "src\SD.IOC.Integration.MVC\SD.IOC.Integration.MVC.csproj", "{A055DC24-C2D0-4401-9AFB-0EDC3FCAC469}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.WCF", "sources\SD.IOC.Integration.WCF\SD.IOC.Integration.WCF.csproj", "{6DF15F4A-2CE8-468C-A659-49650C4C01C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.WCF", "src\SD.IOC.Integration.WCF\SD.IOC.Integration.WCF.csproj", "{6DF15F4A-2CE8-468C-A659-49650C4C01C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.WebApi", "sources\SD.IOC.Integration.WebApi\SD.IOC.Integration.WebApi.csproj", "{0F47A784-7B75-4B2E-8F61-7B150C62C159}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.WebApi", "src\SD.IOC.Integration.WebApi\SD.IOC.Integration.WebApi.csproj", "{0F47A784-7B75-4B2E-8F61-7B150C62C159}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.StubImplement", "tests\SD.IOC.StubImplement\SD.IOC.StubImplement.csproj", "{B8698D54-2A18-45C3-A390-F1885E56F5A0}"
 EndProject
@@ -51,7 +51,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - IntegrationTests", "03
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.WebApi.Tests", "tests\SD.IOC.Integration.WebApi.Tests\SD.IOC.Integration.WebApi.Tests.csproj", "{CEAA98F3-5246-4CD5-BC76-EEAD14D94F94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.SignalR", "sources\SD.IOC.Integration.SignalR\SD.IOC.Integration.SignalR.csproj", "{5CE24992-9AC5-4F18-83DD-A52A6281EA43}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.SignalR", "src\SD.IOC.Integration.SignalR\SD.IOC.Integration.SignalR.csproj", "{5CE24992-9AC5-4F18-83DD-A52A6281EA43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
