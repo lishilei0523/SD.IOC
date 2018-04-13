@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using SD.IOC.Standard.Configuration;
+using SD.IOC.Standard.WcfTools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -241,6 +242,39 @@ namespace SD.IOC.Standard.AutofacProvider
                 if (element.LifetimeMode == LifetimeMode.Singleton)
                 {
                     builder.RegisterType(type).SingleInstance();
+                }
+            }
+        }
+        #endregion
+
+        #region # 注册WCF接口列表 —— static void RegisterWcfInterfaces(ContainerBuilder builder)
+        /// <summary>
+        /// 注册WCF接口列表
+        /// </summary>
+        /// <param name="builder">容器建造者</param>
+        private static void RegisterWcfInterfaces(ContainerBuilder builder)
+        {
+            foreach (AssemblyElement element in InjectionRegisterConfiguration.Setting.WcfInterfaces)
+            {
+                //加载程序集
+                Assembly wcfInterfaceAssembly = Assembly.Load(element.Name);
+
+                //获取WCF接口类型集
+                IEnumerable<Type> types = wcfInterfaceAssembly.GetTypes().Where(type => type.IsInterface);
+
+                //获取服务代理泛型类型
+                Type proxyGenericType = typeof(ServiceProxy<>);
+
+                //注册WCF接口
+                foreach (Type type in types)
+                {
+                    Type proxyType = proxyGenericType.MakeGenericType(type);
+                    PropertyInfo propChannel = proxyType.GetProperty(ServiceProxy.ChannelPropertyName, type);
+
+                    builder.RegisterType(proxyType).OnRelease(proxy => ((IDisposable)proxy).Dispose());
+                    builder.Register(container => propChannel.GetValue(container.Resolve(proxyType))).
+                        As(type).
+                        OnRelease(channel => channel.CloseChannel());
                 }
             }
         }

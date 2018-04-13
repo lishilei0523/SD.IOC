@@ -18,6 +18,7 @@
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.7.0" />
     <PackageReference Include="system.configuration.configurationManager" Version="4.4.1" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="4.4.1" />
   </ItemGroup>
 
 </Project>
