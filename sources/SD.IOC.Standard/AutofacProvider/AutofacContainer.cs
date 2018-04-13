@@ -39,12 +39,13 @@ namespace SD.IOC.Standard.AutofacProvider
             //实例化容器建造者
             ContainerBuilder builder = new ContainerBuilder();
 
-            AutofacContainer.RegisterInterfaceAssemblies(builder);
-            AutofacContainer.RegisterBaseAssemblies(builder);
-            AutofacContainer.RegisterSelfAssemblies(builder);
-            AutofacContainer.RegisterInterfaceTypes(builder);
-            AutofacContainer.RegisterBaseTypes(builder);
-            AutofacContainer.RegisterSelfTypes(builder);
+            RegisterInterfaceAssemblies(builder);
+            RegisterBaseAssemblies(builder);
+            RegisterSelfAssemblies(builder);
+            RegisterInterfaceTypes(builder);
+            RegisterBaseTypes(builder);
+            RegisterSelfTypes(builder);
+            RegisterWcfInterfaces(builder);
 
             //得到容器对象
             AutofacContainer._Container = builder.Build();
