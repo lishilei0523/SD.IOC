@@ -50,9 +50,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.WebApi.T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Extension.NetFx.Tests", "standard.tests\SD.IOC.Extension.NetFx.Tests\SD.IOC.Extension.NetFx.Tests.csproj", "{A73448B8-196D-4311-8BB1-B729877233A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Extension.NetCore.Tests", "standard.tests\SD.IOC.Extension.NetCore.Tests\SD.IOC.Extension.NetCore.Tests.csproj", "{1C7D5C7D-3B8A-45B0-AF60-BE9509D229F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SD.IOC.Extension.NetCore.Tests", "standard.tests\SD.IOC.Extension.NetCore.Tests\SD.IOC.Extension.NetCore.Tests.csproj", "{1C7D5C7D-3B8A-45B0-AF60-BE9509D229F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Extension.NetCore.ServiceModel.Tests", "standard.tests\SD.IOC.Extension.NetCore.ServiceModel.Tests\SD.IOC.Extension.NetCore.ServiceModel.Tests.csproj", "{039DACAD-246D-4E8B-B474-E8AF45DE7D54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SD.IOC.Extension.NetCore.ServiceModel.Tests", "standard.tests\SD.IOC.Extension.NetCore.ServiceModel.Tests\SD.IOC.Extension.NetCore.ServiceModel.Tests.csproj", "{039DACAD-246D-4E8B-B474-E8AF45DE7D54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.AspNetCore.Tests", "standard.tests\SD.IOC.Integration.AspNetCore.Tests\SD.IOC.Integration.AspNetCore.Tests.csproj", "{730D167A-585D-4193-A28B-C77088BB98B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -124,6 +126,10 @@ Global
 		{039DACAD-246D-4E8B-B474-E8AF45DE7D54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{039DACAD-246D-4E8B-B474-E8AF45DE7D54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{039DACAD-246D-4E8B-B474-E8AF45DE7D54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{730D167A-585D-4193-A28B-C77088BB98B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{730D167A-585D-4193-A28B-C77088BB98B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{730D167A-585D-4193-A28B-C77088BB98B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{730D167A-585D-4193-A28B-C77088BB98B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -148,6 +154,7 @@ Global
 		{A73448B8-196D-4311-8BB1-B729877233A5} = {F4A1ABBD-A9EB-4831-8DDC-CE1118BD335A}
 		{1C7D5C7D-3B8A-45B0-AF60-BE9509D229F6} = {F4A1ABBD-A9EB-4831-8DDC-CE1118BD335A}
 		{039DACAD-246D-4E8B-B474-E8AF45DE7D54} = {F4A1ABBD-A9EB-4831-8DDC-CE1118BD335A}
+		{730D167A-585D-4193-A28B-C77088BB98B1} = {B1781AEB-2119-490D-A618-0CC26C2E58D7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CD95B872-DF79-44C3-A683-DB1E2AD7B243}
