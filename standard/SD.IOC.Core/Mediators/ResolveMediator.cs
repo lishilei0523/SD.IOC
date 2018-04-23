@@ -42,10 +42,10 @@ namespace SD.IOC.Core.Mediators
         /// </summary>
         static ResolveMediator()
         {
-            ResolveMediator._Sync = new object();
-            ResolveMediator._ServiceCollection = new ServiceCollection();
-            ResolveMediator._ServiceScope = new AsyncLocal<IServiceScope>();
-            ResolveMediator._ContainerBuilt = false;
+            _Sync = new object();
+            _ServiceCollection = new ServiceCollection();
+            _ServiceScope = new AsyncLocal<IServiceScope>();
+            _ContainerBuilt = false;
         }
 
         #endregion
@@ -216,9 +216,9 @@ namespace SD.IOC.Core.Mediators
         /// </summary>
         public static void Dispose()
         {
-            if (ResolveMediator._ServiceScope.Value != null)
+            if (_ServiceScope.Value != null)
             {
-                ResolveMediator._ServiceScope.Value.Dispose();
+                _ServiceScope.Value.Dispose();
             }
         }
         #endregion
