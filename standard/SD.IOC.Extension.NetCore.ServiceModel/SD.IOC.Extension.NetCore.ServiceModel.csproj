@@ -4,6 +4,18 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssemblyName>SD.IOC.Extension.NetCore.ServiceModel</AssemblyName>
     <RootNamespace>SD.IOC.Extension.NetCore.ServiceModel</RootNamespace>
+    <Authors>Lee</Authors>
+    <Company>SD</Company>
+    <Description>依赖注入组件 - .NET Core WCF扩展</Description>
+    <Copyright>Copyright © SD 2018</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp2.0\SD.IOC.Extension.NetCore.ServiceModel.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netcoreapp2.0\SD.IOC.Extension.NetCore.ServiceModel.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

@@ -7,9 +7,9 @@ using System.Web;
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("SD.IOC.Integration.WebApi")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("依赖注入组件 - 集成ASP.NET WebApi")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("SD")]
 [assembly: AssemblyProduct("SD.IOC.Integration.WebApi")]
 [assembly: AssemblyCopyright("Copyright © SD 2017")]
 [assembly: AssemblyTrademark("")]
@@ -33,8 +33,8 @@ using System.Web;
 // 可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值，
 // 方法是按如下所示使用“*”: 
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("2.0.0")]
+[assembly: AssemblyFileVersion("2.0.0.0")]
 
 //注射至WebApi应用程序
 [assembly: PreApplicationStartMethod(typeof(PreAppStart), "InitInjection")]
