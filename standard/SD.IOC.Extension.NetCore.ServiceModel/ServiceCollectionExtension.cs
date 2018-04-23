@@ -7,7 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.ServiceModel.Extensions;
 
-namespace SD.IOC.Extension.NetCore.WCF
+namespace SD.IOC.Extension.NetCore.ServiceModel
 {
     /// <summary>
     /// 容器建造者扩展
@@ -16,12 +16,12 @@ namespace SD.IOC.Extension.NetCore.WCF
     {
         //Public
 
-        #region # 注册配置 —— static void RegisterConfigs(this IServiceCollection...
+        #region # 注册WCF配置 —— static void RegisterServiceModels(this IServiceCollection...
         /// <summary>
-        /// 注册配置
+        /// 注册WCF配置
         /// </summary>
         /// <param name="serviceCollection">容器建造者</param>
-        public static void RegisterConfigs(this IServiceCollection serviceCollection)
+        public static void RegisterServiceModels(this IServiceCollection serviceCollection)
         {
             RegisterWcfInterfaces(serviceCollection);
         }

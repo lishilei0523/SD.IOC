@@ -2,7 +2,7 @@
 <configuration>
   <configSections>
     <!--WCF配置节点-->
-    <section name="system.serviceModel" type="System.ServiceModel.ServiceModelSection, System.ServiceModel.Toolkits" />
+    <section name="system.serviceModel" type="System.ServiceModel.ServiceModelSection, SD.IOC.Extension.NetCore.ServiceModel" />
   </configSections>
 
   <!--WCF配置-->
