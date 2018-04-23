@@ -11,14 +11,12 @@ namespace SD.IOC.Integration.AspNetCore.Tests
 {
     public class Startup
     {
-        public IConfiguration Configuration { get; }
+        private readonly IConfiguration _configuration;
 
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            this._configuration = configuration;
         }
-
-
 
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
