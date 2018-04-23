@@ -134,10 +134,6 @@
       <Project>{0f47a784-7b75-4b2e-8f61-7b150c62c159}</Project>
       <Name>SD.IOC.Integration.WebApi</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SD.IOC.StubImplement\SD.IOC.StubImplement.csproj">
-      <Project>{b8698d54-2a18-45c3-a390-f1885e56f5a0}</Project>
-      <Name>SD.IOC.StubImplement</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SD.IOC.StubInterface\SD.IOC.StubInterface.csproj">
       <Project>{04bfa4d7-86c8-4341-b34c-3f1d88d19827}</Project>
       <Name>SD.IOC.StubInterface</Name>

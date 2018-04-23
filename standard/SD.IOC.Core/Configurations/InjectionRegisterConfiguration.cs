@@ -22,11 +22,11 @@ namespace SD.IOC.Core
         /// </summary>
         static InjectionRegisterConfiguration()
         {
-            InjectionRegisterConfiguration._Setting = (InjectionRegisterConfiguration)ConfigurationManager.GetSection("injectionRegisterConfiguration");
+            _Setting = (InjectionRegisterConfiguration)ConfigurationManager.GetSection("injectionRegisterConfiguration");
 
             #region # 非空验证
 
-            if (InjectionRegisterConfiguration._Setting == null)
+            if (_Setting == null)
             {
                 throw new ApplicationException("依赖注入注册节点未配置，请检查程序！");
             }
@@ -42,7 +42,7 @@ namespace SD.IOC.Core
         /// </summary>
         public static InjectionRegisterConfiguration Setting
         {
-            get { return InjectionRegisterConfiguration._Setting; }
+            get { return _Setting; }
         }
         #endregion
 
