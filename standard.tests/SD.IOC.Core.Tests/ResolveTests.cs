@@ -7,20 +7,24 @@ using SD.IOC.StubInterface.Interfaces;
 namespace SD.IOC.Core.Tests
 {
     /// <summary>
-    /// 测试依赖注入
+    /// 测试解析实例
     /// </summary>
     [TestClass]
-    public class TestIOC
+    public class ResolveTests
     {
         /// <summary>
-        /// 静态构造器
+        /// 测试初始化
         /// </summary>
-        static TestIOC()
+        [TestInitialize]
+        public void Init()
         {
-            IServiceCollection builder = ResolveMediator.GetServiceCollection();
-            builder.AddTransient(typeof(IProductContract), typeof(ProductContract));
+            if (!ResolveMediator.ContainerBuilt)
+            {
+                IServiceCollection builder = ResolveMediator.GetServiceCollection();
+                builder.AddTransient(typeof(IProductContract), typeof(ProductContract));
 
-            ResolveMediator.Build();
+                ResolveMediator.Build();
+            }
         }
 
         /// <summary>
