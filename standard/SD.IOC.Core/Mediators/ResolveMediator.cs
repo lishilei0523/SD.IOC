@@ -66,10 +66,10 @@ namespace SD.IOC.Core.Mediators
         /// </summary>
         public static void Build()
         {
-            lock (ResolveMediator._Sync)
+            lock (_Sync)
             {
-                ResolveMediator._ServiceProvider = ResolveMediator._ServiceCollection.BuildServiceProvider();
-                ResolveMediator._ContainerBuilt = true;
+                _ServiceProvider = _ServiceCollection.BuildServiceProvider();
+                _ContainerBuilt = true;
             }
         }
         #endregion
@@ -81,12 +81,12 @@ namespace SD.IOC.Core.Mediators
         /// <returns>Service集合</returns>
         public static IServiceCollection GetServiceCollection()
         {
-            if (ResolveMediator._ContainerBuilt)
+            if (_ContainerBuilt)
             {
                 throw new InvalidOperationException("容器已初始化，不可获取容器建造者！");
             }
 
-            return ResolveMediator._ServiceCollection;
+            return _ServiceCollection;
         }
         #endregion
 
@@ -97,12 +97,12 @@ namespace SD.IOC.Core.Mediators
         /// <returns>容器</returns>
         public static IServiceProvider GetServiceProvider()
         {
-            if (!ResolveMediator._ContainerBuilt)
+            if (!_ContainerBuilt)
             {
                 throw new InvalidOperationException("容器未初始化！");
             }
 
-            return ResolveMediator._ServiceProvider;
+            return _ServiceProvider;
         }
         #endregion
 
@@ -111,16 +111,16 @@ namespace SD.IOC.Core.Mediators
         /// 获取范围容器
         /// </summary>
         /// <returns>范围容器</returns>
-        public static IServiceScope GetServiceScope()
+        private static IServiceScope GetServiceScope()
         {
-            IServiceProvider serviceProvider = ResolveMediator.GetServiceProvider();
+            IServiceProvider serviceProvider = GetServiceProvider();
 
-            if (ResolveMediator._ServiceScope.Value == null)
+            if (_ServiceScope.Value == null)
             {
-                ResolveMediator._ServiceScope.Value = serviceProvider.CreateScope();
+                _ServiceScope.Value = serviceProvider.CreateScope();
             }
 
-            return ResolveMediator._ServiceScope.Value;
+            return _ServiceScope.Value;
         }
         #endregion
 
@@ -133,7 +133,7 @@ namespace SD.IOC.Core.Mediators
         /// <returns>实例</returns>
         public static T Resolve<T>()
         {
-            IServiceScope serviceScope = ResolveMediator.GetServiceScope();
+            IServiceScope serviceScope = GetServiceScope();
 
             return serviceScope.ServiceProvider.GetRequiredService<T>();
         }
@@ -147,7 +147,7 @@ namespace SD.IOC.Core.Mediators
         /// <returns>实例</returns>
         public static object Resolve(Type type)
         {
-            IServiceScope serviceScope = ResolveMediator.GetServiceScope();
+            IServiceScope serviceScope = GetServiceScope();
 
             return serviceScope.ServiceProvider.GetRequiredService(type);
         }
@@ -161,7 +161,7 @@ namespace SD.IOC.Core.Mediators
         /// <returns>实例，如未注册则返回null</returns>
         public static T ResolveOptional<T>() where T : class
         {
-            IServiceScope serviceScope = ResolveMediator.GetServiceScope();
+            IServiceScope serviceScope = GetServiceScope();
 
             return serviceScope.ServiceProvider.GetService<T>();
         }
@@ -175,7 +175,7 @@ namespace SD.IOC.Core.Mediators
         /// <returns>实例，如未注册则返回null</returns>
         public static object ResolveOptional(Type type)
         {
-            IServiceScope serviceScope = ResolveMediator.GetServiceScope();
+            IServiceScope serviceScope = GetServiceScope();
 
             return serviceScope.ServiceProvider.GetService(type);
         }
@@ -189,7 +189,7 @@ namespace SD.IOC.Core.Mediators
         /// <returns>实例集</returns>
         public static IEnumerable<T> ResolveAll<T>()
         {
-            IServiceScope serviceScope = ResolveMediator.GetServiceScope();
+            IServiceScope serviceScope = GetServiceScope();
 
             return serviceScope.ServiceProvider.GetServices<T>();
         }
@@ -203,7 +203,7 @@ namespace SD.IOC.Core.Mediators
         /// <returns>实例集</returns>
         public static IEnumerable<object> ResolveAll(Type type)
         {
-            IServiceScope serviceScope = ResolveMediator.GetServiceScope();
+            IServiceScope serviceScope = GetServiceScope();
 
             return serviceScope.ServiceProvider.GetServices(type);
         }
