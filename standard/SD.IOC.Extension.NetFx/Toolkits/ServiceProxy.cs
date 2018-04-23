@@ -1,7 +1,8 @@
 ﻿using System;
 using System.ServiceModel;
 
-namespace SD.IOC.Extension.NetFx.WcfTools
+// ReSharper disable once CheckNamespace
+namespace System.ServiceModel.Extensions
 {
     /// <summary>
     /// WCF服务客户端代理基类

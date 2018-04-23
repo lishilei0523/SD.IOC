@@ -1,6 +1,7 @@
 ﻿using System.ServiceModel.Channels;
 
-namespace System.ServiceModel.Toolkits.Interfaces
+// ReSharper disable once CheckNamespace
+namespace System.ServiceModel.Extensions
 {
     /// <summary>
     /// 消息头提供者

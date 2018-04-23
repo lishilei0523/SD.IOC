@@ -44,9 +44,9 @@
   <ItemGroup>
     <Compile Include="ServiceCollectionExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WcfTools\ChannelFactoryManager.cs" />
-    <Compile Include="WcfTools\ServiceProxy.cs" />
-    <Compile Include="WcfTools\WcfExtension.cs" />
+    <Compile Include="Toolkits\ChannelFactoryManager.cs" />
+    <Compile Include="Toolkits\ServiceProxy.cs" />
+    <Compile Include="Toolkits\Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SD.IOC.Core\SD.IOC.Core.csproj">

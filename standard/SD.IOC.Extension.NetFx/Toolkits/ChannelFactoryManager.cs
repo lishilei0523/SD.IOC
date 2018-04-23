@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.ServiceModel;
 
-namespace SD.IOC.Extension.NetFx.WcfTools
+// ReSharper disable once CheckNamespace
+namespace System.ServiceModel.Extensions
 {
     /// <summary>
     /// ChannelFactory管理者

@@ -50,6 +50,16 @@ namespace SD.IOC.Core.Mediators
 
         #endregion
 
+        #region # 容器是否已初始化 —— static bool ContainerBuilt
+        /// <summary>
+        /// 容器是否已初始化
+        /// </summary>
+        public static bool ContainerBuilt
+        {
+            get { return _ContainerBuilt; }
+        }
+        #endregion
+
         #region # 初始化建造容器 —— static void Build()
         /// <summary>
         /// 初始化建造容器

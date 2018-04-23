@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 using System.ServiceModel.Channels;
-using System.ServiceModel.Toolkits.Configurations;
-using System.ServiceModel.Toolkits.Interfaces;
-using System.ServiceModel.Toolkits.Toolkits;
+using System.ServiceModel.Extensions.Configurations;
 
 // ReSharper disable once CheckNamespace
-namespace System.ServiceModel.Toolkits
+namespace System.ServiceModel.Extensions
 {
     /// <summary>
     /// ChannelFactory管理者

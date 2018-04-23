@@ -2,7 +2,7 @@
 using System.ServiceModel.Channels;
 
 // ReSharper disable once CheckNamespace
-namespace System.ServiceModel.Toolkits
+namespace System.ServiceModel.Extensions
 {
     public static class Constants
     {

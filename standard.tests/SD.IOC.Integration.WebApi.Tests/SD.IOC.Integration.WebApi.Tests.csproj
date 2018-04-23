@@ -44,11 +44,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac, Version=4.7.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Autofac.4.7.0\lib\net45\Autofac.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.2.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
@@ -58,6 +60,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Configuration.ConfigurationManager.4.4.1\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.4\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -84,6 +90,7 @@
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Net.Http">
     </Reference>
+    <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
@@ -112,25 +119,29 @@
     <Content Include="Scripts\_references.js" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\SD.IOC.Integration.WebApi\SD.IOC.Integration.WebApi.csproj">
-      <Project>{0f47a784-7b75-4b2e-8f61-7b150c62c159}</Project>
-      <Name>SD.IOC.Integration.WebApi</Name>
-    </ProjectReference>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\standard\SD.IOC.Core\SD.IOC.Core.csproj">
       <Project>{e91f76c2-6d78-49d9-9b79-4468c8c4cf43}</Project>
       <Name>SD.IOC.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\standard\SD.IOC.Extension.NetFx\SD.IOC.Extension.NetFx.csproj">
+      <Project>{55996aa7-9261-4c05-92ca-1cad926f9d3a}</Project>
+      <Name>SD.IOC.Extension.NetFx</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\standard\SD.IOC.Integration.WebApi\SD.IOC.Integration.WebApi.csproj">
+      <Project>{0f47a784-7b75-4b2e-8f61-7b150c62c159}</Project>
+      <Name>SD.IOC.Integration.WebApi</Name>
     </ProjectReference>
     <ProjectReference Include="..\SD.IOC.StubImplement\SD.IOC.StubImplement.csproj">
       <Project>{b8698d54-2a18-45c3-a390-f1885e56f5a0}</Project>
       <Name>SD.IOC.StubImplement</Name>
     </ProjectReference>
     <ProjectReference Include="..\SD.IOC.StubInterface\SD.IOC.StubInterface.csproj">
-      <Project>{04BFA4D7-86C8-4341-B34C-3F1D88D19827}</Project>
+      <Project>{04bfa4d7-86c8-4341-b34c-3f1d88d19827}</Project>
       <Name>SD.IOC.StubInterface</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using SD.IOC.Core;
 using SD.IOC.Core.Configurations;
 using System;
 using System.Collections.Generic;

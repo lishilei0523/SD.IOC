@@ -1,5 +1,5 @@
 ﻿using System.Configuration;
-using System.ServiceModel.Toolkits.Configurations;
+using System.ServiceModel.Extensions.Configurations;
 
 // ReSharper disable once CheckNamespace
 namespace System.ServiceModel

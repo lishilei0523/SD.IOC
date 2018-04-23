@@ -1,10 +1,10 @@
 ﻿// ReSharper disable once CheckNamespace
-namespace System.ServiceModel.Toolkits
+namespace System.ServiceModel.Extensions
 {
     /// <summary>
     /// WCF扩展工具类
     /// </summary>
-    public static class Extension
+    internal static class Extensions
     {
         /// <summary>
         /// 关闭信道扩展方法

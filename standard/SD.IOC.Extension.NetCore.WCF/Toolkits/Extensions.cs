@@ -1,12 +1,10 @@
-﻿using System;
-using System.ServiceModel;
-
-namespace SD.IOC.Extension.NetFx.WcfTools
+﻿// ReSharper disable once CheckNamespace
+namespace System.ServiceModel.Extensions
 {
     /// <summary>
     /// WCF扩展工具类
     /// </summary>
-    internal static class WcfExtension
+    public static class Extensions
     {
         /// <summary>
         /// 关闭信道扩展方法

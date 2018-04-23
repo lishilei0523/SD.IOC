@@ -1,6 +1,7 @@
 ﻿using System.Configuration;
 
-namespace System.ServiceModel.Toolkits.Configurations
+// ReSharper disable once CheckNamespace
+namespace System.ServiceModel.Extensions.Configurations
 {
     /// <summary>
     /// 终节点集合

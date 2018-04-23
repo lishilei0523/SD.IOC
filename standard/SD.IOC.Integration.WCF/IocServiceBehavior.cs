@@ -23,9 +23,12 @@ namespace SD.IOC.Integration.WCF
         public void ApplyDispatchBehavior(ServiceDescription serviceDescription, ServiceHostBase serviceHostBase)
         {
             //初始化容器
-            IServiceCollection builder = ResolveMediator.GetServiceCollection();
-            builder.RegisterConfigs();
-            ResolveMediator.Build();
+            if (!ResolveMediator.ContainerBuilt)
+            {
+                IServiceCollection builder = ResolveMediator.GetServiceCollection();
+                builder.RegisterConfigs();
+                ResolveMediator.Build();
+            }
 
             foreach (ChannelDispatcherBase channelDispatcherBase in serviceHostBase.ChannelDispatchers)
             {

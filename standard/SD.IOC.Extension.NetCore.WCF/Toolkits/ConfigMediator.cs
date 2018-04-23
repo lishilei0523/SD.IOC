@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.ServiceModel.Toolkits.Configurations;
+using System.ServiceModel.Extensions.Configurations;
 
-namespace System.ServiceModel.Toolkits.Toolkits
+// ReSharper disable once CheckNamespace
+namespace System.ServiceModel.Extensions
 {
     /// <summary>
     /// 配置中介者

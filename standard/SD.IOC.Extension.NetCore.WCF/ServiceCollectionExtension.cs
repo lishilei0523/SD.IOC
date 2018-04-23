@@ -1,10 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using SD.IOC.Core;
 using SD.IOC.Core.Configurations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.ServiceModel.Toolkits;
+using System.ServiceModel.Extensions;
 
 namespace SD.IOC.Extension.NetCore.WCF
 {
