@@ -54,7 +54,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SD.IOC.Extension.NetCore.Te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SD.IOC.Extension.NetCore.ServiceModel.Tests", "tests\SD.IOC.Extension.NetCore.ServiceModel.Tests\SD.IOC.Extension.NetCore.ServiceModel.Tests.csproj", "{039DACAD-246D-4E8B-B474-E8AF45DE7D54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.Integration.AspNetCore.Tests", "tests\SD.IOC.Integration.AspNetCore.Tests\SD.IOC.Integration.AspNetCore.Tests.csproj", "{730D167A-585D-4193-A28B-C77088BB98B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SD.IOC.Integration.AspNetCore.Tests", "tests\SD.IOC.Integration.AspNetCore.Tests\SD.IOC.Integration.AspNetCore.Tests.csproj", "{730D167A-585D-4193-A28B-C77088BB98B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
