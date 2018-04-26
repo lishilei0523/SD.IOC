@@ -1,4 +1,7 @@
-﻿using System.Collections.ObjectModel;
+﻿using Microsoft.Extensions.DependencyInjection;
+using SD.IOC.Core.Mediators;
+using SD.IOC.Extension.NetFx;
+using System.Collections.ObjectModel;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
@@ -19,6 +22,14 @@ namespace SD.IOC.Integration.WCF
         /// <param name="serviceHostBase">服务主机</param>
         public void ApplyDispatchBehavior(ServiceDescription serviceDescription, ServiceHostBase serviceHostBase)
         {
+            //初始化容器
+            if (!ResolveMediator.ContainerBuilt)
+            {
+                IServiceCollection builder = ResolveMediator.GetServiceCollection();
+                builder.RegisterConfigs();
+                ResolveMediator.Build();
+            }
+
             foreach (ChannelDispatcherBase channelDispatcherBase in serviceHostBase.ChannelDispatchers)
             {
                 ChannelDispatcher dispatcher = (ChannelDispatcher)channelDispatcherBase;

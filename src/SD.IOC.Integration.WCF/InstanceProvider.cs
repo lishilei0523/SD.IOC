@@ -1,4 +1,4 @@
-﻿using SD.IOC.Core.Mediator;
+﻿using SD.IOC.Core.Mediators;
 using System;
 using System.ServiceModel;
 using System.ServiceModel.Channels;

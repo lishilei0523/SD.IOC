@@ -1,6 +1,0 @@
-﻿<configuration>
-  <configSections>
-    <!--依赖注入注册配置节点-->
-    <section name="injectionRegisterConfiguration" type="SD.IOC.Core.InjectionRegisterConfiguration, SD.IOC.Core"/>
-  </configSections>
-</configuration>

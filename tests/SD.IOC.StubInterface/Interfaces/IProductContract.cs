@@ -1,5 +1,4 @@
-﻿using System;
-using System.ServiceModel;
+﻿using System.ServiceModel;
 
 namespace SD.IOC.StubInterface.Interfaces
 {
@@ -7,7 +6,7 @@ namespace SD.IOC.StubInterface.Interfaces
     /// 商品管理接口
     /// </summary>
     [ServiceContract]
-    public interface IProductContract : IDisposable
+    public interface IProductContract
     {
         /// <summary>
         /// 获取商品集

@@ -1,16 +1,6 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// 有关程序集的一般信息由以下
-// 控制。更改这些特性值可修改
-// 与程序集关联的信息。
-[assembly: AssemblyTitle("SD.IOC.Core")]
-[assembly: AssemblyDescription("依赖注入基础")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SD.IOC.Core")]
-[assembly: AssemblyCopyright("Copyright © SD 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,20 +10,4 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("891d9124-0462-4841-b1f6-8fff2fd0b7be")]
-
-// 程序集的版本信息由下列四个值组成: 
-//
-//      主版本
-//      次版本
-//      生成号
-//      修订号
-//
-//可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值，
-// 方法是按如下所示使用“*”: :
-[assembly: AssemblyVersion("1.0.1")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
-
-
-
-[assembly: InternalsVisibleTo("SD.IOC.Integration.WCF")]
+[assembly: Guid("320e58af-2aa0-4f65-98a5-b2f1e53f41c9")]

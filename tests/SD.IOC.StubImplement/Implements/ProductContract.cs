@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using SD.IOC.StubInterface.Interfaces;
+﻿using SD.IOC.StubInterface.Interfaces;
 
 namespace SD.IOC.StubImplement.Implements
 {
@@ -15,11 +14,6 @@ namespace SD.IOC.StubImplement.Implements
         public string GetProducts()
         {
             return "Hello World";
-        }
-
-        public void Dispose()
-        {
-            Trace.WriteLine("释放资源");
         }
     }
 }

@@ -1,3 +1,6 @@
+using Microsoft.Extensions.DependencyInjection;
+using SD.IOC.Core.Mediators;
+using SD.IOC.Extension.NetFx;
 using System;
 using System.Web;
 using System.Web.Mvc;
@@ -19,6 +22,9 @@ namespace SD.IOC.Integration.MVC
         /// </summary>
         public RequestLifetimeHttpModule()
         {
+            //初始化容器
+            this.InitContainer();
+
             this._dependencyResolver = new MvcDependencyResolver();
         }
 
@@ -30,11 +36,25 @@ namespace SD.IOC.Integration.MVC
         {
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
 
             DependencyResolver.SetResolver(this._dependencyResolver);
             context.EndRequest += this.OnEndRequest;
+        }
+
+
+        /// <summary>
+        /// 初始化容器
+        /// </summary>
+        private void InitContainer()
+        {
+            if (!ResolveMediator.ContainerBuilt)
+            {
+                IServiceCollection builder = ResolveMediator.GetServiceCollection();
+                builder.RegisterConfigs();
+                ResolveMediator.Build();
+            }
         }
 
         /// <summary>

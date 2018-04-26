@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SD.IOC.Core.Tests</RootNamespace>
     <AssemblyName>SD.IOC.Core.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -16,6 +16,7 @@
     <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,8 +36,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.2.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -52,15 +58,14 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestIOC.cs" />
-    <Compile Include="TestWCF.cs" />
+    <Compile Include="ResolveTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\SD.IOC.Core\SD.IOC.Core.csproj">
-      <Project>{891d9124-0462-4841-b1f6-8fff2fd0b7be}</Project>
+      <Project>{e91f76c2-6d78-49d9-9b79-4468c8c4cf43}</Project>
       <Name>SD.IOC.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\SD.IOC.StubImplement\SD.IOC.StubImplement.csproj">
@@ -70,10 +75,6 @@
     <ProjectReference Include="..\SD.IOC.StubInterface\SD.IOC.StubInterface.csproj">
       <Project>{04BFA4D7-86C8-4341-B34C-3F1D88D19827}</Project>
       <Name>SD.IOC.StubInterface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\src\SD.IOC.UnityProvider\SD.IOC.UnityProvider.csproj">
-      <Project>{b97b2940-b1af-412e-8c6b-25ba148324be}</Project>
-      <Name>SD.IOC.UnityProvider</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
