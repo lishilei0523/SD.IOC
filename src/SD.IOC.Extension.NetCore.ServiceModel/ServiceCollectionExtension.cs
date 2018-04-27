@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.ServiceModel.Extensions;
+using System.ServiceModel.NetCore.Toolkits;
 
 namespace SD.IOC.Extension.NetCore.ServiceModel
 {
