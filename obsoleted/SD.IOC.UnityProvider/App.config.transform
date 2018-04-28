@@ -1,4 +1,0 @@
-﻿<configuration>
-  <!--依赖注入提供者配置，Unity-->
-  <injectionProviderConfiguration type="SD.IOC.UnityProvider.Provider.UnityInstanceResolver" assembly="SD.IOC.UnityProvider"/>
-</configuration>
