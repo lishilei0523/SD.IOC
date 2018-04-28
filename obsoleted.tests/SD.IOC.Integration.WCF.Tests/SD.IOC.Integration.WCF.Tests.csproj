@@ -78,7 +78,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\SD.IOC.Integration.WCF\SD.IOC.Integration.WCF.csproj">
+    <ProjectReference Include="..\..\obsoleted\SD.IOC.Core\SD.IOC.Core.csproj">
+      <Project>{891d9124-0462-4841-b1f6-8fff2fd0b7be}</Project>
+      <Name>SD.IOC.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\obsoleted\SD.IOC.Integration.WCF\SD.IOC.Integration.WCF.csproj">
       <Project>{6df15f4a-2ce8-468c-a659-49650c4c01c7}</Project>
       <Name>SD.IOC.Integration.WCF</Name>
     </ProjectReference>
@@ -87,7 +91,7 @@
       <Name>SD.IOC.StubImplement</Name>
     </ProjectReference>
     <ProjectReference Include="..\SD.IOC.StubInterface\SD.IOC.StubInterface.csproj">
-      <Project>{04BFA4D7-86C8-4341-B34C-3F1D88D19827}</Project>
+      <Project>{04bfa4d7-86c8-4341-b34c-3f1d88d19827}</Project>
       <Name>SD.IOC.StubInterface</Name>
     </ProjectReference>
   </ItemGroup>
@@ -102,7 +106,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>22828</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
@@ -116,18 +120,4 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
-  </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

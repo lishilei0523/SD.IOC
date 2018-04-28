@@ -74,7 +74,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\SD.IOC.Core\SD.IOC.Core.csproj">
+    <ProjectReference Include="..\..\obsoleted\SD.IOC.Core\SD.IOC.Core.csproj">
       <Project>{891d9124-0462-4841-b1f6-8fff2fd0b7be}</Project>
       <Name>SD.IOC.Core</Name>
     </ProjectReference>
@@ -83,7 +83,6 @@
       <Name>SD.IOC.StubInterface</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -95,7 +94,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>3312</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
