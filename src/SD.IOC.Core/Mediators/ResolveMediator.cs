@@ -219,6 +219,7 @@ namespace SD.IOC.Core.Mediators
             if (_ServiceScope.Value != null)
             {
                 _ServiceScope.Value.Dispose();
+                _ServiceScope.Value = null;
             }
         }
         #endregion
