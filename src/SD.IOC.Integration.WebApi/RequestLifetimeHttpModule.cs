@@ -12,8 +12,6 @@ namespace SD.IOC.Integration.WebApi
     /// </summary>
     internal class RequestLifetimeHttpModule : IHttpModule
     {
-
-
         /// <summary>
         /// Initializes a module and prepares it to handle requests.
         /// </summary>

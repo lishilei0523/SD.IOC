@@ -1,7 +1,4 @@
-﻿using System;
-using System.ServiceModel;
-
-// ReSharper disable once CheckNamespace
+﻿// ReSharper disable once CheckNamespace
 namespace System.ServiceModel.Extensions
 {
     /// <summary>

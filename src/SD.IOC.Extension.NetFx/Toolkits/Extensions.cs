@@ -12,36 +12,32 @@ namespace System.ServiceModel.Extensions
         /// <param name="channel">信道实例</param>
         public static void CloseChannel(this object channel)
         {
-            ICommunicationObject communicationObject = channel as ICommunicationObject;
-
-            if (communicationObject == null)
+            if (channel is ICommunicationObject communicationObject)
             {
-                return;
-            }
-
-            try
-            {
-                if (communicationObject.State == CommunicationState.Faulted)
+                try
+                {
+                    if (communicationObject.State == CommunicationState.Faulted)
+                    {
+                        communicationObject.Abort();
+                    }
+                    else
+                    {
+                        communicationObject.Close();
+                    }
+                }
+                catch (TimeoutException)
                 {
                     communicationObject.Abort();
                 }
-                else
+                catch (CommunicationException)
                 {
-                    communicationObject.Close();
+                    communicationObject.Abort();
                 }
-            }
-            catch (TimeoutException)
-            {
-                communicationObject.Abort();
-            }
-            catch (CommunicationException)
-            {
-                communicationObject.Abort();
-            }
-            catch (Exception)
-            {
-                communicationObject.Abort();
-                throw;
+                catch (Exception)
+                {
+                    communicationObject.Abort();
+                    throw;
+                }
             }
         }
     }

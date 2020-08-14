@@ -113,14 +113,17 @@ namespace SD.IOC.Core.Mediators
         /// <returns>范围容器</returns>
         private static IServiceScope GetServiceScope()
         {
-            IServiceProvider serviceProvider = GetServiceProvider();
-
-            if (_ServiceScope.Value == null)
+            lock (_Sync)
             {
-                _ServiceScope.Value = serviceProvider.CreateScope();
-            }
+                IServiceProvider serviceProvider = GetServiceProvider();
 
-            return _ServiceScope.Value;
+                if (_ServiceScope.Value == null)
+                {
+                    _ServiceScope.Value = serviceProvider.CreateScope();
+                }
+
+                return _ServiceScope.Value;
+            }
         }
         #endregion
 
@@ -216,10 +219,13 @@ namespace SD.IOC.Core.Mediators
         /// </summary>
         public static void Dispose()
         {
-            if (_ServiceScope.Value != null)
+            lock (_Sync)
             {
-                _ServiceScope.Value.Dispose();
-                _ServiceScope.Value = null;
+                if (_ServiceScope.Value != null)
+                {
+                    _ServiceScope.Value.Dispose();
+                    _ServiceScope.Value = null;
+                }
             }
         }
         #endregion

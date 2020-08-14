@@ -33,9 +33,6 @@
     <DocumentationFile>bin\Release\SD.IOC.Integration.WCF.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.2.2.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
     </Reference>
@@ -51,9 +48,9 @@
     <Compile Include="InstanceProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SD.IOC.Core\SD.IOC.Core.csproj">
-      <Project>{891d9124-0462-4841-b1f6-8fff2fd0b7be}</Project>
-      <Name>SD.IOC.Core</Name>
+    <ProjectReference Include="..\SD.IOC.Core.NET461\SD.IOC.Core.NET461.csproj">
+      <Project>{48b6afc9-afce-485e-b795-4b44b113c1e3}</Project>
+      <Name>SD.IOC.Core.NET461</Name>
     </ProjectReference>
     <ProjectReference Include="..\SD.IOC.Extension.NetFx\SD.IOC.Extension.NetFx.csproj">
       <Project>{55996aa7-9261-4c05-92ca-1cad926f9d3a}</Project>

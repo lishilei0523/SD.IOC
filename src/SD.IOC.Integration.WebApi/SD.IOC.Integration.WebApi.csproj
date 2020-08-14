@@ -35,9 +35,6 @@
     <DocumentationFile>bin\Release\SD.IOC.Integration.WebApi.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.2.2.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
     </Reference>
@@ -74,9 +71,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SD.IOC.Core\SD.IOC.Core.csproj">
-      <Project>{e91f76c2-6d78-49d9-9b79-4468c8c4cf43}</Project>
-      <Name>SD.IOC.Core</Name>
+    <ProjectReference Include="..\SD.IOC.Core.NET461\SD.IOC.Core.NET461.csproj">
+      <Project>{48b6afc9-afce-485e-b795-4b44b113c1e3}</Project>
+      <Name>SD.IOC.Core.NET461</Name>
     </ProjectReference>
     <ProjectReference Include="..\SD.IOC.Extension.NetFx\SD.IOC.Extension.NetFx.csproj">
       <Project>{55996aa7-9261-4c05-92ca-1cad926f9d3a}</Project>

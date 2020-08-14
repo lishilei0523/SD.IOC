@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ServiceModel;
+﻿using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
 namespace System.ServiceModel.Extensions
@@ -32,9 +30,9 @@ namespace System.ServiceModel.Extensions
         /// </summary>
         static ChannelFactoryManager()
         {
-            ChannelFactoryManager._Factories = new Dictionary<Type, ChannelFactory>();
-            ChannelFactoryManager._Current = new ChannelFactoryManager();
-            ChannelFactoryManager._Sync = new object();
+            _Factories = new Dictionary<Type, ChannelFactory>();
+            _Current = new ChannelFactoryManager();
+            _Sync = new object();
         }
 
         /// <summary>
@@ -62,24 +60,22 @@ namespace System.ServiceModel.Extensions
         /// <returns>给定服务契约类型的ChannelFactory实例</returns>
         public ChannelFactory<T> GetFactory<T>()
         {
-            lock (ChannelFactoryManager._Sync)
+            lock (_Sync)
             {
                 ChannelFactory factory = null;
                 try
                 {
-                    if (!ChannelFactoryManager._Factories.TryGetValue(typeof(T), out factory))
+                    if (!_Factories.TryGetValue(typeof(T), out factory))
                     {
                         factory = new ChannelFactory<T>(typeof(T).FullName);
-                        ChannelFactoryManager._Factories.Add(typeof(T), factory);
+                        _Factories.Add(typeof(T), factory);
                     }
+
                     return factory as ChannelFactory<T>;
                 }
                 catch
                 {
-                    if (factory != null)
-                    {
-                        factory.CloseChannel();
-                    }
+                    factory?.CloseChannel();
                     throw;
                 }
 
@@ -93,17 +89,14 @@ namespace System.ServiceModel.Extensions
         /// </summary>
         public void Dispose()
         {
-            lock (ChannelFactoryManager._Sync)
+            lock (_Sync)
             {
-                foreach (Type type in ChannelFactoryManager._Factories.Keys)
+                foreach (Type type in _Factories.Keys)
                 {
-                    ChannelFactory factory = ChannelFactoryManager._Factories[type];
-                    if (factory != null)
-                    {
-                        factory.CloseChannel();
-                    }
+                    ChannelFactory factory = _Factories[type];
+                    factory?.CloseChannel();
                 }
-                ChannelFactoryManager._Factories.Clear();
+                _Factories.Clear();
             }
         }
         #endregion
