@@ -1,16 +1,25 @@
-﻿using System;
+﻿using Topshelf;
 
 namespace SD.IOC.Integration.WebApi.SelfHost.Tests
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            using (Microsoft.Owin.Hosting.WebApp.Start<Startup>("http://localhost:33101"))
+            HostFactory.Run(config =>
             {
-                Console.WriteLine("Press [enter] to quit...");
-                Console.ReadLine();
-            }
+                config.Service<ServiceLauncher>(host =>
+                {
+                    host.ConstructUsing(name => new ServiceLauncher());
+                    host.WhenStarted(launcher => launcher.Start());
+                    host.WhenStopped(launcher => launcher.Stop());
+                });
+                config.RunAsLocalSystem();
+
+                config.SetServiceName("ASP.NET WebApi SelfHost");
+                config.SetDisplayName("ASP.NET WebApi SelfHost");
+                config.SetDescription("ASP.NET WebApi SelfHost");
+            });
         }
     }
 }

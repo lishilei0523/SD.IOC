@@ -12,10 +12,10 @@ namespace SD.IOC.Integration.WebApi.SelfHost.Tests
         /// 配置应用程序
         /// </summary>
         /// <param name="appBuilder">应用程序建造者</param>
-        /// <param name="config">Http配置</param>
-        protected override void Configuration(IAppBuilder appBuilder, HttpConfiguration config)
+        /// <param name="httpConfiguration">Http配置</param>
+        protected override void Configuration(IAppBuilder appBuilder, HttpConfiguration httpConfiguration)
         {
-            config.Routes.MapHttpRoute(
+            httpConfiguration.Routes.MapHttpRoute(
                 "DefaultApi",
                 "{controller}/{action}/{id}",
                 new { id = RouteParameter.Optional }
