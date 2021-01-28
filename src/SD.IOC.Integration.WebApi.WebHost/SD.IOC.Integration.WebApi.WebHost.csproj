@@ -29,15 +29,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\SD.IOC.Integration.WebApi.WebHost.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>E:\Packages\nuget\cache\microsoft.aspnet.webapi.webhost\5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PreAppStart.cs" />
@@ -61,9 +58,6 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.WebHost">
       <Version>5.2.7</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
-      <Version>3.1.7</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Web.Infrastructure">
       <Version>1.0.0</Version>

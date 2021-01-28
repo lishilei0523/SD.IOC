@@ -29,6 +29,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\SD.IOC.Integration.WebApi.SelfHost.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -53,9 +54,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNet.WebApi.Core">
-      <Version>5.2.7</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.AspNet.WebApi.OwinSelfHost">
       <Version>5.2.7</Version>
     </PackageReference>
