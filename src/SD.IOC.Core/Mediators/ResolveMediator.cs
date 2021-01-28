@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Threading;
 
 namespace SD.IOC.Core.Mediators
@@ -116,10 +117,20 @@ namespace SD.IOC.Core.Mediators
             lock (_Sync)
             {
                 IServiceProvider serviceProvider = GetServiceProvider();
+                IServiceScope serviceScope = _ServiceScope.Value;
 
-                if (_ServiceScope.Value == null)
+                if (serviceScope == null)
                 {
                     _ServiceScope.Value = serviceProvider.CreateScope();
+                }
+                else
+                {
+                    FieldInfo fieldInfo = serviceScope.GetType().GetField("_disposed", BindingFlags.NonPublic | BindingFlags.Instance);
+                    bool disposed = (bool)fieldInfo.GetValue(serviceScope);
+                    if (disposed)
+                    {
+                        _ServiceScope.Value = serviceProvider.CreateScope();
+                    }
                 }
 
                 return _ServiceScope.Value;

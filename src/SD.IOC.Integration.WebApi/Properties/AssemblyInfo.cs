@@ -1,7 +1,5 @@
-﻿using SD.IOC.Integration.WebApi;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Web;
 
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
@@ -11,7 +9,7 @@ using System.Web;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SD")]
 [assembly: AssemblyProduct("SD.IOC.Integration.WebApi")]
-[assembly: AssemblyCopyright("Copyright © SD 2017")]
+[assembly: AssemblyCopyright("Copyright © SD 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -35,6 +33,3 @@ using System.Web;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("2.0.0")]
 [assembly: AssemblyFileVersion("2.0.0.0")]
-
-//注射至WebApi应用程序
-[assembly: PreApplicationStartMethod(typeof(PreAppStart), "InitInjection")]

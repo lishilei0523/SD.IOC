@@ -1,7 +1,7 @@
-﻿using System.ComponentModel;
-using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+﻿using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+using System.ComponentModel;
 
-namespace SD.IOC.Integration.WebApi
+namespace SD.IOC.Integration.WebApi.WebHost
 {
     /// <summary>
     /// WebApi应用程序依赖注入

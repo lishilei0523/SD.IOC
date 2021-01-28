@@ -5,7 +5,7 @@ using System;
 using System.Web;
 using System.Web.Http;
 
-namespace SD.IOC.Integration.WebApi
+namespace SD.IOC.Integration.WebApi.WebHost
 {
     /// <summary>
     /// “¿¿µ◊¢»ÎHttpModule

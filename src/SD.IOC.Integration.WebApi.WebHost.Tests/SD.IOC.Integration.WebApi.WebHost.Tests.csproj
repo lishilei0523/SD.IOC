@@ -12,7 +12,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SD.IOC.Integration.WebApi.Tests</RootNamespace>
-    <AssemblyName>SD.IOC.Integration.WebApi.Tests</AssemblyName>
+    <AssemblyName>SD.IOC.Integration.WebApi.WebHost.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -147,6 +147,10 @@
     <ProjectReference Include="..\..\src\SD.IOC.Integration.WebApi\SD.IOC.Integration.WebApi.csproj">
       <Project>{0f47a784-7b75-4b2e-8f61-7b150c62c159}</Project>
       <Name>SD.IOC.Integration.WebApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SD.IOC.Integration.WebApi.WebHost\SD.IOC.Integration.WebApi.WebHost.csproj">
+      <Project>{9b0f9898-eaeb-4641-866d-4ecece94f6f0}</Project>
+      <Name>SD.IOC.Integration.WebApi.WebHost</Name>
     </ProjectReference>
     <ProjectReference Include="..\SD.IOC.StubInterface\SD.IOC.StubInterface.csproj">
       <Project>{04bfa4d7-86c8-4341-b34c-3f1d88d19827}</Project>
