@@ -1,4 +1,6 @@
 ﻿using Microsoft.Owin.Hosting;
+using SD.Toolkits.WebApi;
+using SD.Toolkits.WebApi.Configurations;
 using System;
 
 namespace SD.IOC.Integration.WebApi.SelfHost.Tests
@@ -16,7 +18,10 @@ namespace SD.IOC.Integration.WebApi.SelfHost.Tests
         public void Start()
         {
             StartOptions startOptions = new StartOptions();
-            startOptions.Urls.Add("http://localhost:33101");
+            foreach (HostElement host in WebApiSection.Setting.HostElement)
+            {
+                startOptions.Urls.Add(host.Url);
+            }
 
             //开启服务
             this._webApp = WebApp.Start<Startup>(startOptions);
