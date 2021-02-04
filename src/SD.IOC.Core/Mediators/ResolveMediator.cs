@@ -116,25 +116,41 @@ namespace SD.IOC.Core.Mediators
         {
             lock (_Sync)
             {
-                IServiceProvider serviceProvider = GetServiceProvider();
-                IServiceScope serviceScope = _ServiceScope.Value;
-
-                if (serviceScope == null)
+                if (_ServiceScope.Value.Disposed())
                 {
+                    IServiceProvider serviceProvider = GetServiceProvider();
                     _ServiceScope.Value = serviceProvider.CreateScope();
-                }
-                else
-                {
-                    FieldInfo fieldInfo = serviceScope.GetType().GetField("_disposed", BindingFlags.NonPublic | BindingFlags.Instance);
-                    bool disposed = (bool)fieldInfo.GetValue(serviceScope);
-                    if (disposed)
-                    {
-                        _ServiceScope.Value = serviceProvider.CreateScope();
-                    }
                 }
 
                 return _ServiceScope.Value;
             }
+        }
+        #endregion
+
+        #region # 范围容器是否已被释放 —— static bool Disposed(this IServiceScope serviceScope)
+        /// <summary>
+        /// 范围容器是否已被释放
+        /// </summary>
+        /// <param name="serviceScope">范围容器</param>
+        /// <returns>是否已被释放</returns>
+        public static bool Disposed(this IServiceScope serviceScope)
+        {
+            #region # 验证
+
+            if (serviceScope == null)
+            {
+                return true;
+            }
+
+            #endregion
+
+            const string fieldName = "_disposed";
+            Type type = serviceScope.GetType();
+            FieldInfo field = type.GetField(fieldName, BindingFlags.NonPublic | BindingFlags.Instance);
+            object value = field.GetValue(serviceScope);
+            bool disposed = (bool)value;
+
+            return disposed;
         }
         #endregion
 
