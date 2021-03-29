@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 
 namespace SD.IOC.Integration.AspNetCore.Tests
 {
@@ -7,12 +7,20 @@ namespace SD.IOC.Integration.AspNetCore.Tests
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
-        }
+            IHostBuilder hostBuilder = Host.CreateDefaultBuilder();
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build();
+            //WebHost配置
+            hostBuilder.ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.ConfigureKestrel(options => options.ListenLocalhost(6345));
+                webBuilder.UseStartup<Startup>();
+            });
+
+            //依赖注入配置
+            hostBuilder.UseServiceProviderFactory(new ServiceProviderFactory());
+
+            IHost host = hostBuilder.Build();
+            host.Run();
+        }
     }
 }

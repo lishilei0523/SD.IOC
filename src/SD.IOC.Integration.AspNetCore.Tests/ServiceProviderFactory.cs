@@ -1,8 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SD.IOC.Core.Mediators;
+using SD.IOC.Extension.NetCore;
+using SD.IOC.Extension.NetCore.ServiceModel;
 using System;
 
-namespace SD.IOC.Extension.NetCore
+namespace SD.IOC.Integration.AspNetCore.Tests
 {
     /// <summary>
     /// 服务提供者工厂
@@ -23,6 +25,7 @@ namespace SD.IOC.Extension.NetCore
             }
 
             builder.RegisterConfigs();
+            builder.RegisterServiceModels();
             ResolveMediator.Build();
 
             return builder;

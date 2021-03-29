@@ -3,6 +3,8 @@ using SD.IOC.Integration.AspNetCore.Tests.Interfaces;
 
 namespace SD.IOC.Integration.AspNetCore.Tests.Controllers
 {
+    [ApiController]
+    [Route("Api/[controller]")]
     public class HomeController : Controller
     {
         private readonly IProductPresenter _productPresenter;
@@ -12,12 +14,19 @@ namespace SD.IOC.Integration.AspNetCore.Tests.Controllers
             this._productPresenter = productPresenter;
         }
 
-        public IActionResult Index()
+        [Route("[action]")]
+        public dynamic Index()
         {
-            string products = this._productPresenter.GetProducts();
-            base.ViewBag.Products = products;
+            string productsStr = this._productPresenter.GetProducts();
 
-            return base.View();
+            var product = new
+            {
+                Number = "001",
+                Name = productsStr
+            };
+
+
+            return product;
         }
     }
 }
