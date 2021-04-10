@@ -1,31 +1,25 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace SD.IOC.Integration.AspNetCore.Tests
 {
     public class Startup
     {
-        private readonly IConfiguration _configuration;
-
-        public Startup(IConfiguration configuration)
-        {
-            this._configuration = configuration;
-        }
-
+        /// <summary>
+        /// 配置服务
+        /// </summary>
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
         }
 
-        public void Configure(IApplicationBuilder app)
+        /// <summary>
+        /// 配置应用程序
+        /// </summary>
+        public void Configure(IApplicationBuilder appBuilder)
         {
-            app.UseDeveloperExceptionPage();
-            app.UseRouting();
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            appBuilder.UseRouting();
+            appBuilder.UseEndpoints(routeBuilder => routeBuilder.MapControllers());
         }
     }
 }

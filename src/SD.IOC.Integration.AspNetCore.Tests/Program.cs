@@ -17,7 +17,7 @@ namespace SD.IOC.Integration.AspNetCore.Tests
             });
 
             //依赖注入配置
-            hostBuilder.UseServiceProviderFactory(new ServiceProviderFactory());
+            hostBuilder.UseServiceProviderFactory(new ServiceLocator());
 
             IHost host = hostBuilder.Build();
             host.Run();

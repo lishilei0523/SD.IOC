@@ -7,9 +7,9 @@ using System;
 namespace SD.IOC.Integration.AspNetCore.Tests
 {
     /// <summary>
-    /// 服务提供者工厂
+    /// 服务定位者
     /// </summary>
-    public class ServiceProviderFactory : IServiceProviderFactory<IServiceCollection>
+    public class ServiceLocator : IServiceProviderFactory<IServiceCollection>
     {
         #region # 创建服务建造者 —— IServiceCollection CreateBuilder(IServiceCollection services)
         /// <summary>
