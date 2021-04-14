@@ -7,7 +7,19 @@ namespace SD.IOC.Integration.WebApi.Tests
     {
         protected void Application_Start()
         {
-            WebApiConfig.Register(GlobalConfiguration.Configuration);
+            Register(GlobalConfiguration.Configuration);
+        }
+
+        public static void Register(HttpConfiguration httpConfiguration)
+        {
+            httpConfiguration.Formatters.Remove(httpConfiguration.Formatters.XmlFormatter);
+
+            //httpConfiguration.MapHttpAttributeRoutes();
+            httpConfiguration.Routes.MapHttpRoute(
+                "DefaultApi",
+                "{controller}/{action}/{id}",
+                new { id = RouteParameter.Optional }
+            );
         }
     }
 }

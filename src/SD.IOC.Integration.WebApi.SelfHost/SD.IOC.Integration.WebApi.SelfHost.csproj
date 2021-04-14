@@ -44,10 +44,6 @@
       <Project>{48b6afc9-afce-485e-b795-4b44b113c1e3}</Project>
       <Name>SD.IOC.Core.NET461</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SD.IOC.Extension.NetFx\SD.IOC.Extension.NetFx.csproj">
-      <Project>{55996aa7-9261-4c05-92ca-1cad926f9d3a}</Project>
-      <Name>SD.IOC.Extension.NetFx</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SD.IOC.Integration.WebApi\SD.IOC.Integration.WebApi.csproj">
       <Project>{0f47a784-7b75-4b2e-8f61-7b150c62c159}</Project>
       <Name>SD.IOC.Integration.WebApi</Name>

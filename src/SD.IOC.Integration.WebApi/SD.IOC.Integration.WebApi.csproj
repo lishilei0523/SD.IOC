@@ -39,6 +39,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HttpConfigurationExtension.cs" />
     <Compile Include="WebApiDependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -47,11 +48,16 @@
       <Project>{48b6afc9-afce-485e-b795-4b44b113c1e3}</Project>
       <Name>SD.IOC.Core.NET461</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SD.IOC.Extension.NetFx\SD.IOC.Extension.NetFx.csproj">
+      <Project>{55996aa7-9261-4c05-92ca-1cad926f9d3a}</Project>
+      <Name>SD.IOC.Extension.NetFx</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.Core">
       <Version>5.2.7</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

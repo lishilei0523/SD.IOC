@@ -1,7 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Owin;
-using SD.IOC.Core.Mediators;
-using SD.IOC.Extension.NetFx;
+﻿using Owin;
 using System.Web.Http;
 
 namespace SD.IOC.Integration.WebApi.SelfHost
@@ -17,17 +14,15 @@ namespace SD.IOC.Integration.WebApi.SelfHost
         /// <param name="appBuilder">应用程序建造者</param>
         public void Configuration(IAppBuilder appBuilder)
         {
-            HttpConfiguration config = new HttpConfiguration();
+            HttpConfiguration httpConfiguration = new HttpConfiguration();
+            httpConfiguration.Formatters.Remove(httpConfiguration.Formatters.XmlFormatter);
 
-            config.Formatters.Remove(config.Formatters.XmlFormatter);
+            //注册依赖注入
+            httpConfiguration.RegisterDependencyResolver();
 
-            //初始化容器
-            this.InitContainer();
-            config.DependencyResolver = new WebApiDependencyResolver();
+            this.Configuration(appBuilder, httpConfiguration);
 
-            this.Configuration(appBuilder, config);
-
-            appBuilder.UseWebApi(config);
+            appBuilder.UseWebApi(httpConfiguration);
         }
 
         /// <summary>
@@ -36,18 +31,5 @@ namespace SD.IOC.Integration.WebApi.SelfHost
         /// <param name="appBuilder">应用程序建造者</param>
         /// <param name="httpConfiguration">Http配置</param>
         protected abstract void Configuration(IAppBuilder appBuilder, HttpConfiguration httpConfiguration);
-
-        /// <summary>
-        /// 初始化容器
-        /// </summary>
-        private void InitContainer()
-        {
-            if (!ResolveMediator.ContainerBuilt)
-            {
-                IServiceCollection builder = ResolveMediator.GetServiceCollection();
-                builder.RegisterConfigs();
-                ResolveMediator.Build();
-            }
-        }
     }
 }
