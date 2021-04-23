@@ -6,29 +6,29 @@ using System.Configuration;
 namespace SD.IOC.Core
 {
     /// <summary>
-    /// 依赖注入注册配置
+    /// SD.IOC配置
     /// </summary>
-    public class InjectionRegisterConfiguration : ConfigurationSection
+    public class DependencyInjectionSection : ConfigurationSection
     {
         #region # 字段及构造器
 
         /// <summary>
         /// 单例
         /// </summary>
-        private static readonly InjectionRegisterConfiguration _Setting;
+        private static readonly DependencyInjectionSection _Setting;
 
         /// <summary>
         /// 静态构造器
         /// </summary>
-        static InjectionRegisterConfiguration()
+        static DependencyInjectionSection()
         {
-            _Setting = (InjectionRegisterConfiguration)ConfigurationManager.GetSection("injectionRegisterConfiguration");
+            _Setting = (DependencyInjectionSection)ConfigurationManager.GetSection("sd.ioc");
 
             #region # 非空验证
 
             if (_Setting == null)
             {
-                throw new ApplicationException("依赖注入注册节点未配置，请检查程序！");
+                throw new ApplicationException("SD.IOC节点未配置，请检查程序！");
             }
 
             #endregion
@@ -36,11 +36,11 @@ namespace SD.IOC.Core
 
         #endregion
 
-        #region # 访问器 —— static InjectionRegisterConfiguration Setting
+        #region # 访问器 —— static DependencyInjectionSection Setting
         /// <summary>
         /// 访问器
         /// </summary>
-        public static InjectionRegisterConfiguration Setting
+        public static DependencyInjectionSection Setting
         {
             get { return _Setting; }
         }

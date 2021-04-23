@@ -37,7 +37,7 @@ namespace SD.IOC.Extension.NetCore.ServiceModel
         /// <param name="builder">容器建造者</param>
         private static void RegisterWcfInterfaces(IServiceCollection builder)
         {
-            foreach (AssemblyElement element in InjectionRegisterConfiguration.Setting.WcfInterfaces)
+            foreach (AssemblyElement element in DependencyInjectionSection.Setting.WcfInterfaces)
             {
                 //加载程序集
                 Assembly wcfInterfaceAssembly = Assembly.Load(element.Name);

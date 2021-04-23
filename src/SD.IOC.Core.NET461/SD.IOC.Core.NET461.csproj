@@ -46,8 +46,8 @@
     <Compile Include="..\SD.IOC.Core\Configurations\AssemblyElementCollection.cs">
       <Link>Configurations\AssemblyElementCollection.cs</Link>
     </Compile>
-    <Compile Include="..\SD.IOC.Core\Configurations\InjectionRegisterConfiguration.cs">
-      <Link>Configurations\InjectionRegisterConfiguration.cs</Link>
+    <Compile Include="..\SD.IOC.Core\Configurations\DependencyInjectionSection.cs">
+      <Link>Configurations\DependencyInjectionSection.cs</Link>
     </Compile>
     <Compile Include="..\SD.IOC.Core\Configurations\LifetimeMode.cs">
       <Link>Configurations\LifetimeMode.cs</Link>

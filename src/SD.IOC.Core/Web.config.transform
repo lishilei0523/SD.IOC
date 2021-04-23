@@ -1,6 +1,6 @@
 ﻿<configuration>
   <configSections>
-    <!--依赖注入注册配置节点-->
-    <section name="injectionRegisterConfiguration" type="SD.IOC.Core.InjectionRegisterConfiguration, SD.IOC.Core"/>
+    <!--SD.IOC配置节点-->
+    <section name="sd.ioc" type="SD.IOC.Core.DependencyInjectionSection, SD.IOC.Core" />
   </configSections>
 </configuration>

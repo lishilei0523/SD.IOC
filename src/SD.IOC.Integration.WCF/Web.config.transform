@@ -3,7 +3,7 @@
     <extensions>
       <behaviorExtensions>
         <!--依赖注入扩展配置-->
-        <add name="injection" type="SD.IOC.Integration.WCF.IocServiceBehaviorElement, SD.IOC.Integration.WCF"/>
+        <add name="injection" type="SD.IOC.Integration.WCF.IocServiceBehaviorElement, SD.IOC.Integration.WCF" />
       </behaviorExtensions>
     </extensions>
   </system.serviceModel>

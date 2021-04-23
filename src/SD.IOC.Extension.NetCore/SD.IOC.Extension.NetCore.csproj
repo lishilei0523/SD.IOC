@@ -1,15 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>SD.IOC.Extension.NetCore</AssemblyName>
-    <RootNamespace>SD.IOC.Extension.NetCore</RootNamespace>
     <Authors>Lee</Authors>
     <Company>SD</Company>
     <Description>依赖注入组件 - .NET Core扩展</Description>
-    <Copyright>Copyright © SD 2019</Copyright>
-    <Version>1.0.1</Version>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
+    <Copyright>Copyright © SD 2021</Copyright>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

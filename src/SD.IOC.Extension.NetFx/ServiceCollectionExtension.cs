@@ -43,7 +43,7 @@ namespace SD.IOC.Extension.NetFx
         /// <param name="builder">容器建造者</param>
         private static void RegisterInterfaceAssemblies(this IServiceCollection builder)
         {
-            foreach (AssemblyElement element in InjectionRegisterConfiguration.Setting.AsInterfaceAssemblies)
+            foreach (AssemblyElement element in DependencyInjectionSection.Setting.AsInterfaceAssemblies)
             {
                 Assembly currentAssembly = Assembly.Load(element.Name.Trim());
                 IEnumerable<Type> types = currentAssembly.GetTypes().Where(x => !x.IsAbstract && !x.IsInterface);
@@ -68,7 +68,7 @@ namespace SD.IOC.Extension.NetFx
         /// <param name="builder">容器建造者</param>
         private static void RegisterBaseAssemblies(IServiceCollection builder)
         {
-            foreach (AssemblyElement element in InjectionRegisterConfiguration.Setting.AsBaseAssemblies)
+            foreach (AssemblyElement element in DependencyInjectionSection.Setting.AsBaseAssemblies)
             {
                 Assembly currentAssembly = Assembly.Load(element.Name.Trim());
                 IEnumerable<Type> types = currentAssembly.GetTypes().Where(x => !x.IsAbstract && !x.IsInterface);
@@ -90,7 +90,7 @@ namespace SD.IOC.Extension.NetFx
         /// <param name="builder">容器建造者</param>
         private static void RegisterSelfAssemblies(IServiceCollection builder)
         {
-            foreach (AssemblyElement element in InjectionRegisterConfiguration.Setting.AsSelfAssemblies)
+            foreach (AssemblyElement element in DependencyInjectionSection.Setting.AsSelfAssemblies)
             {
                 Assembly currentAssembly = Assembly.Load(element.Name.Trim());
                 IEnumerable<Type> types = currentAssembly.GetTypes().Where(x => !x.IsAbstract && !x.IsInterface);
@@ -112,7 +112,7 @@ namespace SD.IOC.Extension.NetFx
         /// <param name="builder">容器建造者</param>
         private static void RegisterInterfaceTypes(IServiceCollection builder)
         {
-            foreach (TypeElement element in InjectionRegisterConfiguration.Setting.AsInterfaceTypes)
+            foreach (TypeElement element in DependencyInjectionSection.Setting.AsInterfaceTypes)
             {
                 Assembly currentAssembly = Assembly.Load(element.Assembly.Trim());
                 Type type = currentAssembly.GetType(element.Name.Trim());
@@ -144,7 +144,7 @@ namespace SD.IOC.Extension.NetFx
         /// <param name="builder">容器建造者</param>
         private static void RegisterBaseTypes(IServiceCollection builder)
         {
-            foreach (TypeElement element in InjectionRegisterConfiguration.Setting.AsBaseTypes)
+            foreach (TypeElement element in DependencyInjectionSection.Setting.AsBaseTypes)
             {
                 Assembly currentAssembly = Assembly.Load(element.Assembly.Trim());
                 Type type = currentAssembly.GetType(element.Name.Trim());
@@ -172,7 +172,7 @@ namespace SD.IOC.Extension.NetFx
         /// <param name="builder">容器建造者</param>
         private static void RegisterSelfTypes(IServiceCollection builder)
         {
-            foreach (TypeElement element in InjectionRegisterConfiguration.Setting.AsSelfTypes)
+            foreach (TypeElement element in DependencyInjectionSection.Setting.AsSelfTypes)
             {
                 Assembly currentAssembly = Assembly.Load(element.Assembly.Trim());
                 Type type = currentAssembly.GetType(element.Name.Trim());
@@ -200,7 +200,7 @@ namespace SD.IOC.Extension.NetFx
         /// <param name="builder">容器建造者</param>
         private static void RegisterWcfInterfaces(IServiceCollection builder)
         {
-            foreach (AssemblyElement element in InjectionRegisterConfiguration.Setting.WcfInterfaces)
+            foreach (AssemblyElement element in DependencyInjectionSection.Setting.WcfInterfaces)
             {
                 //加载程序集
                 Assembly wcfInterfaceAssembly = Assembly.Load(element.Name);
