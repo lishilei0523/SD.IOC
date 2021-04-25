@@ -7,7 +7,7 @@ using System.Web;
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("SD.IOC.Integration.MVC")]
-[assembly: AssemblyDescription("依赖注入组件 - 集成ASP.NET MVC 5")]
+[assembly: AssemblyDescription("SD.IOC 依赖注入组件 - 集成ASP.NET MVC")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SD")]
 [assembly: AssemblyProduct("SD.IOC.Integration.MVC")]
@@ -37,4 +37,4 @@ using System.Web;
 [assembly: AssemblyFileVersion("2.0.0.0")]
 
 //注射至MVC应用程序
-[assembly: PreApplicationStartMethod(typeof(PreAppStart), "InitInjection")]
+[assembly: PreApplicationStartMethod(typeof(PreAppStart), nameof(PreAppStart.InitInjection))]

@@ -1,19 +1,21 @@
-﻿using System;
+﻿using SD.IOC.Integration.WCF.Behaviors;
+using System;
 using System.ServiceModel.Configuration;
 
+// ReSharper disable once CheckNamespace
 namespace SD.IOC.Integration.WCF
 {
     /// <summary>
-    /// 依赖注入行为扩展元素
+    /// WCF依赖注入行为扩展元素
     /// </summary>
-    internal class IocServiceBehaviorElement : BehaviorExtensionElement
+    internal class DependencyInjectionBehaviorElement : BehaviorExtensionElement
     {
         /// <summary>
         /// 行为类型
         /// </summary>
         public override Type BehaviorType
         {
-            get { return typeof(IocServiceBehavior); }
+            get { return typeof(DependencyInjectionBehavior); }
         }
 
         /// <summary>
@@ -22,7 +24,7 @@ namespace SD.IOC.Integration.WCF
         /// <returns>行为实例</returns>
         protected override object CreateBehavior()
         {
-            return new IocServiceBehavior();
+            return new DependencyInjectionBehavior();
         }
     }
 }

@@ -39,9 +39,9 @@
   <ItemGroup>
     <Compile Include="ServiceCollectionExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Toolkits\ChannelFactoryManager.cs" />
-    <Compile Include="Toolkits\ServiceProxy.cs" />
-    <Compile Include="Toolkits\Extensions.cs" />
+    <Compile Include="ServiceModels\ChannelFactoryManager.cs" />
+    <Compile Include="ServiceModels\ServiceProxy.cs" />
+    <Compile Include="ServiceModels\Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SD.IOC.Core.NET461\SD.IOC.Core.NET461.csproj">

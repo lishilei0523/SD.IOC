@@ -1,11 +1,11 @@
-﻿using Microsoft.Owin;
-using Owin;
-using SD.IOC.Integration.WebApi.SelfHost.Tests;
+﻿using Owin;
 using System.Web.Http;
 
-[assembly: OwinStartup(typeof(Startup))]
 namespace SD.IOC.Integration.WebApi.SelfHost.Tests
 {
+    /// <summary>
+    /// OWIN启动器
+    /// </summary>
     public class Startup : StartupBase
     {
         /// <summary>

@@ -1,14 +1,14 @@
 ﻿using SD.IOC.Core.Mediators;
 using System;
 using System.Collections.Generic;
-using System.Web.Mvc;
+using System.Web.Http.Dependencies;
 
-namespace SD.IOC.Integration.MVC
+namespace SD.IOC.Integration.WebApi.DependencyResolvers
 {
     /// <summary>
-    /// MVC依赖解析者
+    /// WebApi依赖解析者
     /// </summary>
-    public sealed class MvcDependencyResolver : IDependencyResolver
+    public class WebApiDependencyResolver : IDependencyResolver
     {
         /// <summary>
         /// 获取服务契约实例事件
@@ -25,11 +25,11 @@ namespace SD.IOC.Integration.MVC
         /// </summary>
         /// <param name="serviceType">所请求的服务或对象的类型</param>
         /// <returns> 请求的服务或对象 </returns>
-        public object GetService(Type serviceType)
+        public virtual object GetService(Type serviceType)
         {
-            if (OnGetInstance != null)
+            if (WebApiDependencyResolver.OnGetInstance != null)
             {
-                OnGetInstance.Invoke();
+                WebApiDependencyResolver.OnGetInstance.Invoke();
             }
 
             return ResolveMediator.ResolveOptional(serviceType);
@@ -40,24 +40,35 @@ namespace SD.IOC.Integration.MVC
         /// </summary>
         /// <param name="serviceType">所请求的服务的类型</param>
         /// <returns>请求的服务</returns>
-        public IEnumerable<object> GetServices(Type serviceType)
+        public virtual IEnumerable<object> GetServices(Type serviceType)
         {
-            if (OnGetInstance != null)
+            if (WebApiDependencyResolver.OnGetInstance != null)
             {
-                OnGetInstance.Invoke();
+                WebApiDependencyResolver.OnGetInstance.Invoke();
             }
 
             return ResolveMediator.ResolveAll(serviceType);
         }
 
         /// <summary>
-        /// 清理服务
+        /// Starts a resolution scope. 
         /// </summary>
-        public void ReleaseService()
+        /// <returns>
+        /// The dependency scope.
+        /// </returns>
+        public virtual IDependencyScope BeginScope()
         {
-            if (OnReleaseInstance != null)
+            return this;
+        }
+
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
+        public virtual void Dispose()
+        {
+            if (WebApiDependencyResolver.OnReleaseInstance != null)
             {
-                OnReleaseInstance.Invoke();
+                WebApiDependencyResolver.OnReleaseInstance.Invoke();
             }
 
             ResolveMediator.Dispose();

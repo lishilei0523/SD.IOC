@@ -1,10 +1,11 @@
 ﻿using Owin;
+using SD.IOC.Integration.WebApi.Extensions;
 using System.Web.Http;
 
 namespace SD.IOC.Integration.WebApi.SelfHost
 {
     /// <summary>
-    /// Startup基类
+    /// OWIN启动器基类
     /// </summary>
     public abstract class StartupBase
     {

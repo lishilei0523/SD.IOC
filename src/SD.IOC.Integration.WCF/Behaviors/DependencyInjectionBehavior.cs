@@ -1,18 +1,19 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SD.IOC.Core.Mediators;
 using SD.IOC.Extension.NetFx;
+using SD.IOC.Integration.WCF.Providers;
 using System.Collections.ObjectModel;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
 
-namespace SD.IOC.Integration.WCF
+namespace SD.IOC.Integration.WCF.Behaviors
 {
     /// <summary>
-    /// WCF依赖注入特性类
+    /// WCF依赖注入行为
     /// </summary>
-    internal class IocServiceBehavior : IServiceBehavior
+    internal class DependencyInjectionBehavior : IServiceBehavior
     {
         #region # 适用依赖注入 —— void ApplyDispatchBehavior(ServiceDescription serviceDescription...
         /// <summary>
@@ -37,7 +38,7 @@ namespace SD.IOC.Integration.WCF
                 {
                     if (!endpoint.IsSystemEndpoint)
                     {
-                        endpoint.DispatchRuntime.InstanceProvider = new InstanceProvider(serviceDescription.ServiceType);
+                        endpoint.DispatchRuntime.InstanceProvider = new ServiceInstanceProvider(serviceDescription.ServiceType);
                     }
                 }
             }

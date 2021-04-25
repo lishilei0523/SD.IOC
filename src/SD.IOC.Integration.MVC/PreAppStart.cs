@@ -1,4 +1,5 @@
 ﻿using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+using SD.IOC.Integration.MVC.Modules;
 using System.ComponentModel;
 
 namespace SD.IOC.Integration.MVC
@@ -22,7 +23,7 @@ namespace SD.IOC.Integration.MVC
             if (!_InitWasCalled)
             {
                 _InitWasCalled = true;
-                DynamicModuleUtility.RegisterModule(typeof(RequestLifetimeHttpModule));
+                DynamicModuleUtility.RegisterModule(typeof(RequestLifetimeModule));
             }
         }
     }

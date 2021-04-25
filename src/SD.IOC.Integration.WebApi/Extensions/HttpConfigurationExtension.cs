@@ -1,9 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SD.IOC.Core.Mediators;
 using SD.IOC.Extension.NetFx;
+using SD.IOC.Integration.WebApi.DependencyResolvers;
 using System.Web.Http;
 
-namespace SD.IOC.Integration.WebApi
+namespace SD.IOC.Integration.WebApi.Extensions
 {
     /// <summary>
     /// Http配置扩展

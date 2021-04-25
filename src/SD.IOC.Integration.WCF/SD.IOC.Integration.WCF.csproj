@@ -39,10 +39,10 @@
     <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IocServiceBehavior.cs" />
-    <Compile Include="IocServiceBehaviorElement.cs" />
+    <Compile Include="Behaviors\DependencyInjectionBehavior.cs" />
+    <Compile Include="Behaviors\DependencyInjectionBehaviorElement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="InstanceProvider.cs" />
+    <Compile Include="Providers\ServiceInstanceProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SD.IOC.Core.NET461\SD.IOC.Core.NET461.csproj">
@@ -63,6 +63,7 @@
       <Version>3.1.7</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

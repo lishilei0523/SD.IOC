@@ -1,4 +1,5 @@
 ﻿using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+using SD.IOC.Integration.WebApi.WebHost.Modules;
 using System.ComponentModel;
 
 namespace SD.IOC.Integration.WebApi.WebHost
@@ -22,7 +23,7 @@ namespace SD.IOC.Integration.WebApi.WebHost
             if (!_InitWasCalled)
             {
                 _InitWasCalled = true;
-                DynamicModuleUtility.RegisterModule(typeof(RequestLifetimeHttpModule));
+                DynamicModuleUtility.RegisterModule(typeof(RequestLifetimeModule));
             }
         }
     }

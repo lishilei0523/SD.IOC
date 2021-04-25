@@ -4,12 +4,12 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Dispatcher;
 
-namespace SD.IOC.Integration.WCF
+namespace SD.IOC.Integration.WCF.Providers
 {
     /// <summary>
     /// WCF实例提供者
     /// </summary>
-    public class InstanceProvider : IInstanceProvider
+    public class ServiceInstanceProvider : IInstanceProvider
     {
         #region # 事件、字段及构造器
 
@@ -32,7 +32,7 @@ namespace SD.IOC.Integration.WCF
         /// 构造器
         /// </summary>
         /// <param name="serviceType">服务契约类型</param>
-        public InstanceProvider(Type serviceType)
+        public ServiceInstanceProvider(Type serviceType)
         {
             this._serviceType = serviceType;
         }
@@ -60,27 +60,21 @@ namespace SD.IOC.Integration.WCF
         /// <returns>服务契约实例</returns>
         public object GetInstance(InstanceContext instanceContext)
         {
-            if (OnGetInstance != null)
-            {
-                OnGetInstance.Invoke(instanceContext);
-            }
+            OnGetInstance?.Invoke(instanceContext);
 
             return ResolveMediator.Resolve(this._serviceType);
         }
         #endregion
 
-        #region # 清理实例契约 —— void ReleaseInstance(InstanceContext instanceContext...
+        #region # 清理服务契约实例 —— void ReleaseInstance(InstanceContext instanceContext...
         /// <summary>
-        /// 清理实例契约
+        /// 清理服务契约实例
         /// </summary>
         /// <param name="instanceContext">WCF上下文对象</param>
         /// <param name="instance">服务契约实例</param>
         public void ReleaseInstance(InstanceContext instanceContext, object instance)
         {
-            if (OnReleaseInstance != null)
-            {
-                OnReleaseInstance.Invoke(instanceContext, instance);
-            }
+            OnReleaseInstance?.Invoke(instanceContext, instance);
 
             ResolveMediator.Dispose();
         }

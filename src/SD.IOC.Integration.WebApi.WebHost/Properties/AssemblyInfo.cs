@@ -7,7 +7,7 @@ using System.Web;
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("SD.IOC.Integration.WebApi.WebHost")]
-[assembly: AssemblyDescription("依赖注入组件 - 集成ASP.NET WebApi WebHost")]
+[assembly: AssemblyDescription("SD.IOC 依赖注入组件 - 集成ASP.NET WebApi WebHost")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SD")]
 [assembly: AssemblyProduct("SD.IOC.Integration.WebApi.WebHost")]
@@ -36,6 +36,5 @@ using System.Web;
 [assembly: AssemblyVersion("2.0.0")]
 [assembly: AssemblyFileVersion("2.0.0.0")]
 
-
 //注射至WebApi应用程序
-[assembly: PreApplicationStartMethod(typeof(PreAppStart), "InitInjection")]
+[assembly: PreApplicationStartMethod(typeof(PreAppStart), nameof(PreAppStart.InitInjection))]

@@ -1,16 +1,17 @@
 using Microsoft.Extensions.DependencyInjection;
 using SD.IOC.Core.Mediators;
 using SD.IOC.Extension.NetFx;
+using SD.IOC.Integration.MVC.DependencyResolvers;
 using System;
 using System.Web;
 using System.Web.Mvc;
 
-namespace SD.IOC.Integration.MVC
+namespace SD.IOC.Integration.MVC.Modules
 {
     /// <summary>
-    /// 依赖注入HttpModule
+    /// 依赖注入模块
     /// </summary>
-    internal class RequestLifetimeHttpModule : IHttpModule
+    internal class RequestLifetimeModule : IHttpModule
     {
         /// <summary>
         /// MVC依赖解析者
@@ -20,7 +21,7 @@ namespace SD.IOC.Integration.MVC
         /// <summary>
         /// 构造器
         /// </summary>
-        public RequestLifetimeHttpModule()
+        public RequestLifetimeModule()
         {
             //初始化容器
             this.InitContainer();

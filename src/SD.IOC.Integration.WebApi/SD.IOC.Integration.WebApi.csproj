@@ -39,8 +39,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HttpConfigurationExtension.cs" />
-    <Compile Include="WebApiDependencyResolver.cs" />
+    <Compile Include="Extensions\HttpConfigurationExtension.cs" />
+    <Compile Include="DependencyResolvers\WebApiDependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("SD.IOC.Core")]
-[assembly: AssemblyDescription("依赖注入基础")]
+[assembly: AssemblyDescription("SD.IOC 依赖注入基础")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SD")]
 [assembly: AssemblyProduct("SD.IOC.Core")]

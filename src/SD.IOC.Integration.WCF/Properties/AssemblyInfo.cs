@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("SD.IOC.Integration.WCF")]
-[assembly: AssemblyDescription("依赖注入组件 - 集成WCF服务端")]
+[assembly: AssemblyDescription("SD.IOC 依赖注入组件 - 集成WCF服务端")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SD")]
 [assembly: AssemblyProduct("SD.IOC.Integration.WCF")]

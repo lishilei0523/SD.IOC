@@ -1,14 +1,14 @@
 ﻿using SD.IOC.Core.Mediators;
 using System;
 using System.Collections.Generic;
-using System.Web.Http.Dependencies;
+using System.Web.Mvc;
 
-namespace SD.IOC.Integration.WebApi
+namespace SD.IOC.Integration.MVC.DependencyResolvers
 {
     /// <summary>
-    /// WebApi依赖解析者
+    /// MVC依赖解析者
     /// </summary>
-    public class WebApiDependencyResolver : IDependencyResolver
+    public sealed class MvcDependencyResolver : IDependencyResolver
     {
         /// <summary>
         /// 获取服务契约实例事件
@@ -25,7 +25,7 @@ namespace SD.IOC.Integration.WebApi
         /// </summary>
         /// <param name="serviceType">所请求的服务或对象的类型</param>
         /// <returns> 请求的服务或对象 </returns>
-        public virtual object GetService(Type serviceType)
+        public object GetService(Type serviceType)
         {
             if (OnGetInstance != null)
             {
@@ -40,7 +40,7 @@ namespace SD.IOC.Integration.WebApi
         /// </summary>
         /// <param name="serviceType">所请求的服务的类型</param>
         /// <returns>请求的服务</returns>
-        public virtual IEnumerable<object> GetServices(Type serviceType)
+        public IEnumerable<object> GetServices(Type serviceType)
         {
             if (OnGetInstance != null)
             {
@@ -51,20 +51,9 @@ namespace SD.IOC.Integration.WebApi
         }
 
         /// <summary>
-        /// Starts a resolution scope. 
+        /// 清理服务
         /// </summary>
-        /// <returns>
-        /// The dependency scope.
-        /// </returns>
-        public virtual IDependencyScope BeginScope()
-        {
-            return this;
-        }
-
-        /// <summary>
-        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-        /// </summary>
-        public virtual void Dispose()
+        public void ReleaseService()
         {
             if (OnReleaseInstance != null)
             {

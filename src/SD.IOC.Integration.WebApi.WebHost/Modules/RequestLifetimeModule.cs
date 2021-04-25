@@ -1,12 +1,13 @@
+using SD.IOC.Integration.WebApi.Extensions;
 using System.Web;
 using System.Web.Http;
 
-namespace SD.IOC.Integration.WebApi.WebHost
+namespace SD.IOC.Integration.WebApi.WebHost.Modules
 {
     /// <summary>
-    /// “¿¿µ◊¢»ÎHttpModule
+    /// “¿¿µ◊¢»Îƒ£øÈ
     /// </summary>
-    internal class RequestLifetimeHttpModule : IHttpModule
+    internal class RequestLifetimeModule : IHttpModule
     {
         /// <summary>
         /// Initializes a module and prepares it to handle requests.
