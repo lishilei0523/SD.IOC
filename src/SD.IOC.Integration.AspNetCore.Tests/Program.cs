@@ -1,5 +1,9 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using SD.Toolkits.AspNet;
+using SD.Toolkits.AspNet.Configurations;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SD.IOC.Integration.AspNetCore.Tests
 {
@@ -12,7 +16,14 @@ namespace SD.IOC.Integration.AspNetCore.Tests
             //WebHost配置
             hostBuilder.ConfigureWebHostDefaults(webBuilder =>
             {
-                webBuilder.ConfigureKestrel(options => options.ListenLocalhost(6345));
+                ICollection<string> urls = new HashSet<string>();
+                foreach (HostElement hostElement in AspNetSection.Setting.HostElements)
+                {
+                    urls.Add(hostElement.Url);
+                }
+
+                webBuilder.UseKestrel();
+                webBuilder.UseUrls(urls.ToArray());
                 webBuilder.UseStartup<Startup>();
             });
 
