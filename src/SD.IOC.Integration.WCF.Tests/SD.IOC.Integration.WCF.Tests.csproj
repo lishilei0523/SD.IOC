@@ -48,10 +48,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\SD.IOC.Core.NET461\SD.IOC.Core.NET461.csproj">
-      <Project>{48b6afc9-afce-485e-b795-4b44b113c1e3}</Project>
-      <Name>SD.IOC.Core.NET461</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\src\SD.IOC.Extension.NetFx\SD.IOC.Extension.NetFx.csproj">
       <Project>{55996aa7-9261-4c05-92ca-1cad926f9d3a}</Project>
       <Name>SD.IOC.Extension.NetFx</Name>
@@ -59,6 +55,10 @@
     <ProjectReference Include="..\..\src\SD.IOC.Integration.WCF\SD.IOC.Integration.WCF.csproj">
       <Project>{6df15f4a-2ce8-468c-a659-49650c4c01c7}</Project>
       <Name>SD.IOC.Integration.WCF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SD.IOC.Core\SD.IOC.Core.csproj">
+      <Project>{e91f76c2-6d78-49d9-9b79-4468c8c4cf43}</Project>
+      <Name>SD.IOC.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\SD.IOC.StubImplement\SD.IOC.StubImplement.csproj">
       <Project>{b8698d54-2a18-45c3-a390-f1885e56f5a0}</Project>

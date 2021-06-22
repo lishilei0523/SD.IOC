@@ -44,15 +44,15 @@
     <Compile Include="ServiceModels\Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SD.IOC.Core.NET461\SD.IOC.Core.NET461.csproj">
-      <Project>{48b6afc9-afce-485e-b795-4b44b113c1e3}</Project>
-      <Name>SD.IOC.Core.NET461</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
       <Version>3.1.7</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SD.IOC.Core\SD.IOC.Core.csproj">
+      <Project>{e91f76c2-6d78-49d9-9b79-4468c8c4cf43}</Project>
+      <Name>SD.IOC.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

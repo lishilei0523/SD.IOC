@@ -112,10 +112,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\SD.IOC.Core.NET461\SD.IOC.Core.NET461.csproj">
-      <Project>{48b6afc9-afce-485e-b795-4b44b113c1e3}</Project>
-      <Name>SD.IOC.Core.NET461</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\src\SD.IOC.Extension.NetFx\SD.IOC.Extension.NetFx.csproj">
       <Project>{55996aa7-9261-4c05-92ca-1cad926f9d3a}</Project>
       <Name>SD.IOC.Extension.NetFx</Name>
@@ -123,6 +119,10 @@
     <ProjectReference Include="..\..\src\SD.IOC.Integration.WebApi\SD.IOC.Integration.WebApi.csproj">
       <Project>{0f47a784-7b75-4b2e-8f61-7b150c62c159}</Project>
       <Name>SD.IOC.Integration.WebApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SD.IOC.Core\SD.IOC.Core.csproj">
+      <Project>{e91f76c2-6d78-49d9-9b79-4468c8c4cf43}</Project>
+      <Name>SD.IOC.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\SD.IOC.Integration.WebApi.WebHost\SD.IOC.Integration.WebApi.WebHost.csproj">
       <Project>{9b0f9898-eaeb-4641-866d-4ecece94f6f0}</Project>

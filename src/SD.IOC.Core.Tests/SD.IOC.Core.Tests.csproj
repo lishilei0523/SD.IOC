@@ -62,9 +62,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\SD.IOC.Core.NET461\SD.IOC.Core.NET461.csproj">
-      <Project>{48b6afc9-afce-485e-b795-4b44b113c1e3}</Project>
-      <Name>SD.IOC.Core.NET461</Name>
+    <ProjectReference Include="..\SD.IOC.Core\SD.IOC.Core.csproj">
+      <Project>{e91f76c2-6d78-49d9-9b79-4468c8c4cf43}</Project>
+      <Name>SD.IOC.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\SD.IOC.StubImplement\SD.IOC.StubImplement.csproj">
       <Project>{b8698d54-2a18-45c3-a390-f1885e56f5a0}</Project>
