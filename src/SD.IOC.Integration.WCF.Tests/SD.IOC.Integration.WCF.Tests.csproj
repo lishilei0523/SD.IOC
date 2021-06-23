@@ -1,84 +1,24 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5211FFE2-D43D-4325-9836-FEAAD6B33CCC}</ProjectGuid>
+    <TargetFrameworks>net461;net48</TargetFrameworks>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SD.IOC.Integration.WCF.Tests</RootNamespace>
-    <AssemblyName>SD.IOC.Integration.WCF.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
+    <Authors>Lee</Authors>
+    <Company>SD</Company>
+    <Copyright>Copyright © SD 2021</Copyright>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.7" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.7" />
+    <PackageReference Include="Topshelf" Version="4.2.1" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="Implements\ProductService.cs" />
-    <Compile Include="Interfaces\IProductService.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceLauncher.cs" />
+    <ProjectReference Include="..\SD.IOC.Core\SD.IOC.Core.csproj" />
+    <ProjectReference Include="..\SD.IOC.Extension.NetFx\SD.IOC.Extension.NetFx.csproj" />
+    <ProjectReference Include="..\SD.IOC.Integration.WCF\SD.IOC.Integration.WCF.csproj" />
+    <ProjectReference Include="..\SD.IOC.StubInterface\SD.IOC.StubInterface.csproj" />
+    <ProjectReference Include="..\SD.IOC.StubImplement\SD.IOC.StubImplement.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\SD.IOC.Extension.NetFx\SD.IOC.Extension.NetFx.csproj">
-      <Project>{55996aa7-9261-4c05-92ca-1cad926f9d3a}</Project>
-      <Name>SD.IOC.Extension.NetFx</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\src\SD.IOC.Integration.WCF\SD.IOC.Integration.WCF.csproj">
-      <Project>{6df15f4a-2ce8-468c-a659-49650c4c01c7}</Project>
-      <Name>SD.IOC.Integration.WCF</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SD.IOC.Core\SD.IOC.Core.csproj">
-      <Project>{e91f76c2-6d78-49d9-9b79-4468c8c4cf43}</Project>
-      <Name>SD.IOC.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SD.IOC.StubImplement\SD.IOC.StubImplement.csproj">
-      <Project>{b8698d54-2a18-45c3-a390-f1885e56f5a0}</Project>
-      <Name>SD.IOC.StubImplement</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SD.IOC.StubInterface\SD.IOC.StubInterface.csproj">
-      <Project>{04bfa4d7-86c8-4341-b34c-3f1d88d19827}</Project>
-      <Name>SD.IOC.StubInterface</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection">
-      <Version>3.1.7</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
-      <Version>3.1.7</Version>
-    </PackageReference>
-    <PackageReference Include="Topshelf">
-      <Version>4.2.1</Version>
-    </PackageReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
