@@ -17,7 +17,7 @@
     <DocumentationFile>bin\Release\$(TargetFramework)\SD.IOC.Core.xml</DocumentationFile>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'net461' Or '$(TargetFramework)' == 'net48'">
+  <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
     <Reference Include="System.Configuration" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.7" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.7" />

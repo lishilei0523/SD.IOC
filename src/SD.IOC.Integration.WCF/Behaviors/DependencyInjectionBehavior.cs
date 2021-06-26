@@ -1,12 +1,22 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SD.IOC.Core.Mediators;
-using SD.IOC.Extension.NetFx;
 using SD.IOC.Integration.WCF.Providers;
 using System.Collections.ObjectModel;
+#if NET461_OR_GREATER
+using SD.IOC.Extension.NetFx;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
+#endif
+#if NETSTANDARD2_0_OR_GREATER
+using CoreWCF;
+using CoreWCF.Channels;
+using CoreWCF.Description;
+using CoreWCF.Dispatcher;
+using SD.IOC.Extension.NetCore;
+using SD.IOC.Extension.NetCore.ServiceModel;
+#endif
 
 namespace SD.IOC.Integration.WCF.Behaviors
 {
@@ -28,6 +38,10 @@ namespace SD.IOC.Integration.WCF.Behaviors
             {
                 IServiceCollection builder = ResolveMediator.GetServiceCollection();
                 builder.RegisterConfigs();
+
+#if NETSTANDARD2_0_OR_GREATER
+                builder.RegisterServiceModels();
+#endif
                 ResolveMediator.Build();
             }
 

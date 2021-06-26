@@ -1,8 +1,15 @@
 ﻿using SD.IOC.Core.Mediators;
 using System;
+#if NET461_OR_GREATER
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Dispatcher;
+#endif
+#if NETSTANDARD2_0_OR_GREATER
+using CoreWCF;
+using CoreWCF.Channels;
+using CoreWCF.Dispatcher;
+#endif
 
 namespace SD.IOC.Integration.WCF.Providers
 {
