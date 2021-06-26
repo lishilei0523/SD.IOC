@@ -13,8 +13,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\SD.IOC.Core\SD.IOC.Core.csproj" />
-    <ProjectReference Include="..\..\src\SD.IOC.Extension.NetCore.ServiceModel\SD.IOC.Extension.NetCore.ServiceModel.csproj" />
+    <ProjectReference Include="..\SD.IOC.Extension.NetCore.ServiceModel\SD.IOC.Extension.NetCore.ServiceModel.csproj" />
     <ProjectReference Include="..\SD.IOC.StubImplement\SD.IOC.StubImplement.csproj" />
+    <ProjectReference Include="..\SD.IOC.StubInterface\SD.IOC.StubInterface.csproj" />
   </ItemGroup>
 
 </Project>
