@@ -5,7 +5,7 @@ namespace SD.IOC.Integration.AspNetCore.Tests.Controllers
 {
     [ApiController]
     [Route("Api/[controller]/[action]")]
-    public class HomeController : Controller
+    public class HomeController : ControllerBase
     {
         private readonly IProductPresenter _productPresenter;
 
