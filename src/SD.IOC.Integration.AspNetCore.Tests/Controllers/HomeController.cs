@@ -4,7 +4,7 @@ using SD.IOC.Integration.AspNetCore.Tests.Interfaces;
 namespace SD.IOC.Integration.AspNetCore.Tests.Controllers
 {
     [ApiController]
-    [Route("Api/[controller]")]
+    [Route("Api/[controller]/[action]")]
     public class HomeController : Controller
     {
         private readonly IProductPresenter _productPresenter;
@@ -14,17 +14,15 @@ namespace SD.IOC.Integration.AspNetCore.Tests.Controllers
             this._productPresenter = productPresenter;
         }
 
-        [Route("[action]")]
+        [HttpGet]
         public dynamic Index()
         {
             string productsStr = this._productPresenter.GetProducts();
-
             var product = new
             {
                 Number = "001",
                 Name = productsStr
             };
-
 
             return product;
         }

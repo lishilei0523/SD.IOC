@@ -9,12 +9,12 @@ using System.Web.Mvc;
 namespace SD.IOC.Integration.MVC.Modules
 {
     /// <summary>
-    /// 依赖注入模块
+    /// ASP.NET MVC依赖注入模块
     /// </summary>
     internal class RequestLifetimeModule : IHttpModule
     {
         /// <summary>
-        /// MVC依赖解析者
+        /// ASP.NET MVC依赖解析者
         /// </summary>
         private readonly MvcDependencyResolver _dependencyResolver;
 
