@@ -8,10 +8,10 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\$(TargetFramework)\SD.IOC.Integration.MVC.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\$(TargetFramework)\SD.IOC.Integration.AspNetMvc.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\$(TargetFramework)\SD.IOC.Integration.MVC.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\$(TargetFramework)\SD.IOC.Integration.AspNetMvc.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SD.IOC.Integration.MVC.Tests</RootNamespace>
-    <AssemblyName>SD.IOC.Integration.MVC.Tests</AssemblyName>
+    <RootNamespace>SD.IOC.Integration.AspNetMvc.Tests</RootNamespace>
+    <AssemblyName>SD.IOC.Integration.AspNetMvc.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -95,13 +95,13 @@
       <Project>{55996aa7-9261-4c05-92ca-1cad926f9d3a}</Project>
       <Name>SD.IOC.Extension.NetFx</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\SD.IOC.Integration.MVC\SD.IOC.Integration.MVC.csproj">
-      <Project>{a055dc24-c2d0-4401-9afb-0edc3fcac469}</Project>
-      <Name>SD.IOC.Integration.MVC</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SD.IOC.Core\SD.IOC.Core.csproj">
       <Project>{e91f76c2-6d78-49d9-9b79-4468c8c4cf43}</Project>
       <Name>SD.IOC.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SD.IOC.Integration.AspNetMvc\SD.IOC.Integration.AspNetMvc.csproj">
+      <Project>{55d3c723-3d6f-42dc-9657-1f5fc406e32c}</Project>
+      <Name>SD.IOC.Integration.AspNetMvc</Name>
     </ProjectReference>
     <ProjectReference Include="..\SD.IOC.StubInterface\SD.IOC.StubInterface.csproj">
       <Project>{04bfa4d7-86c8-4341-b34c-3f1d88d19827}</Project>

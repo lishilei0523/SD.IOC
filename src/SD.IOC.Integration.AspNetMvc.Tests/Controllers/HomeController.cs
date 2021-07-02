@@ -1,7 +1,7 @@
 ﻿using SD.IOC.StubInterface.Interfaces;
 using System.Web.Mvc;
 
-namespace SD.IOC.Integration.MVC.Tests.Controllers
+namespace SD.IOC.Integration.AspNetMvc.Tests.Controllers
 {
     public class HomeController : Controller
     {

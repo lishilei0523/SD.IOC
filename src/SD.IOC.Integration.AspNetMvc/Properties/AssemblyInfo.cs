@@ -1,4 +1,4 @@
-﻿using SD.IOC.Integration.MVC;
+﻿using SD.IOC.Integration.AspNetMvc;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Web;

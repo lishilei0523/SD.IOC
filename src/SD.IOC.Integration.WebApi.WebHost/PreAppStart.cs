@@ -5,7 +5,7 @@ using System.ComponentModel;
 namespace SD.IOC.Integration.WebApi.WebHost
 {
     /// <summary>
-    /// WebApi应用程序依赖注入
+    /// ASP.NET WebApi应用程序依赖注入
     /// </summary>
     [EditorBrowsable(EditorBrowsableState.Never)]
     public static class PreAppStart

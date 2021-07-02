@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
-namespace SD.IOC.Integration.MVC.DependencyResolvers
+namespace SD.IOC.Integration.AspNetMvc.DependencyResolvers
 {
     /// <summary>
     /// ASP.NET MVC依赖解析者

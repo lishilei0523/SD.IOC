@@ -1,11 +1,11 @@
 ﻿using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-using SD.IOC.Integration.MVC.Modules;
+using SD.IOC.Integration.AspNetMvc.Modules;
 using System.ComponentModel;
 
-namespace SD.IOC.Integration.MVC
+namespace SD.IOC.Integration.AspNetMvc
 {
     /// <summary>
-    /// MVC应用程序依赖注入
+    /// ASP.NET MVC应用程序依赖注入
     /// </summary>
     [EditorBrowsable(EditorBrowsableState.Never)]
     public static class PreAppStart

@@ -1,12 +1,12 @@
 using Microsoft.Extensions.DependencyInjection;
 using SD.IOC.Core.Mediators;
 using SD.IOC.Extension.NetFx;
-using SD.IOC.Integration.MVC.DependencyResolvers;
+using SD.IOC.Integration.AspNetMvc.DependencyResolvers;
 using System;
 using System.Web;
 using System.Web.Mvc;
 
-namespace SD.IOC.Integration.MVC.Modules
+namespace SD.IOC.Integration.AspNetMvc.Modules
 {
     /// <summary>
     /// ASP.NET MVCÒÀÀµ×¢ÈëÄ£¿é

@@ -5,7 +5,7 @@ using System.Web.Http;
 namespace SD.IOC.Integration.WebApi.WebHost.Modules
 {
     /// <summary>
-    /// 依赖注入模块
+    /// ASP.NET WebApi依赖注入模块
     /// </summary>
     internal class RequestLifetimeModule : IHttpModule
     {
