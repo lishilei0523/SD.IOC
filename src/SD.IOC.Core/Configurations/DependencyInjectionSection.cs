@@ -164,5 +164,22 @@ namespace SD.IOC.Core
             set { this["wcfInterfaces"] = value; }
         }
         #endregion
+
+        #region # gRPC接口列表 —— AssemblyElementCollection GrpcInterfaces
+        /// <summary>
+        /// gRPC接口列表
+        /// </summary>
+        [ConfigurationProperty("grpcInterfaces")]
+        [ConfigurationCollection(typeof(AssemblyElementCollection), AddItemName = "assembly")]
+        public AssemblyElementCollection GrpcInterfaces
+        {
+            get
+            {
+                AssemblyElementCollection collection = this["grpcInterfaces"] as AssemblyElementCollection;
+                return collection ?? new AssemblyElementCollection();
+            }
+            set { this["grpcInterfaces"] = value; }
+        }
+        #endregion
     }
 }

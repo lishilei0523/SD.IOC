@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net461;net48;netstandard2.0</TargetFrameworks>
+    <Authors>Lee</Authors>
+    <Company>SD</Company>
+    <Description>SD.IOC 依赖注入组件 - .NET Core gRPC扩展</Description>
+    <Copyright>Copyright © SD 2021</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\$(TargetFramework)\SD.IOC.Extension.NetCore.Grpc.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\$(TargetFramework)\SD.IOC.Extension.NetCore.Grpc.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.7" />
+    <PackageReference Include="SD.Toolkits.Grpc.Client" Version="1.0.0-Preview" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SD.IOC.Core\SD.IOC.Core.csproj" />
+  </ItemGroup>
+</Project>
