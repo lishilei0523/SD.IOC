@@ -44,7 +44,7 @@ namespace System.ServiceModel.Extensions
         /// </summary>
         static ServiceProxy()
         {
-            ServiceProxy<T>._Sync = new object();
+            _Sync = new object();
         }
 
         #endregion
@@ -57,10 +57,8 @@ namespace System.ServiceModel.Extensions
         {
             get
             {
-                lock (ServiceProxy<T>._Sync)
+                lock (_Sync)
                 {
-                    this.Close();
-
                     ChannelFactory<T> factory = ChannelFactoryManager.Current.GetFactory<T>();
                     this._channel = factory.CreateChannel();
 

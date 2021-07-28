@@ -48,7 +48,7 @@ namespace System.ServiceModel.Extensions
         /// </summary>
         public static ChannelFactoryManager Current
         {
-            get { return ChannelFactoryManager._Current; }
+            get { return _Current; }
         }
         #endregion
 
