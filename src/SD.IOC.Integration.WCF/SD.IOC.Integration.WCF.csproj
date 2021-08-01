@@ -30,13 +30,15 @@
     <PackageReference Include="CoreWCF.Primitives" Version="0.1.0" />
   </ItemGroup>
 
-  <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
+  <ItemGroup>
     <ProjectReference Include="..\SD.IOC.Core\SD.IOC.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
     <ProjectReference Include="..\SD.IOC.Extension.NetFx\SD.IOC.Extension.NetFx.csproj" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <ProjectReference Include="..\SD.IOC.Core\SD.IOC.Core.csproj" />
     <ProjectReference Include="..\SD.IOC.Extension.NetCore\SD.IOC.Extension.NetCore.csproj" />
     <ProjectReference Include="..\SD.IOC.Extension.NetCore.ServiceModel\SD.IOC.Extension.NetCore.ServiceModel.csproj" />
   </ItemGroup>
