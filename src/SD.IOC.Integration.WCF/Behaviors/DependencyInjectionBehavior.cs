@@ -23,7 +23,7 @@ namespace SD.IOC.Integration.WCF.Behaviors
     /// <summary>
     /// WCF依赖注入行为
     /// </summary>
-    internal class DependencyInjectionBehavior : IServiceBehavior
+    public class DependencyInjectionBehavior : IServiceBehavior
     {
         #region # 适用依赖注入 —— void ApplyDispatchBehavior(ServiceDescription serviceDescription...
         /// <summary>
