@@ -5,15 +5,13 @@
     <Company>SD</Company>
     <Description>SD.IOC 依赖注入组件 - .NET Core扩展</Description>
     <Copyright>Copyright © SD 2021</Copyright>
-    <AssemblyVersion>1.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\netstandard2.0\SD.IOC.Extension.NetCore.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\$(TargetFramework)\SD.IOC.Extension.NetCore.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard2.0\SD.IOC.Extension.NetCore.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\$(TargetFramework)\SD.IOC.Extension.NetCore.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

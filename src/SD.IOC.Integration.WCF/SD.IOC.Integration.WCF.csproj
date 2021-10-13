@@ -17,29 +17,19 @@
     <DocumentationFile>bin\Release\$(TargetFramework)\SD.IOC.Integration.WCF.xml</DocumentationFile>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <Compile Remove="Behaviors\DependencyInjectionBehaviorElement.cs" />
-  </ItemGroup>
-
   <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
     <Reference Include="System.Configuration" />
     <Reference Include="System.ServiceModel" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <PackageReference Include="CoreWCF.Primitives" Version="0.1.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\SD.IOC.Core\SD.IOC.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
     <ProjectReference Include="..\SD.IOC.Extension.NetFx\SD.IOC.Extension.NetFx.csproj" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <Compile Remove="Behaviors\DependencyInjectionBehaviorElement.cs" />
+    <PackageReference Include="CoreWCF.Primitives" Version="0.1.0" />
     <ProjectReference Include="..\SD.IOC.Extension.NetCore\SD.IOC.Extension.NetCore.csproj" />
-    <ProjectReference Include="..\SD.IOC.Extension.NetCore.ServiceModel\SD.IOC.Extension.NetCore.ServiceModel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SD.IOC.Core\SD.IOC.Core.csproj" />
   </ItemGroup>
 </Project>

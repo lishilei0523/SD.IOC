@@ -15,7 +15,6 @@ using CoreWCF.Channels;
 using CoreWCF.Description;
 using CoreWCF.Dispatcher;
 using SD.IOC.Extension.NetCore;
-using SD.IOC.Extension.NetCore.ServiceModel;
 #endif
 
 namespace SD.IOC.Integration.WCF.Behaviors
@@ -39,9 +38,6 @@ namespace SD.IOC.Integration.WCF.Behaviors
                 IServiceCollection builder = ResolveMediator.GetServiceCollection();
                 builder.RegisterConfigs();
 
-#if NETSTANDARD2_0_OR_GREATER
-                builder.RegisterServiceModels();
-#endif
                 ResolveMediator.Build();
             }
 
