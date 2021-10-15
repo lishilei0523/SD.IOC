@@ -78,7 +78,6 @@ namespace System.ServiceModel.Extensions
                     factory?.CloseChannel();
                     throw;
                 }
-
             }
         }
         #endregion

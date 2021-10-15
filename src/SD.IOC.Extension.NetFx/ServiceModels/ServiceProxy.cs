@@ -59,6 +59,15 @@ namespace System.ServiceModel.Extensions
             {
                 lock (_Sync)
                 {
+                    if (this._channel != null)
+                    {
+                        ICommunicationObject communicationObject = (ICommunicationObject)this._channel;
+                        if (communicationObject.State == CommunicationState.Opened)
+                        {
+                            return this._channel;
+                        }
+                    }
+
                     ChannelFactory<T> factory = ChannelFactoryManager.Current.GetFactory<T>();
                     this._channel = factory.CreateChannel();
 
@@ -74,9 +83,9 @@ namespace System.ServiceModel.Extensions
         /// </summary>
         public void Close()
         {
-            if (this._channel != null)
+            lock (_Sync)
             {
-                this._channel.CloseChannel();
+                this._channel?.CloseChannel();
             }
         }
         #endregion
