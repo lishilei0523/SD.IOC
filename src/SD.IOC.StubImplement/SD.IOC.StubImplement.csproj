@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net461</TargetFrameworks>
+    <TargetFramework>net452</TargetFramework>
     <OutputType>Exe</OutputType>
     <Authors>Lee</Authors>
     <Company>SD</Company>
@@ -9,6 +9,9 @@
 
   <ItemGroup>
     <Reference Include="System.ServiceModel" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Topshelf" Version="4.2.1" />
   </ItemGroup>
 

@@ -11,7 +11,7 @@ namespace SD.IOC.Core.Mediators
     /// </summary>
     public static class ResolveMediator
     {
-        #region # 字段及静态构造器
+        #region # 字段及构造器
 
         /// <summary>
         /// 同步锁
@@ -50,6 +50,7 @@ namespace SD.IOC.Core.Mediators
         }
 
         #endregion
+
 
         #region # 容器是否已初始化 —— static bool ContainerBuilt
         /// <summary>

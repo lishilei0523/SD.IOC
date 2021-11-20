@@ -91,10 +91,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\SD.IOC.Extension.NetFx\SD.IOC.Extension.NetFx.csproj">
-      <Project>{55996aa7-9261-4c05-92ca-1cad926f9d3a}</Project>
-      <Name>SD.IOC.Extension.NetFx</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SD.IOC.Core\SD.IOC.Core.csproj">
       <Project>{e91f76c2-6d78-49d9-9b79-4468c8c4cf43}</Project>
       <Name>SD.IOC.Core</Name>
