@@ -15,6 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Include="..\SD.IOC.Integration.WCF.Tests\Interfaces\IProductService.cs">
       <Link>Interfaces\IProductService.cs</Link>
     </Compile>

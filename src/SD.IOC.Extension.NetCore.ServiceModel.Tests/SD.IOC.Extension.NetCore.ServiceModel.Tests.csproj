@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
     <PackageReference Include="SD.Toolkits.CoreWCF.Client" Version="1.0.2" />
   </ItemGroup>
 

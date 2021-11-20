@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SD.IOC.Core\SD.IOC.Core.csproj" />
     <ProjectReference Include="..\SD.IOC.Extension.NetCore\SD.IOC.Extension.NetCore.csproj" />
   </ItemGroup>
