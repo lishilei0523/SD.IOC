@@ -1,6 +1,6 @@
 ﻿using SD.IOC.Core.Mediators;
 using System;
-#if NET461_OR_GREATER
+#if NET40_OR_GREATER
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Dispatcher;

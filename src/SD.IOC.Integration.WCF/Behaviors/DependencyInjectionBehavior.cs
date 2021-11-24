@@ -2,7 +2,7 @@
 using SD.IOC.Core.Mediators;
 using SD.IOC.Integration.WCF.Providers;
 using System.Collections.ObjectModel;
-#if NET461_OR_GREATER
+#if NET40_OR_GREATER
 using SD.IOC.Extension.NetFx;
 using System.ServiceModel;
 using System.ServiceModel.Channels;

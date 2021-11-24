@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net452</TargetFramework>
+    <TargetFramework>net45</TargetFramework>
     <OutputType>Exe</OutputType>
     <Authors>Lee</Authors>
     <Company>SD</Company>
@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Topshelf" Version="4.2.1" />
+    <PackageReference Include="Topshelf" Version="3.3.1" />
   </ItemGroup>
 
   <ItemGroup>
