@@ -145,12 +145,23 @@ namespace SD.IOC.Core.Mediators
 
             #endregion
 
-            const string fieldName = "_disposed";
+            bool disposed;
             Type type = serviceScope.GetType();
-            FieldInfo field = type.GetField(fieldName, BindingFlags.NonPublic | BindingFlags.Instance);
-            object value = field.GetValue(serviceScope);
-            bool disposed = (bool)value;
-
+#if NET45
+            const string scopedProviderFieldName = "_scopedProvider";
+            const string disposeCalledFieldName = "_disposeCalled";
+            FieldInfo scopedProviderField = type.GetField(scopedProviderFieldName, BindingFlags.NonPublic | BindingFlags.Instance);
+            object scopedProvider = scopedProviderField.GetValue(serviceScope);
+            Type scopedProviderType = scopedProviderField.FieldType;
+            FieldInfo disposeCalledField = scopedProviderType.GetField(disposeCalledFieldName, BindingFlags.NonPublic | BindingFlags.Instance);
+            object value = disposeCalledField.GetValue(scopedProvider);
+            disposed = (bool)value;
+#else
+            const string disposedFieldName = "_disposed";
+            FieldInfo disposedField = type.GetField(disposedFieldName, BindingFlags.NonPublic | BindingFlags.Instance);
+            object value = disposedField.GetValue(serviceScope);
+            disposed = (bool)value;
+#endif
             return disposed;
         }
         #endregion
