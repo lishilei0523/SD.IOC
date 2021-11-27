@@ -11,10 +11,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="E:\Packages\nuget\cache\corewcf.configurationmanager\0.3.2\contentFiles\any\netstandard2.0\CoreWCF.machine.config" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
 
@@ -31,8 +27,10 @@
     <PackageReference Include="CoreWCF.Primitives" Version="0.3.2" />
     <PackageReference Include="CoreWCF.Http" Version="0.3.2" />
     <PackageReference Include="CoreWCF.NetTcp" Version="0.3.2" />
-    <PackageReference Include="CoreWCF.ConfigurationManager" Version="0.3.2" />
-    <PackageReference Include="SD.Toolkits.AspNet" Version="1.1.0" />
+    <PackageReference Include="CoreWCF.ConfigurationManager" Version="0.3.2">
+      <ExcludeAssets>contentFiles</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="SD.Toolkits.AspNet" Version="1.1.1" />
     <PackageReference Include="SD.Toolkits.CoreWCF.Client" Version="1.0.2" />
   </ItemGroup>
 
