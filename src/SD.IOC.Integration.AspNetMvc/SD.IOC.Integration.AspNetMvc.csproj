@@ -5,6 +5,9 @@
     <Company>SD</Company>
     <Description>SD.IOC 依赖注入组件 - 集成ASP.NET MVC</Description>
     <Copyright>Copyright © SD 2021</Copyright>
+    <Version>1.0.2</Version>
+    <AssemblyVersion>1.0.2</AssemblyVersion>
+    <FileVersion>1.0.2.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
