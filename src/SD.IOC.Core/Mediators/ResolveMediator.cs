@@ -45,7 +45,11 @@ namespace SD.IOC.Core.Mediators
         {
             _Sync = new object();
             _ServiceCollection = new ServiceCollection();
+#if !NET45
+            _ServiceScope = new AsyncLocal<IServiceScope>(OnServiceScopeValueChange);
+#else
             _ServiceScope = new AsyncLocal<IServiceScope>();
+#endif
             _ContainerBuilt = false;
         }
 
@@ -267,6 +271,21 @@ namespace SD.IOC.Core.Mediators
                 }
             }
         }
+        #endregion
+
+        #region # AsyncLocal值变化 —— static void OnServiceScopeValueChange(...
+#if !NET45
+        /// <summary>
+        /// AsyncLocal值变化
+        /// </summary>
+        private static void OnServiceScopeValueChange(AsyncLocalValueChangedArgs<IServiceScope> eventArgs)
+        {
+            if (eventArgs.CurrentValue == null && !eventArgs.PreviousValue.Disposed())
+            {
+                _ServiceScope.Value = eventArgs.PreviousValue;
+            }
+        }
+#endif 
         #endregion
     }
 }
