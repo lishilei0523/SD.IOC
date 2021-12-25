@@ -1,10 +1,12 @@
 ﻿using SD.IOC.StubInterface.Interfaces;
+using System.ServiceModel;
 
 namespace SD.IOC.StubImplement.Implements
 {
     /// <summary>
     /// 商品管理实现
     /// </summary>
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall, IncludeExceptionDetailInFaults = true)]
     public class ProductContract : IProductContract
     {
         /// <summary>

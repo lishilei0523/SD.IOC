@@ -1,11 +1,17 @@
 ﻿using SD.IOC.Integration.WCF.Tests.Interfaces;
 using SD.IOC.StubInterface.Interfaces;
+#if NET40_OR_GREATER
+using System.ServiceModel;
+#else
+using CoreWCF;
+#endif
 
 namespace SD.IOC.Integration.WCF.Tests.Implements
 {
     /// <summary>
     /// 商品管理服务实现
     /// </summary>
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall, IncludeExceptionDetailInFaults = true)]
     public class ProductService : IProductService
     {
         /// <summary>
