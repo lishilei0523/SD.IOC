@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SD.IOC.Core;
 using SD.IOC.Core.Configurations;
+using SD.IOC.Core.Mediators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,6 +64,21 @@ namespace SD.IOC.Extension.NetCore.ServiceModel
                     builder.Add(descriptor);
                 }
             }
+
+            ResolveMediator.OnDispose += disposables =>
+            {
+                foreach (IDisposable disposable in disposables)
+                {
+                    try
+                    {
+                        disposable.Dispose();
+                    }
+                    finally
+                    {
+                        disposable.CloseChannel();
+                    }
+                }
+            };
         }
         #endregion
 

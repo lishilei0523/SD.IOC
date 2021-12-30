@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Threading;
 
@@ -12,6 +13,11 @@ namespace SD.IOC.Core.Mediators
     public static class ResolveMediator
     {
         #region # 字段及构造器
+
+        /// <summary>
+        /// 范围容器已释放事件
+        /// </summary>
+        public static event Action<IList<IDisposable>> OnDispose;
 
         /// <summary>
         /// 同步锁
@@ -266,9 +272,48 @@ namespace SD.IOC.Core.Mediators
             {
                 if (_ServiceScope.Value != null)
                 {
-                    _ServiceScope.Value.Dispose();
+                    Dispose(_ServiceScope.Value);
                     _ServiceScope.Value = null;
                 }
+            }
+        }
+        #endregion
+
+        #region # 释放范围容器 —— static void Dispose(IServiceScope serviceScope)
+        /// <summary>
+        /// 释放范围容器
+        /// </summary>
+        /// <param name="serviceScope">范围容器</param>
+        private static void Dispose(IServiceScope serviceScope)
+        {
+            #region # 验证
+
+            if (serviceScope == null)
+            {
+                return;
+            }
+
+            #endregion
+
+            IList<IDisposable> disposables = new List<IDisposable>();
+            try
+            {
+                Type serviceScopeType = serviceScope.GetType();
+#if NET45
+                FieldInfo scopeProviderField = serviceScopeType.GetField("_scopedProvider", BindingFlags.NonPublic | BindingFlags.Instance);
+                object scopeProvider = scopeProviderField.GetValue(serviceScope);
+                Type scopeProviderType = scopeProvider.GetType();
+                FieldInfo transientDisposablesField = scopeProviderType.GetField("_transientDisposables", BindingFlags.NonPublic | BindingFlags.Instance);
+                disposables = (List<IDisposable>)transientDisposablesField.GetValue(scopeProvider);
+#else
+                FieldInfo disposablesField = serviceScopeType.GetField("_disposables", BindingFlags.NonPublic | BindingFlags.Instance);
+                disposables = ((List<object>)disposablesField.GetValue(serviceScope)).Select(x => (IDisposable)x).ToList();
+#endif
+                serviceScope.Dispose();
+            }
+            finally
+            {
+                OnDispose?.Invoke(disposables);
             }
         }
         #endregion
