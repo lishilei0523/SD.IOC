@@ -15,25 +15,36 @@ namespace SD.IOC.Core
         /// <summary>
         /// 单例
         /// </summary>
-        private static readonly DependencyInjectionSection _Setting;
+        private static DependencyInjectionSection _Setting;
 
         /// <summary>
         /// 静态构造器
         /// </summary>
         static DependencyInjectionSection()
         {
-            _Setting = (DependencyInjectionSection)ConfigurationManager.GetSection("sd.ioc");
+            _Setting = null;
+        }
 
-            #region # 非空验证
+        #endregion
 
-            if (_Setting == null)
+        #region # 初始化 —— static void Initialize(Configuration configuration)
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        /// <param name="configuration">配置</param>
+        public static void Initialize(Configuration configuration)
+        {
+            #region # 验证
+
+            if (configuration == null)
             {
-                throw new ApplicationException("SD.IOC节点未配置，请检查程序！");
+                throw new ArgumentNullException(nameof(configuration), "配置不可为空！");
             }
 
             #endregion
-        }
 
+            _Setting = (DependencyInjectionSection)configuration.GetSection("sd.ioc");
+        }
         #endregion
 
         #region # 访问器 —— static DependencyInjectionSection Setting
@@ -42,7 +53,19 @@ namespace SD.IOC.Core
         /// </summary>
         public static DependencyInjectionSection Setting
         {
-            get { return _Setting; }
+            get
+            {
+                if (_Setting == null)
+                {
+                    _Setting = (DependencyInjectionSection)ConfigurationManager.GetSection("sd.ioc");
+                }
+                if (_Setting == null)
+                {
+                    throw new ApplicationException("SD.IOC节点未配置，请检查程序！");
+                }
+
+                return _Setting;
+            }
         }
         #endregion
 

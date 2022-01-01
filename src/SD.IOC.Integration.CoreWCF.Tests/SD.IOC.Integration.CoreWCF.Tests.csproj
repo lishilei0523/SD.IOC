@@ -30,8 +30,8 @@
     <PackageReference Include="CoreWCF.ConfigurationManager" Version="0.4.0">
       <ExcludeAssets>contentFiles</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="SD.Toolkits.AspNet" Version="1.1.1" />
-    <PackageReference Include="SD.Toolkits.CoreWCF.Client" Version="1.0.2" />
+    <PackageReference Include="SD.Toolkits.AspNet" Version="1.1.2" />
+    <PackageReference Include="SD.Toolkits.CoreWCF.Client" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>

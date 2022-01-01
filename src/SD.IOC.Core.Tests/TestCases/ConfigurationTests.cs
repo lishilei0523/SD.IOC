@@ -2,7 +2,7 @@
 using SD.IOC.Core.Configurations;
 using System.Diagnostics;
 
-namespace SD.IOC.Core.Tests
+namespace SD.IOC.Core.Tests.TestCases
 {
     [TestClass]
     public class ConfigurationTests

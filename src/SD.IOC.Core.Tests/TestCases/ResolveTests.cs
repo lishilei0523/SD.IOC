@@ -4,7 +4,7 @@ using SD.IOC.Core.Mediators;
 using SD.IOC.StubImplement.Implements;
 using SD.IOC.StubInterface.Interfaces;
 
-namespace SD.IOC.Core.Tests
+namespace SD.IOC.Core.Tests.TestCases
 {
     /// <summary>
     /// 测试解析实例
