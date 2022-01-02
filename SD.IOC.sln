@@ -55,6 +55,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SD.IOC.Extension.Grpc", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SD.IOC.Integration.CoreWCF.Tests", "src\SD.IOC.Integration.CoreWCF.Tests\SD.IOC.Integration.CoreWCF.Tests.csproj", "{0FE4CD90-0350-4D40-BDF5-EF99C3D9EF3B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SD.IOC.Extension.Xamarin.ServiceModel", "src\SD.IOC.Extension.Xamarin.ServiceModel\SD.IOC.Extension.Xamarin.ServiceModel.csproj", "{2F1F8F1E-D041-415A-B90A-F8C2DB0E3D5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -149,6 +151,10 @@ Global
 		{0FE4CD90-0350-4D40-BDF5-EF99C3D9EF3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FE4CD90-0350-4D40-BDF5-EF99C3D9EF3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FE4CD90-0350-4D40-BDF5-EF99C3D9EF3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F1F8F1E-D041-415A-B90A-F8C2DB0E3D5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F1F8F1E-D041-415A-B90A-F8C2DB0E3D5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F1F8F1E-D041-415A-B90A-F8C2DB0E3D5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F1F8F1E-D041-415A-B90A-F8C2DB0E3D5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -176,6 +182,7 @@ Global
 		{7BBFCE82-2CBE-46AA-B108-7C5C736E4D8A} = {AEB77889-D78D-49AB-8975-009AAD182247}
 		{46F17CBD-75A2-4B5B-BE45-696A413CA80D} = {FD486D7B-9D15-4D28-90AB-FAD36D5BC2B4}
 		{0FE4CD90-0350-4D40-BDF5-EF99C3D9EF3B} = {AEB77889-D78D-49AB-8975-009AAD182247}
+		{2F1F8F1E-D041-415A-B90A-F8C2DB0E3D5B} = {FD486D7B-9D15-4D28-90AB-FAD36D5BC2B4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CD95B872-DF79-44C3-A683-DB1E2AD7B243}
