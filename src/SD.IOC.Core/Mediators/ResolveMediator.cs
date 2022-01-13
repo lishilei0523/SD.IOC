@@ -301,13 +301,19 @@ namespace SD.IOC.Core.Mediators
                 Type serviceScopeType = serviceScope.GetType();
 #if NET45
                 FieldInfo scopeProviderField = serviceScopeType.GetField("_scopedProvider", BindingFlags.NonPublic | BindingFlags.Instance);
-                object scopeProvider = scopeProviderField.GetValue(serviceScope);
-                Type scopeProviderType = scopeProvider.GetType();
-                FieldInfo transientDisposablesField = scopeProviderType.GetField("_transientDisposables", BindingFlags.NonPublic | BindingFlags.Instance);
-                disposables = (List<IDisposable>)transientDisposablesField.GetValue(scopeProvider);
+                object scopeProvider = scopeProviderField?.GetValue(serviceScope);
+                Type scopeProviderType = scopeProvider?.GetType();
+                FieldInfo transientDisposablesField = scopeProviderType?.GetField("_transientDisposables", BindingFlags.NonPublic | BindingFlags.Instance);
+                if (transientDisposablesField?.GetValue(scopeProvider) is List<IDisposable> list)
+                {
+                    disposables = list;
+                }
 #else
                 FieldInfo disposablesField = serviceScopeType.GetField("_disposables", BindingFlags.NonPublic | BindingFlags.Instance);
-                disposables = ((List<object>)disposablesField.GetValue(serviceScope)).Select(x => (IDisposable)x).ToList();
+                if (disposablesField?.GetValue(serviceScope) is List<object> list)
+                {
+                    disposables = list.Select(x => (IDisposable)x).ToList();
+                }
 #endif
                 serviceScope.Dispose();
             }
