@@ -331,7 +331,7 @@ namespace SD.IOC.Core.Mediators
         /// </summary>
         private static void OnServiceScopeValueChange(AsyncLocalValueChangedArgs<IServiceScope> eventArgs)
         {
-            if (eventArgs.CurrentValue == null && !eventArgs.PreviousValue.Disposed())
+            if ((eventArgs.CurrentValue == null || eventArgs.CurrentValue.Disposed()) && !eventArgs.PreviousValue.Disposed())
             {
                 _ServiceScope.Value = eventArgs.PreviousValue;
             }
