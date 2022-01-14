@@ -138,6 +138,17 @@ namespace SD.IOC.Core.Mediators
         }
         #endregion
 
+        #region # 获取范围容器可释放对象列表 —— static IList<IDisposable> GetServiceScopeDisposables()
+        /// <summary>
+        /// 获取范围容器可释放对象列表
+        /// </summary>
+        /// <returns>可释放对象列表</returns>
+        public static IList<IDisposable> GetServiceScopeDisposables()
+        {
+            return GetDisposableInstances(_ServiceScope.Value);
+        }
+        #endregion
+
         #region # 范围容器是否已被释放 —— static bool Disposed(this IServiceScope serviceScope)
         /// <summary>
         /// 范围容器是否已被释放
@@ -298,29 +309,55 @@ namespace SD.IOC.Core.Mediators
             IList<IDisposable> disposables = new List<IDisposable>();
             try
             {
-                Type serviceScopeType = serviceScope.GetType();
-#if NET45
-                FieldInfo scopeProviderField = serviceScopeType.GetField("_scopedProvider", BindingFlags.NonPublic | BindingFlags.Instance);
-                object scopeProvider = scopeProviderField?.GetValue(serviceScope);
-                Type scopeProviderType = scopeProvider?.GetType();
-                FieldInfo transientDisposablesField = scopeProviderType?.GetField("_transientDisposables", BindingFlags.NonPublic | BindingFlags.Instance);
-                if (transientDisposablesField?.GetValue(scopeProvider) is List<IDisposable> list)
-                {
-                    disposables = list;
-                }
-#else
-                FieldInfo disposablesField = serviceScopeType.GetField("_disposables", BindingFlags.NonPublic | BindingFlags.Instance);
-                if (disposablesField?.GetValue(serviceScope) is List<object> list)
-                {
-                    disposables = list.Select(x => (IDisposable)x).ToList();
-                }
-#endif
+                disposables = GetDisposableInstances(serviceScope);
                 serviceScope.Dispose();
             }
             finally
             {
                 OnDispose?.Invoke(disposables);
             }
+        }
+        #endregion
+
+        #region # 获取可释放对象列表 —— static IList<IDisposable> GetDisposableInstances(...
+        /// <summary>
+        /// 获取可释放对象列表
+        /// </summary>
+        /// <param name="serviceScope">范围容器</param>
+        /// <returns>可释放对象列表</returns>
+        private static IList<IDisposable> GetDisposableInstances(IServiceScope serviceScope)
+        {
+            #region # 验证
+
+            if (serviceScope == null)
+            {
+                return new List<IDisposable>();
+            }
+
+            #endregion
+
+            IList<IDisposable> disposables = new List<IDisposable>();
+            Type serviceScopeType = serviceScope.GetType();
+#if NET45
+            const string scopeProviderFieldName = "_scopedProvider";
+            const string transientDisposablesFieldName = "_transientDisposables";
+            FieldInfo scopeProviderField = serviceScopeType.GetField(scopeProviderFieldName, BindingFlags.NonPublic | BindingFlags.Instance);
+            object scopeProvider = scopeProviderField?.GetValue(serviceScope);
+            Type scopeProviderType = scopeProvider?.GetType();
+            FieldInfo transientDisposablesField = scopeProviderType?.GetField(transientDisposablesFieldName, BindingFlags.NonPublic | BindingFlags.Instance);
+            if (transientDisposablesField?.GetValue(scopeProvider) is List<IDisposable> list)
+            {
+                disposables = list;
+            }
+#else
+            const string disposablesFieldName = "_disposables";
+            FieldInfo disposablesField = serviceScopeType.GetField(disposablesFieldName, BindingFlags.NonPublic | BindingFlags.Instance);
+            if (disposablesField?.GetValue(serviceScope) is List<object> list)
+            {
+                disposables = list.Select(x => (IDisposable)x).ToList();
+            }
+#endif
+            return disposables;
         }
         #endregion
 
