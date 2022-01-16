@@ -1,10 +1,15 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SD.Common;
+using SD.IOC.Core;
 using SD.IOC.Core.Mediators;
-using SD.IOC.Extension.NetFx.Tests.StubImplements;
-using SD.IOC.Extension.NetFx.Tests.StubInterfaces;
+using SD.IOC.Extension.NetCore.Tests.StubImplements;
+using SD.IOC.Extension.NetCore.Tests.StubInterfaces;
+using System.Configuration;
+using System.Reflection;
+using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
-namespace SD.IOC.Extension.NetFx.Tests
+namespace SD.IOC.Extension.NetCore.Tests.TestCases
 {
     /// <summary>
     /// 测试解析本地
@@ -18,6 +23,12 @@ namespace SD.IOC.Extension.NetFx.Tests
         [TestInitialize]
         public void Init()
         {
+            //初始化配置文件
+            Assembly entryAssembly = Assembly.GetExecutingAssembly();
+            Configuration configuration = ConfigurationExtension.GetConfigurationFromAssembly(entryAssembly);
+            DependencyInjectionSection.Initialize(configuration);
+
+            //初始化依赖注入容器
             if (!ResolveMediator.ContainerBuilt)
             {
                 IServiceCollection builder = ResolveMediator.GetServiceCollection();

@@ -1,10 +1,15 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SD.Common;
+using SD.IOC.Core;
 using SD.IOC.Core.Mediators;
-using SD.IOC.StubImplement.Implements;
 using SD.IOC.StubInterface.Interfaces;
+using System.Configuration;
+using System.Reflection;
+using System.ServiceModel;
+using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
-namespace SD.IOC.Extension.NetFx.Tests
+namespace SD.IOC.Extension.NetCore.ServiceModel.Tests.TestCases
 {
     /// <summary>
     /// 测试解析远程服务
@@ -18,10 +23,17 @@ namespace SD.IOC.Extension.NetFx.Tests
         [TestInitialize]
         public void Init()
         {
+            //初始化配置文件
+            Assembly entryAssembly = Assembly.GetExecutingAssembly();
+            Configuration configuration = ConfigurationExtension.GetConfigurationFromAssembly(entryAssembly);
+            ServiceModelSectionGroup.Initialize(configuration);
+            DependencyInjectionSection.Initialize(configuration);
+
+            //初始化依赖注入容器
             if (!ResolveMediator.ContainerBuilt)
             {
                 IServiceCollection builder = ResolveMediator.GetServiceCollection();
-                builder.RegisterConfigs();
+                builder.RegisterServiceModels();
 
                 ResolveMediator.Build();
             }
@@ -48,17 +60,6 @@ namespace SD.IOC.Extension.NetFx.Tests
         }
 
         /// <summary>
-        /// 测试解析实例方法
-        /// </summary>
-        [TestMethod]
-        public void TestResolveOptionalType()
-        {
-            object productContract = ResolveMediator.ResolveOptional(typeof(ProductContract));
-
-            Assert.IsNull(productContract);
-        }
-
-        /// <summary>
         /// 测试解析实例泛型方法
         /// </summary>
         [TestMethod]
@@ -70,23 +71,13 @@ namespace SD.IOC.Extension.NetFx.Tests
         }
 
         /// <summary>
-        /// 测试解析实例泛型方法
-        /// </summary>
-        [TestMethod]
-        public void TestResolveOptionalGeneric()
-        {
-            IProductContract productContract = ResolveMediator.ResolveOptional<ProductContract>();
-
-            Assert.IsNull(productContract);
-        }
-
-        /// <summary>
         /// 测试实例代理
         /// </summary>
         [TestMethod]
         public void TestProxy()
         {
             string products = Proxy<IProductContract>.Instance.GetProducts();
+
             Assert.IsNotNull(products);
         }
     }
