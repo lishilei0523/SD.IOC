@@ -19,7 +19,7 @@
     <ProjectReference Include="..\SD.IOC.Core\SD.IOC.Core.csproj" />
     <ProjectReference Include="..\SD.IOC.Extension.NetFx\SD.IOC.Extension.NetFx.csproj" />
     <ProjectReference Include="..\SD.IOC.Integration.WCF\SD.IOC.Integration.WCF.csproj" />
-    <ProjectReference Include="..\SD.IOC.StubInterface\SD.IOC.StubInterface.csproj" />
-    <ProjectReference Include="..\SD.IOC.StubImplement\SD.IOC.StubImplement.csproj" />
+    <ProjectReference Include="..\SD.IOC.StubIAppService\SD.IOC.StubIAppService.csproj" />
+    <ProjectReference Include="..\SD.IOC.StubAppService\SD.IOC.StubAppService.csproj" />
   </ItemGroup>
 </Project>

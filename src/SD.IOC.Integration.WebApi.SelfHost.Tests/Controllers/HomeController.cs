@@ -1,4 +1,4 @@
-﻿using SD.IOC.StubInterface.Interfaces;
+﻿using SD.IOC.StubIAppService.Interfaces;
 using System.Web.Http;
 
 namespace SD.IOC.Integration.WebApi.SelfHost.Tests.Controllers

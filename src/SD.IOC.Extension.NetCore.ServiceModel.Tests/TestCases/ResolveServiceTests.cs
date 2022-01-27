@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SD.Common;
 using SD.IOC.Core;
 using SD.IOC.Core.Mediators;
-using SD.IOC.StubInterface.Interfaces;
+using SD.IOC.StubIAppService.Interfaces;
 using System.Configuration;
 using System.Reflection;
 using System.ServiceModel;

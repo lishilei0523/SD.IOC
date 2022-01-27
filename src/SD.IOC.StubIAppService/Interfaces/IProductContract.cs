@@ -1,6 +1,6 @@
 ﻿using System.ServiceModel;
 
-namespace SD.IOC.StubInterface.Interfaces
+namespace SD.IOC.StubIAppService.Interfaces
 {
     /// <summary>
     /// 商品管理接口

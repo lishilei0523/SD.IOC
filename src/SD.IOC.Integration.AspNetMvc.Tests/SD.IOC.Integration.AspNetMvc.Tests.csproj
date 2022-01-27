@@ -81,13 +81,9 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Home\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -99,9 +95,9 @@
       <Project>{55d3c723-3d6f-42dc-9657-1f5fc406e32c}</Project>
       <Name>SD.IOC.Integration.AspNetMvc</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SD.IOC.StubInterface\SD.IOC.StubInterface.csproj">
+    <ProjectReference Include="..\SD.IOC.StubIAppService\SD.IOC.StubIAppService.csproj">
       <Project>{04bfa4d7-86c8-4341-b34c-3f1d88d19827}</Project>
-      <Name>SD.IOC.StubInterface</Name>
+      <Name>SD.IOC.StubIAppService</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

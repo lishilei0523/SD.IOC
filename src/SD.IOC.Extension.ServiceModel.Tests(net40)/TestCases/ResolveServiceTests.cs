@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SD.IOC.Core.Extensions;
 using SD.IOC.Core.Mediators;
-using SD.IOC.StubInterface.Interfaces;
+using SD.IOC.StubIAppService.Interfaces;
 
 namespace SD.IOC.Core.Tests.TestCases
 {

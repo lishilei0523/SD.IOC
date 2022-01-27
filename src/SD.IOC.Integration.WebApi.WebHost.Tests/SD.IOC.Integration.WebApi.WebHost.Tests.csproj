@@ -96,9 +96,9 @@
       <Project>{9b0f9898-eaeb-4641-866d-4ecece94f6f0}</Project>
       <Name>SD.IOC.Integration.WebApi.WebHost</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SD.IOC.StubInterface\SD.IOC.StubInterface.csproj">
+    <ProjectReference Include="..\SD.IOC.StubIAppService\SD.IOC.StubIAppService.csproj">
       <Project>{04bfa4d7-86c8-4341-b34c-3f1d88d19827}</Project>
-      <Name>SD.IOC.StubInterface</Name>
+      <Name>SD.IOC.StubIAppService</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

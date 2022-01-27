@@ -1,4 +1,4 @@
-﻿using SD.IOC.StubInterface.Interfaces;
+﻿using SD.IOC.StubIAppService.Interfaces;
 using System.Web.Mvc;
 
 namespace SD.IOC.Integration.AspNetMvc.Tests.Controllers

@@ -1,7 +1,7 @@
-﻿using SD.IOC.StubInterface.Interfaces;
+﻿using SD.IOC.StubIAppService.Interfaces;
 using System.ServiceModel;
 
-namespace SD.IOC.StubImplement.Implements
+namespace SD.IOC.StubAppService.Implements
 {
     /// <summary>
     /// 商品管理实现

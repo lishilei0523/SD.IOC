@@ -23,9 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SD.IOC.Integration.WebApi",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Tests", "04 - Tests", "{AEB77889-D78D-49AB-8975-009AAD182247}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SD.IOC.StubInterface", "src\SD.IOC.StubInterface\SD.IOC.StubInterface.csproj", "{04BFA4D7-86C8-4341-B34C-3F1D88D19827}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SD.IOC.StubIAppService", "src\SD.IOC.StubIAppService\SD.IOC.StubIAppService.csproj", "{04BFA4D7-86C8-4341-B34C-3F1D88D19827}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SD.IOC.StubImplement", "src\SD.IOC.StubImplement\SD.IOC.StubImplement.csproj", "{B8698D54-2A18-45C3-A390-F1885E56F5A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SD.IOC.StubAppService", "src\SD.IOC.StubAppService\SD.IOC.StubAppService.csproj", "{B8698D54-2A18-45C3-A390-F1885E56F5A0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SD.IOC.Core.Tests", "src\SD.IOC.Core.Tests\SD.IOC.Core.Tests.csproj", "{C3129779-5C2F-4A43-BD2A-250DF71AF069}"
 EndProject

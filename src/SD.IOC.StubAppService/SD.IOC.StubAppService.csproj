@@ -16,6 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SD.IOC.StubInterface\SD.IOC.StubInterface.csproj" />
+    <ProjectReference Include="..\SD.IOC.StubIAppService\SD.IOC.StubIAppService.csproj" />
   </ItemGroup>
 </Project>

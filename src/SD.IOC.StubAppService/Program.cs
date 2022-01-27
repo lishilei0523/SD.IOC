@@ -1,6 +1,6 @@
 ﻿using Topshelf;
 
-namespace SD.IOC.StubImplement
+namespace SD.IOC.StubAppService
 {
     class Program
     {
@@ -16,9 +16,9 @@ namespace SD.IOC.StubImplement
                 });
                 config.RunAsLocalSystem();
 
-                config.SetServiceName("SD.IOC.StubImplement");
-                config.SetDisplayName("SD.IOC.StubImplement");
-                config.SetDescription("SD.IOC.StubImplement");
+                config.SetServiceName("SD.IOC.StubAppService");
+                config.SetDisplayName("SD.IOC.StubAppService");
+                config.SetDescription("SD.IOC.StubAppService");
             });
         }
     }

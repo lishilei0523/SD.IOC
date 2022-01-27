@@ -1,6 +1,6 @@
-﻿using SD.IOC.Extension.NetCore.Tests.StubInterfaces;
+﻿using SD.IOC.Extension.NetFx.Tests.StubIAppServices;
 
-namespace SD.IOC.Extension.NetCore.Tests.StubImplements
+namespace SD.IOC.Extension.NetFx.Tests.StubAppServices
 {
     public class OrderContract : IOrderContract
     {

@@ -1,8 +1,8 @@
-﻿using SD.IOC.StubImplement.Implements;
+﻿using SD.IOC.StubAppService.Implements;
 using System;
 using System.ServiceModel;
 
-namespace SD.IOC.StubImplement
+namespace SD.IOC.StubAppService
 {
     /// <summary>
     /// 服务启动器

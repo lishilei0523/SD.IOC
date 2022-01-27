@@ -1,5 +1,5 @@
 ﻿using SD.IOC.Integration.AspNetCore.Tests.Interfaces;
-using SD.IOC.StubInterface.Interfaces;
+using SD.IOC.StubIAppService.Interfaces;
 
 namespace SD.IOC.Integration.AspNetCore.Tests.Implements
 {

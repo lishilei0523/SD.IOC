@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SD.IOC.Core.Mediators;
-using SD.IOC.Extension.NetFx.Tests.StubImplements;
-using SD.IOC.Extension.NetFx.Tests.StubInterfaces;
+using SD.IOC.Extension.NetFx.Tests.StubAppServices;
+using SD.IOC.Extension.NetFx.Tests.StubIAppServices;
 
 namespace SD.IOC.Extension.NetFx.Tests.TestCases
 {

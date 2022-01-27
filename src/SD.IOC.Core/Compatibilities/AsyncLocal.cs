@@ -33,7 +33,7 @@ namespace System.Threading
         /// <summary>
         /// 获取或设置环境数据的值
         /// </summary>
-        /// <returns>环境数据的值。 如果已不设置任何值，返回的值是default （t)</returns>
+        /// <returns>环境数据的值。 如果已不设置任何值，返回的值是default(T)</returns>
         public T Value
         {
             get

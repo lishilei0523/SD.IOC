@@ -1,8 +1,8 @@
 ﻿using Autofac;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SD.IOC.Core.Mediators;
-using SD.IOC.StubImplement.Implements;
-using SD.IOC.StubInterface.Interfaces;
+using SD.IOC.StubAppService.Implements;
+using SD.IOC.StubIAppService.Interfaces;
 
 namespace SD.IOC.Core.Tests.TestCases
 {

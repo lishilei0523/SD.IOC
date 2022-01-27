@@ -1,9 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net45</TargetFramework>
+    <IsPackable>false</IsPackable>
     <AssemblyName>SD.IOC.Core.Tests</AssemblyName>
     <RootNamespace>SD.IOC.Core.Tests</RootNamespace>
-    <IsPackable>false</IsPackable>
+    <Authors>Lee</Authors>
+    <Company>SD</Company>
+    <Copyright>Copyright © SD 2021</Copyright>
   </PropertyGroup>
 
   <!--Configs-->
@@ -32,7 +35,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SD.IOC.Core(net40)\SD.IOC.Core(net40).csproj" />
-    <ProjectReference Include="..\SD.IOC.StubInterface\SD.IOC.StubInterface.csproj" />
-    <ProjectReference Include="..\SD.IOC.StubImplement\SD.IOC.StubImplement.csproj" />
+    <ProjectReference Include="..\SD.IOC.StubIAppService\SD.IOC.StubIAppService.csproj" />
+    <ProjectReference Include="..\SD.IOC.StubAppService\SD.IOC.StubAppService.csproj" />
   </ItemGroup>
 </Project>
