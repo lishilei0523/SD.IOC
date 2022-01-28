@@ -22,6 +22,7 @@ namespace SD.IOC.Integration.WebApi.Extensions
             {
                 IServiceCollection builder = ResolveMediator.GetServiceCollection();
                 builder.RegisterConfigs();
+
                 ResolveMediator.Build();
             }
 

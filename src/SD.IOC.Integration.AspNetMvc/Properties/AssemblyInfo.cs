@@ -17,5 +17,5 @@ using System.Web;
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
 [assembly: Guid("b44585d4-dc9e-4f92-808d-d7ae9d011c9a")]
 
-// 注射至MVC应用程序
+// 注射至ASP.NET MVC应用程序
 [assembly: PreApplicationStartMethod(typeof(PreAppStart), nameof(PreAppStart.InitInjection))]
