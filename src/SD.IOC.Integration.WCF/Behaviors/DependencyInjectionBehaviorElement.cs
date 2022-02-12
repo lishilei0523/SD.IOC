@@ -1,4 +1,5 @@
-﻿using SD.IOC.Integration.WCF.Behaviors;
+﻿#if NET40_OR_GREATER
+using SD.IOC.Integration.WCF.Behaviors;
 using System;
 using System.ServiceModel.Configuration;
 
@@ -28,3 +29,4 @@ namespace SD.IOC.Integration.WCF
         }
     }
 }
+#endif
