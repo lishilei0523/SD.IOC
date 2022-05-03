@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SD.IOC.Core;
 using SD.IOC.Core.Configurations;
-using SD.Toolkits.Grpc.Client.ServiceModels;
+using SD.IOC.Extension.Grpc.ServiceModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,7 +46,7 @@ namespace SD.IOC.Extension.Grpc
                 IEnumerable<Type> types = grpcInterfaceAssembly.GetTypes().Where(type => type.IsInterface);
 
                 //获取服务代理泛型类型
-                Type proxyGenericType = typeof(GrpcServiceProxy<>);
+                Type proxyGenericType = typeof(ServiceProxy<>);
 
                 ServiceLifetime lifetimeMode = element.LifetimeMode.ToLifetime();
 
@@ -54,7 +54,7 @@ namespace SD.IOC.Extension.Grpc
                 foreach (Type type in types)
                 {
                     Type proxyType = proxyGenericType.MakeGenericType(type);
-                    PropertyInfo propChannel = proxyType.GetProperty(GrpcServiceProxy.ChannelPropertyName, type);
+                    PropertyInfo propChannel = proxyType.GetProperty(ServiceProxy.ChannelPropertyName, type);
 
                     ServiceDescriptor proxyDescriptor = new ServiceDescriptor(proxyType, proxyType, lifetimeMode);
                     builder.Add(proxyDescriptor);
