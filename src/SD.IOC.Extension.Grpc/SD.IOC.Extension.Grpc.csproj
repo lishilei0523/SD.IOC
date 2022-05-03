@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net461;net48;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net461;netstandard2.0</TargetFrameworks>
     <Authors>Lee</Authors>
     <Company>SD</Company>
     <Description>SD.IOC 依赖注入组件 - .NET Core gRPC扩展</Description>
@@ -11,10 +11,10 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\$(TargetFramework)\SD.IOC.Extension.NetCore.Grpc.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\$(TargetFramework)\SD.IOC.Extension.Grpc.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\$(TargetFramework)\SD.IOC.Extension.NetCore.Grpc.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\$(TargetFramework)\SD.IOC.Extension.Grpc.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
