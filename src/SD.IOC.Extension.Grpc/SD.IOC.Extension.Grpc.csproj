@@ -4,7 +4,7 @@
     <Authors>Lee</Authors>
     <Company>SD</Company>
     <Description>SD.IOC 依赖注入组件 - .NET Core gRPC扩展</Description>
-    <Copyright>Copyright © SD 2022</Copyright>
+    <Copyright>Copyright © SD 2023</Copyright>
     <Version>1.0.0-Preview2</Version>
     <AssemblyVersion>1.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
@@ -18,7 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ServiceModel.Grpc" Version="1.4.10" />
+    <PackageReference Include="ServiceModel.Grpc" Version="1.5.0" />
     <PackageReference Include="SD.Toolkits.Grpc.Client" Version="1.0.0-Preview2" />
   </ItemGroup>
 
