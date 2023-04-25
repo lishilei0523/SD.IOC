@@ -27,9 +27,9 @@ namespace SD.IOC.Integration.WebApi.DependencyResolvers
         /// <returns> 请求的服务或对象 </returns>
         public virtual object GetService(Type serviceType)
         {
-            if (WebApiDependencyResolver.OnGetInstance != null)
+            if (OnGetInstance != null)
             {
-                WebApiDependencyResolver.OnGetInstance.Invoke();
+                OnGetInstance.Invoke();
             }
 
             return ResolveMediator.ResolveOptional(serviceType);
@@ -42,9 +42,9 @@ namespace SD.IOC.Integration.WebApi.DependencyResolvers
         /// <returns>请求的服务</returns>
         public virtual IEnumerable<object> GetServices(Type serviceType)
         {
-            if (WebApiDependencyResolver.OnGetInstance != null)
+            if (OnGetInstance != null)
             {
-                WebApiDependencyResolver.OnGetInstance.Invoke();
+                OnGetInstance.Invoke();
             }
 
             return ResolveMediator.ResolveAll(serviceType);
@@ -66,9 +66,9 @@ namespace SD.IOC.Integration.WebApi.DependencyResolvers
         /// </summary>
         public virtual void Dispose()
         {
-            if (WebApiDependencyResolver.OnReleaseInstance != null)
+            if (OnReleaseInstance != null)
             {
-                WebApiDependencyResolver.OnReleaseInstance.Invoke();
+                OnReleaseInstance.Invoke();
             }
 
             ResolveMediator.Dispose();

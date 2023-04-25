@@ -24,7 +24,7 @@ namespace SD.IOC.Extension.Xamarin.ServiceModel
         /// <param name="serviceCollection">容器建造者</param>
         public static void RegisterServiceModels(this IServiceCollection serviceCollection)
         {
-            ServiceCollectionExtension.RegisterWcfInterfaces(serviceCollection);
+            RegisterWcfInterfaces(serviceCollection);
         }
         #endregion
 

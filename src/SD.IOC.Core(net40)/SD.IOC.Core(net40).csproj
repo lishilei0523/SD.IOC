@@ -33,29 +33,14 @@
   </ItemGroup>
   <!--Compatibilities-->
   <ItemGroup>
-    <Compile Include="..\SD.IOC.Core\Compatibilities\AsyncLocal.cs">
-      <Link>Compatibilities\AsyncLocal.cs</Link>
+    <Compile Include="..\SD.IOC.Core\Compatibilities\*.cs">
+      <Link>Compatibilities\%(Filename)%(Extension)</Link>
     </Compile>
   </ItemGroup>
   <!--Configurations-->
   <ItemGroup>
-    <Compile Include="..\SD.IOC.Core\Configurations\AssemblyElement.cs">
-      <Link>Configurations\AssemblyElement.cs</Link>
-    </Compile>
-    <Compile Include="..\SD.IOC.Core\Configurations\AssemblyElementCollection.cs">
-      <Link>Configurations\AssemblyElementCollection.cs</Link>
-    </Compile>
-    <Compile Include="..\SD.IOC.Core\Configurations\DependencyInjectionSection.cs">
-      <Link>Configurations\DependencyInjectionSection.cs</Link>
-    </Compile>
-    <Compile Include="..\SD.IOC.Core\Configurations\LifetimeMode.cs">
-      <Link>Configurations\LifetimeMode.cs</Link>
-    </Compile>
-    <Compile Include="..\SD.IOC.Core\Configurations\TypeElement.cs">
-      <Link>Configurations\TypeElement.cs</Link>
-    </Compile>
-    <Compile Include="..\SD.IOC.Core\Configurations\TypeElementCollection.cs">
-      <Link>Configurations\TypeElementCollection.cs</Link>
+    <Compile Include="..\SD.IOC.Core\Configurations\*.cs">
+      <Link>Configurations\%(Filename)%(Extension)</Link>
     </Compile>
   </ItemGroup>
   <!--Mediators-->
@@ -66,14 +51,8 @@
   </ItemGroup>
   <!--ServiceModels-->
   <ItemGroup>
-    <Compile Include="..\SD.IOC.Extension.NetFx\ServiceModels\ChannelFactoryManager.cs">
-      <Link>ServiceModels\ChannelFactoryManager.cs</Link>
-    </Compile>
-    <Compile Include="..\SD.IOC.Extension.NetFx\ServiceModels\Extensions.cs">
-      <Link>ServiceModels\Extensions.cs</Link>
-    </Compile>
-    <Compile Include="..\SD.IOC.Extension.NetFx\ServiceModels\ServiceProxy.cs">
-      <Link>ServiceModels\ServiceProxy.cs</Link>
+    <Compile Include="..\SD.IOC.Extension.NetFx\ServiceModels\*.cs">
+      <Link>ServiceModels\%(Filename)%(Extension)</Link>
     </Compile>
   </ItemGroup>
 
