@@ -1,6 +1,6 @@
 ﻿using Topshelf;
 
-namespace SD.IOC.Integration.WebApi.SelfHost.Tests
+namespace SD.IOC.Integration.WebApi.Tests
 {
     class Program
     {
@@ -16,9 +16,9 @@ namespace SD.IOC.Integration.WebApi.SelfHost.Tests
                 });
                 config.RunAsLocalSystem();
 
-                config.SetServiceName("ASP.NET WebApi SelfHost");
-                config.SetDisplayName("ASP.NET WebApi SelfHost");
-                config.SetDescription("ASP.NET WebApi SelfHost");
+                config.SetServiceName("ASP.NET WebApi");
+                config.SetDisplayName("ASP.NET WebApi");
+                config.SetDescription("ASP.NET WebApi");
             });
         }
     }

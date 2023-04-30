@@ -1,7 +1,7 @@
 ﻿using SD.IOC.StubIAppService.Interfaces;
 using System.Web.Http;
 
-namespace SD.IOC.Integration.WebApi.SelfHost.Tests.Controllers
+namespace SD.IOC.Integration.WebApi.Tests.Controllers
 {
     public class HomeController : ApiController
     {

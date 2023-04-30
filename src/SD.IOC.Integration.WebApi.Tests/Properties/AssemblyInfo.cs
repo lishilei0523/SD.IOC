@@ -1,5 +1,5 @@
 ﻿using Microsoft.Owin;
-using SD.IOC.Integration.WebApi.SelfHost.Tests;
+using SD.IOC.Integration.WebApi.Tests;
 using System.Reflection;
 using System.Runtime.InteropServices;
 

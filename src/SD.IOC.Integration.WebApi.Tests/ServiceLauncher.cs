@@ -2,7 +2,7 @@
 using SD.Toolkits.AspNet;
 using System;
 
-namespace SD.IOC.Integration.WebApi.SelfHost.Tests
+namespace SD.IOC.Integration.WebApi.Tests
 {
     /// <summary>
     /// 服务启动器

@@ -1,7 +1,7 @@
 ﻿using Owin;
 using System.Web.Http;
 
-namespace SD.IOC.Integration.WebApi.SelfHost.Tests
+namespace SD.IOC.Integration.WebApi.Tests
 {
     /// <summary>
     /// OWIN启动器
@@ -17,7 +17,7 @@ namespace SD.IOC.Integration.WebApi.SelfHost.Tests
         {
             httpConfiguration.Routes.MapHttpRoute(
                 "DefaultApi",
-                "{controller}/{action}/{id}",
+                "Api/{controller}/{action}/{id}",
                 new { id = RouteParameter.Optional }
             );
         }
