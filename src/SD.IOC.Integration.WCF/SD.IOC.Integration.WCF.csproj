@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net45;net461;net48;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net45;net461;net462;netstandard2.0</TargetFrameworks>
     <Authors>Lee</Authors>
     <Company>SD</Company>
     <Description>SD.IOC 依赖注入组件 - 集成WCF服务端</Description>
