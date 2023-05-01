@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <PackageReference Include="ServiceModel.Grpc" Version="1.5.0" />
-    <PackageReference Include="SD.Toolkits.Grpc.Client" Version="1.0.0-Preview2" />
+    <PackageReference Include="SD.Toolkits.Grpc.Client" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>

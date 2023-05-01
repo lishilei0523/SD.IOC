@@ -5,9 +5,9 @@
     <Company>SD</Company>
     <Description>SD.IOC 依赖注入组件 - Xamarin WCF客户端扩展</Description>
     <Copyright>Copyright © SD 2023</Copyright>
-    <Version>1.0.1</Version>
-    <AssemblyVersion>1.0.1</AssemblyVersion>
-    <FileVersion>1.0.1.0</FileVersion>
+    <Version>1.2.0</Version>
+    <AssemblyVersion>1.2.0</AssemblyVersion>
+    <FileVersion>1.2.0.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="SD.Toolkits.CoreWCF.Xamarin" Version="1.0.1" />
+    <PackageReference Include="SD.Toolkits.CoreWCF.Xamarin" Version="1.0.2" />
   </ItemGroup>
 
   <ItemGroup>
