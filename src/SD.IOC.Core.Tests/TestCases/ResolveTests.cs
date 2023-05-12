@@ -1,8 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SD.Common;
 using SD.IOC.Core.Mediators;
 using SD.IOC.StubAppService.Implements;
 using SD.IOC.StubIAppService.Interfaces;
+using System.Configuration;
+using System.Reflection;
+using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
 namespace SD.IOC.Core.Tests.TestCases
 {
@@ -16,8 +20,13 @@ namespace SD.IOC.Core.Tests.TestCases
         /// 测试初始化
         /// </summary>
         [TestInitialize]
-        public void Init()
+        public void Initialize()
         {
+#if NETCOREAPP3_1_OR_GREATER
+            Assembly entryAssembly = Assembly.GetExecutingAssembly();
+            Configuration configuration = ConfigurationExtension.GetConfigurationFromAssembly(entryAssembly);
+            DependencyInjectionSection.Initialize(configuration);
+#endif
             if (!ResolveMediator.ContainerBuilt)
             {
                 IServiceCollection builder = ResolveMediator.GetServiceCollection();

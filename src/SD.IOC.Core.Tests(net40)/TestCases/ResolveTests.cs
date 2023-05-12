@@ -16,7 +16,7 @@ namespace SD.IOC.Core.Tests.TestCases
         /// 测试初始化
         /// </summary>
         [TestInitialize]
-        public void Init()
+        public void Initialize()
         {
             if (!ResolveMediator.ContainerBuilt)
             {

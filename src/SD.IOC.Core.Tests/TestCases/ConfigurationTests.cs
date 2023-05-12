@@ -1,12 +1,25 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SD.Common;
 using SD.IOC.Core.Configurations;
+using System.Configuration;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace SD.IOC.Core.Tests.TestCases
 {
     [TestClass]
     public class ConfigurationTests
     {
+        [TestInitialize]
+        public void Initialize()
+        {
+#if NETCOREAPP3_1_OR_GREATER
+            Assembly entryAssembly = Assembly.GetExecutingAssembly();
+            Configuration configuration = ConfigurationExtension.GetConfigurationFromAssembly(entryAssembly);
+            DependencyInjectionSection.Initialize(configuration);
+#endif
+        }
+
         [TestMethod]
         public void TestConfigurations()
         {
