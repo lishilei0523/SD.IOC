@@ -3,6 +3,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace SD.IOC.Integration.AspNetCore.Tests
 {
+    /// <summary>
+    /// 应用程序启动器
+    /// </summary>
     public class Startup
     {
         /// <summary>
