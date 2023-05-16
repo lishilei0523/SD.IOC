@@ -16,6 +16,8 @@ namespace SD.IOC.Extension.Grpc.ServiceModels
     /// </summary>
     public static class ChannelFactoryManager
     {
+        #region # 字段及构造器
+
         /// <summary>
         /// gRPC信道字典
         /// </summary>
@@ -37,6 +39,9 @@ namespace SD.IOC.Extension.Grpc.ServiceModels
             }
         }
 
+        #endregion
+
+        #region # 获取gRPC信道 —— static GrpcChannel GetGrpcChannel(string uri)
         /// <summary>
         /// 获取gRPC信道
         /// </summary>
@@ -57,7 +62,9 @@ namespace SD.IOC.Extension.Grpc.ServiceModels
 
             return channel;
         }
+        #endregion
 
+        #region # 创建gRPC信道 —— static GrpcChannel CreateGrpcChannel(EndpointElement endpoint)
         /// <summary>
         /// 创建gRPC信道
         /// </summary>
@@ -120,5 +127,6 @@ namespace SD.IOC.Extension.Grpc.ServiceModels
 
             return channel;
         }
+        #endregion
     }
 }

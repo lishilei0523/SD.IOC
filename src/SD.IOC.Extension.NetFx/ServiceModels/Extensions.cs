@@ -2,7 +2,7 @@
 namespace System.ServiceModel.Extensions
 {
     /// <summary>
-    /// WCF扩展工具类
+    /// WCF扩展
     /// </summary>
     internal static class Extensions
     {

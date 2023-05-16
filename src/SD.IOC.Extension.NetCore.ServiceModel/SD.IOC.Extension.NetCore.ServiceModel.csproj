@@ -21,6 +21,9 @@
     <Compile Include="..\SD.IOC.Extension.NetFx\ServiceModels\ServiceProxy.cs">
       <Link>ServiceModels\ServiceProxy.cs</Link>
     </Compile>
+    <Compile Include="..\SD.IOC.Extension.NetFx\ServiceModels\ServiceProxy`.cs">
+      <Link>ServiceModels\ServiceProxy`.cs</Link>
+    </Compile>
     <Compile Include="..\SD.IOC.Extension.NetFx\ServiceModels\Extensions.cs">
       <Link>ServiceModels\Extensions.cs</Link>
     </Compile>

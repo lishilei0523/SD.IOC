@@ -9,7 +9,7 @@ namespace SD.IOC.Integration.WCF.Tests
     {
         static void Main()
         {
-            IHostBuilder hostBuilder = Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder();
+            IHostBuilder hostBuilder = Host.CreateDefaultBuilder();
 
             //WebHost配置
             hostBuilder.ConfigureWebHostDefaults(webBuilder =>
