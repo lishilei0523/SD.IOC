@@ -1,4 +1,6 @@
-﻿using Topshelf;
+﻿using SD.IOC.Integration.WCF.Tests.Implements;
+using System;
+using System.ServiceModel;
 
 namespace SD.IOC.Integration.WCF.Tests
 {
@@ -6,20 +8,11 @@ namespace SD.IOC.Integration.WCF.Tests
     {
         static void Main()
         {
-            HostFactory.Run(config =>
-            {
-                config.Service<ServiceLauncher>(host =>
-                {
-                    host.ConstructUsing(name => new ServiceLauncher());
-                    host.WhenStarted(launcher => launcher.Start());
-                    host.WhenStopped(launcher => launcher.Stop());
-                });
-                config.RunAsLocalSystem();
+            ServiceHost productServiceHost = new ServiceHost(typeof(ProductService));
+            productServiceHost.Open();
 
-                config.SetServiceName("WCF.DependencyInjection");
-                config.SetDisplayName("WCF.DependencyInjection");
-                config.SetDescription("WCF依赖注入");
-            });
+            Console.WriteLine("服务已启动...");
+            Console.ReadKey();
         }
     }
 }

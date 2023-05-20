@@ -12,10 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Topshelf" Version="3.3.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SD.IOC.StubIAppService\SD.IOC.StubIAppService.csproj" />
   </ItemGroup>
 </Project>

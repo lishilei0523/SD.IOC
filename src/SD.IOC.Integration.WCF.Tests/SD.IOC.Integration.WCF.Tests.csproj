@@ -12,10 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Topshelf" Version="3.3.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SD.IOC.Core\SD.IOC.Core.csproj" />
     <ProjectReference Include="..\SD.IOC.Extension.NetFx\SD.IOC.Extension.NetFx.csproj" />
     <ProjectReference Include="..\SD.IOC.Integration.WCF\SD.IOC.Integration.WCF.csproj" />

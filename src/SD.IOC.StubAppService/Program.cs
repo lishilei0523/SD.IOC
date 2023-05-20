@@ -1,4 +1,6 @@
-﻿using Topshelf;
+﻿using SD.IOC.StubAppService.Implements;
+using System;
+using System.ServiceModel;
 
 namespace SD.IOC.StubAppService
 {
@@ -6,20 +8,11 @@ namespace SD.IOC.StubAppService
     {
         static void Main()
         {
-            HostFactory.Run(config =>
-            {
-                config.Service<ServiceLauncher>(host =>
-                {
-                    host.ConstructUsing(name => new ServiceLauncher());
-                    host.WhenStarted(launcher => launcher.Start());
-                    host.WhenStopped(launcher => launcher.Stop());
-                });
-                config.RunAsLocalSystem();
+            ServiceHost productContractHost = new ServiceHost(typeof(ProductContract));
+            productContractHost.Open();
 
-                config.SetServiceName("SD.IOC.StubAppService");
-                config.SetDisplayName("SD.IOC.StubAppService");
-                config.SetDescription("SD.IOC.StubAppService");
-            });
+            Console.WriteLine("服务已启动...");
+            Console.ReadKey();
         }
     }
 }
