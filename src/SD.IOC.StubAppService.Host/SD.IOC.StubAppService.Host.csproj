@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net45;net461;net462</TargetFrameworks>
+    <OutputType>Exe</OutputType>
+    <Authors>Lee</Authors>
+    <Company>SD</Company>
+    <Copyright>Copyright © SD 2023</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="System.ServiceModel" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SD.IOC.StubAppService\SD.IOC.StubAppService.csproj" />
+  </ItemGroup>
+</Project>

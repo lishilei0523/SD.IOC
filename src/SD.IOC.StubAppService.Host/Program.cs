@@ -2,7 +2,7 @@
 using System;
 using System.ServiceModel;
 
-namespace SD.IOC.StubAppService
+namespace SD.IOC.StubAppService.Host
 {
     class Program
     {

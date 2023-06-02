@@ -1,5 +1,10 @@
 ﻿using SD.IOC.StubIAppService.Interfaces;
+#if NET40_OR_GREATER
 using System.ServiceModel;
+#endif
+#if NETSTANDARD2_0_OR_GREATER
+using CoreWCF;
+#endif
 
 namespace SD.IOC.StubAppService.Implements
 {
