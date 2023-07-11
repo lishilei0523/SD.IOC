@@ -61,19 +61,19 @@
     <Reference Include="System.ServiceModel" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'net40'">
+  <ItemGroup Condition="$(TargetFramework.Equals('net40'))">
     <PackageReference Include="Autofac" Version="3.5.2" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
+  <ItemGroup Condition="$(TargetFramework.Equals('net45'))">
     <PackageReference Include="Autofac" Version="4.9.4" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
+  <ItemGroup Condition="$(TargetFramework.Equals('net461'))">
     <PackageReference Include="Autofac" Version="5.2.0" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'net462'">
+  <ItemGroup Condition="$(TargetFramework.Equals('net462'))">
     <PackageReference Include="Autofac" Version="7.0.0" />
   </ItemGroup>
 </Project>
