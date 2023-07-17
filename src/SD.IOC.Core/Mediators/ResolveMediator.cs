@@ -114,27 +114,6 @@ namespace SD.IOC.Core.Mediators
                 throw new InvalidOperationException("容器未初始化！");
             }
 
-            string filedName;
-#if NET45
-            filedName = "_disposeCalled";
-#else
-            filedName = "_disposed";
-#endif
-            Type type = _ServiceProvider.GetType();
-            FieldInfo field = type.GetField(filedName, BindingFlags.Instance | BindingFlags.NonPublic);
-            if (field != null)
-            {
-                object fieldValue = field.GetValue(_ServiceProvider);
-                if (fieldValue != null)
-                {
-                    bool disposed = Convert.ToBoolean(fieldValue);
-                    if (disposed)
-                    {
-                        _ServiceProvider = _ServiceCollection.BuildServiceProvider();
-                    }
-                }
-            }
-
             return _ServiceProvider;
         }
         #endregion
