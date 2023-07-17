@@ -2,10 +2,8 @@ using CoreWCF.Configuration;
 using CoreWCF.Description;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using SD.Common;
 using SD.IOC.Integration.WCF.Behaviors;
 using SD.IOC.Integration.WCF.Tests.Implements;
-using System.Collections.Generic;
 using System.Configuration;
 
 namespace SD.IOC.Integration.WCF.Tests
@@ -40,14 +38,14 @@ namespace SD.IOC.Integration.WCF.Tests
             metadataBehavior.HttpsGetEnabled = true;
             UseRequestHeadersForMetadataAddressBehavior addressBehavior = new UseRequestHeadersForMetadataAddressBehavior();
             DependencyInjectionBehavior dependencyInjectionBehavior = new DependencyInjectionBehavior();
-            IList<IServiceBehavior> serviceBehaviors = new List<IServiceBehavior>
-            {
-                addressBehavior, dependencyInjectionBehavior
-            };
 
             appBuilder.UseServiceModel(builder =>
             {
-                builder.ConfigureServiceHostBase<ProductService>(host => host.Description.Behaviors.AddRange(serviceBehaviors));
+                builder.ConfigureServiceHostBase<ProductService>(host =>
+                {
+                    host.Description.Behaviors.Add(addressBehavior);
+                    host.Description.Behaviors.Add(dependencyInjectionBehavior);
+                });
             });
         }
     }

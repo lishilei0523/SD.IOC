@@ -53,7 +53,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SD.IOC.Core.Tests(net40)", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SD.IOC.Extension.ServiceModel.Tests(net40)", "src\SD.IOC.Extension.ServiceModel.Tests(net40)\SD.IOC.Extension.ServiceModel.Tests(net40).csproj", "{61D2E257-60BA-453A-B63E-4CA99815C5C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD.IOC.StubAppService.Host", "src\SD.IOC.StubAppService.Host\SD.IOC.StubAppService.Host.csproj", "{56FEDD85-A9A4-41D0-A813-3C7022B7DAFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SD.IOC.StubAppService.Host", "src\SD.IOC.StubAppService.Host\SD.IOC.StubAppService.Host.csproj", "{56FEDD85-A9A4-41D0-A813-3C7022B7DAFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
