@@ -68,7 +68,7 @@ namespace SD.IOC.Core.Mediators
         /// </summary>
         public static bool ContainerBuilt
         {
-            get { return _ContainerBuilt; }
+            get => _ContainerBuilt;
         }
         #endregion
 
@@ -90,7 +90,6 @@ namespace SD.IOC.Core.Mediators
         /// <summary>
         /// 获取容器建造者
         /// </summary>
-        /// <returns>Service集合</returns>
         public static IServiceCollection GetServiceCollection()
         {
             if (_ContainerBuilt)
@@ -130,27 +129,6 @@ namespace SD.IOC.Core.Mediators
                 if (_ServiceScope.Value.Disposed())
                 {
                     IServiceProvider serviceProvider = GetServiceProvider();
-                    string filedName;
-#if NET45
-                    filedName = "_disposeCalled";
-#else
-                    filedName = "_disposed";
-#endif
-                    Type type = serviceProvider.GetType();
-                    FieldInfo field = type.GetField(filedName, BindingFlags.Instance | BindingFlags.NonPublic);
-                    if (field != null)
-                    {
-                        object fieldValue = field.GetValue(serviceProvider);
-                        if (fieldValue != null)
-                        {
-                            bool disposed = Convert.ToBoolean(fieldValue);
-                            if (disposed)
-                            {
-                                serviceProvider = _ServiceCollection.BuildServiceProvider();
-                            }
-                        }
-                    }
-
                     _ServiceScope.Value = serviceProvider.CreateScope();
                 }
 
@@ -170,11 +148,11 @@ namespace SD.IOC.Core.Mediators
         }
         #endregion
 
-        #region # 服务提供者是否已被释放 —— static bool Disposed(this IServiceProvider serviceProvider)
+        #region # 容器是否已被释放 —— static bool Disposed(this IServiceProvider serviceProvider)
         /// <summary>
-        /// 服务提供者是否已被释放
+        /// 容器是否已被释放
         /// </summary>
-        /// <param name="serviceProvider">服务提供者</param>
+        /// <param name="serviceProvider">容器</param>
         /// <returns>是否已被释放</returns>
         public static bool Disposed(this IServiceProvider serviceProvider)
         {
@@ -195,7 +173,7 @@ namespace SD.IOC.Core.Mediators
             filedName = "_disposed";
 #endif
             Type type = serviceProvider.GetType();
-            FieldInfo field = type.GetField(filedName, BindingFlags.Instance | BindingFlags.NonPublic);
+            FieldInfo field = type.GetField(filedName, BindingFlags.NonPublic | BindingFlags.Instance);
             if (field != null)
             {
                 object fieldValue = field.GetValue(serviceProvider);
@@ -260,7 +238,9 @@ namespace SD.IOC.Core.Mediators
             try
             {
                 IServiceScope serviceScope = GetServiceScope();
-                return serviceScope.ServiceProvider.GetRequiredService<T>();
+                T instance = serviceScope.ServiceProvider.GetRequiredService<T>();
+
+                return instance;
             }
             catch (ObjectDisposedException)
             {
@@ -280,7 +260,9 @@ namespace SD.IOC.Core.Mediators
             try
             {
                 IServiceScope serviceScope = GetServiceScope();
-                return serviceScope.ServiceProvider.GetRequiredService(type);
+                object instance = serviceScope.ServiceProvider.GetRequiredService(type);
+
+                return instance;
             }
             catch (ObjectDisposedException)
             {
@@ -300,7 +282,9 @@ namespace SD.IOC.Core.Mediators
             try
             {
                 IServiceScope serviceScope = GetServiceScope();
-                return serviceScope.ServiceProvider.GetService<T>();
+                T instance = serviceScope.ServiceProvider.GetService<T>();
+
+                return instance;
             }
             catch (ObjectDisposedException)
             {
@@ -320,7 +304,9 @@ namespace SD.IOC.Core.Mediators
             try
             {
                 IServiceScope serviceScope = GetServiceScope();
-                return serviceScope.ServiceProvider.GetService(type);
+                object instance = serviceScope.ServiceProvider.GetService(type);
+
+                return instance;
             }
             catch (ObjectDisposedException)
             {
@@ -340,7 +326,9 @@ namespace SD.IOC.Core.Mediators
             try
             {
                 IServiceScope serviceScope = GetServiceScope();
-                return serviceScope.ServiceProvider.GetServices<T>();
+                IEnumerable<T> instances = serviceScope.ServiceProvider.GetServices<T>();
+
+                return instances;
             }
             catch (ObjectDisposedException)
             {
@@ -360,7 +348,9 @@ namespace SD.IOC.Core.Mediators
             try
             {
                 IServiceScope serviceScope = GetServiceScope();
-                return serviceScope.ServiceProvider.GetServices(type);
+                IEnumerable<object> instances = serviceScope.ServiceProvider.GetServices(type);
+
+                return instances;
             }
             catch (ObjectDisposedException)
             {
@@ -458,10 +448,10 @@ namespace SD.IOC.Core.Mediators
         }
         #endregion
 
-        #region # AsyncLocal值变化 —— static void OnServiceScopeValueChange(...
+        #region # AsyncLocal值变化事件 —— static void OnServiceScopeValueChange(...
 #if !NET45
         /// <summary>
-        /// AsyncLocal值变化
+        /// AsyncLocal值变化事件
         /// </summary>
         private static void OnServiceScopeValueChange(AsyncLocalValueChangedArgs<IServiceScope> eventArgs)
         {
