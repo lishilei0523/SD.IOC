@@ -130,6 +130,27 @@ namespace SD.IOC.Core.Mediators
                 if (_ServiceScope.Value.Disposed())
                 {
                     IServiceProvider serviceProvider = GetServiceProvider();
+                    string filedName;
+#if NET45
+                    filedName = "_disposeCalled";
+#else
+                    filedName = "_disposed";
+#endif
+                    Type type = serviceProvider.GetType();
+                    FieldInfo field = type.GetField(filedName, BindingFlags.Instance | BindingFlags.NonPublic);
+                    if (field != null)
+                    {
+                        object fieldValue = field.GetValue(serviceProvider);
+                        if (fieldValue != null)
+                        {
+                            bool disposed = Convert.ToBoolean(fieldValue);
+                            if (disposed)
+                            {
+                                serviceProvider = _ServiceCollection.BuildServiceProvider();
+                            }
+                        }
+                    }
+
                     _ServiceScope.Value = serviceProvider.CreateScope();
                 }
 
@@ -146,6 +167,46 @@ namespace SD.IOC.Core.Mediators
         public static IList<IDisposable> GetServiceScopeDisposables()
         {
             return GetDisposableInstances(_ServiceScope.Value);
+        }
+        #endregion
+
+        #region # 服务提供者是否已被释放 —— static bool Disposed(this IServiceProvider serviceProvider)
+        /// <summary>
+        /// 服务提供者是否已被释放
+        /// </summary>
+        /// <param name="serviceProvider">服务提供者</param>
+        /// <returns>是否已被释放</returns>
+        public static bool Disposed(this IServiceProvider serviceProvider)
+        {
+            #region # 验证
+
+            if (serviceProvider == null)
+            {
+                return true;
+            }
+
+            #endregion
+
+            bool disposed;
+            string filedName;
+#if NET45
+            filedName = "_disposeCalled";
+#else
+            filedName = "_disposed";
+#endif
+            Type type = serviceProvider.GetType();
+            FieldInfo field = type.GetField(filedName, BindingFlags.Instance | BindingFlags.NonPublic);
+            if (field != null)
+            {
+                object fieldValue = field.GetValue(serviceProvider);
+                disposed = fieldValue == null ? true : Convert.ToBoolean(fieldValue);
+            }
+            else
+            {
+                disposed = true;
+            }
+
+            return disposed;
         }
         #endregion
 
@@ -196,9 +257,15 @@ namespace SD.IOC.Core.Mediators
         /// <returns>实例</returns>
         public static T Resolve<T>()
         {
-            IServiceScope serviceScope = GetServiceScope();
-
-            return serviceScope.ServiceProvider.GetRequiredService<T>();
+            try
+            {
+                IServiceScope serviceScope = GetServiceScope();
+                return serviceScope.ServiceProvider.GetRequiredService<T>();
+            }
+            catch (ObjectDisposedException)
+            {
+                return Resolve<T>();
+            }
         }
         #endregion
 
@@ -210,9 +277,15 @@ namespace SD.IOC.Core.Mediators
         /// <returns>实例</returns>
         public static object Resolve(Type type)
         {
-            IServiceScope serviceScope = GetServiceScope();
-
-            return serviceScope.ServiceProvider.GetRequiredService(type);
+            try
+            {
+                IServiceScope serviceScope = GetServiceScope();
+                return serviceScope.ServiceProvider.GetRequiredService(type);
+            }
+            catch (ObjectDisposedException)
+            {
+                return Resolve(type);
+            }
         }
         #endregion
 
@@ -224,9 +297,15 @@ namespace SD.IOC.Core.Mediators
         /// <returns>实例，如未注册则返回null</returns>
         public static T ResolveOptional<T>() where T : class
         {
-            IServiceScope serviceScope = GetServiceScope();
-
-            return serviceScope.ServiceProvider.GetService<T>();
+            try
+            {
+                IServiceScope serviceScope = GetServiceScope();
+                return serviceScope.ServiceProvider.GetService<T>();
+            }
+            catch (ObjectDisposedException)
+            {
+                return ResolveOptional<T>();
+            }
         }
         #endregion
 
@@ -238,9 +317,15 @@ namespace SD.IOC.Core.Mediators
         /// <returns>实例，如未注册则返回null</returns>
         public static object ResolveOptional(Type type)
         {
-            IServiceScope serviceScope = GetServiceScope();
-
-            return serviceScope.ServiceProvider.GetService(type);
+            try
+            {
+                IServiceScope serviceScope = GetServiceScope();
+                return serviceScope.ServiceProvider.GetService(type);
+            }
+            catch (ObjectDisposedException)
+            {
+                return ResolveOptional(type);
+            }
         }
         #endregion
 
@@ -252,9 +337,15 @@ namespace SD.IOC.Core.Mediators
         /// <returns>实例集</returns>
         public static IEnumerable<T> ResolveAll<T>()
         {
-            IServiceScope serviceScope = GetServiceScope();
-
-            return serviceScope.ServiceProvider.GetServices<T>();
+            try
+            {
+                IServiceScope serviceScope = GetServiceScope();
+                return serviceScope.ServiceProvider.GetServices<T>();
+            }
+            catch (ObjectDisposedException)
+            {
+                return ResolveAll<T>();
+            }
         }
         #endregion
 
@@ -266,9 +357,15 @@ namespace SD.IOC.Core.Mediators
         /// <returns>实例集</returns>
         public static IEnumerable<object> ResolveAll(Type type)
         {
-            IServiceScope serviceScope = GetServiceScope();
-
-            return serviceScope.ServiceProvider.GetServices(type);
+            try
+            {
+                IServiceScope serviceScope = GetServiceScope();
+                return serviceScope.ServiceProvider.GetServices(type);
+            }
+            catch (ObjectDisposedException)
+            {
+                return ResolveAll(type);
+            }
         }
         #endregion
 
