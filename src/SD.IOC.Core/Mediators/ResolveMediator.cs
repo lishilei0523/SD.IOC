@@ -276,7 +276,8 @@ namespace SD.IOC.Core.Mediators
         /// 解析实例
         /// </summary>
         /// <typeparam name="T">实例类型</typeparam>
-        /// <returns>实例，如未注册则返回null</returns>
+        /// <returns>实例</returns>
+        /// <remarks>如未注册则返回null</remarks>
         public static T ResolveOptional<T>() where T : class
         {
             try
@@ -298,7 +299,8 @@ namespace SD.IOC.Core.Mediators
         /// 解析实例
         /// </summary>
         /// <param name="type">实例类型</param>
-        /// <returns>实例，如未注册则返回null</returns>
+        /// <returns>实例</returns>
+        /// <remarks>如未注册则返回null</remarks>
         public static object ResolveOptional(Type type)
         {
             try
@@ -315,12 +317,12 @@ namespace SD.IOC.Core.Mediators
         }
         #endregion
 
-        #region # 解析实例集 —— static IEnumerable<T> ResolveAll<T>()
+        #region # 解析实例列表 —— static IEnumerable<T> ResolveAll<T>()
         /// <summary>
-        /// 解析实例集
+        /// 解析实例列表
         /// </summary>
         /// <typeparam name="T">实例类型</typeparam>
-        /// <returns>实例集</returns>
+        /// <returns>实例列表</returns>
         public static IEnumerable<T> ResolveAll<T>()
         {
             try
@@ -337,12 +339,12 @@ namespace SD.IOC.Core.Mediators
         }
         #endregion
 
-        #region # 解析实例集 —— static IEnumerable<object> ResolveAll(Type type)
+        #region # 解析实例列表 —— static IEnumerable<object> ResolveAll(Type type)
         /// <summary>
-        /// 解析实例集
+        /// 解析实例列表
         /// </summary>
         /// <param name="type">实例类型</param>
-        /// <returns>实例集</returns>
+        /// <returns>实例列表</returns>
         public static IEnumerable<object> ResolveAll(Type type)
         {
             try
