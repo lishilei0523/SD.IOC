@@ -7,11 +7,12 @@ using SD.IOC.StubIAppService.Interfaces;
 namespace SD.IOC.Core.Tests.TestCases
 {
     /// <summary>
-    /// 测试解析远程服务
+    /// 解析远程服务测试
     /// </summary>
     [TestClass]
     public class ResolveServiceTests
     {
+        #region # 测试初始化 —— void Initialize()
         /// <summary>
         /// 测试初始化
         /// </summary>
@@ -26,7 +27,9 @@ namespace SD.IOC.Core.Tests.TestCases
                 ResolveMediator.Build();
             }
         }
+        #endregion
 
+        #region # 测试清理 —— void Cleanup()
         /// <summary>
         /// 测试清理
         /// </summary>
@@ -35,9 +38,11 @@ namespace SD.IOC.Core.Tests.TestCases
         {
             ResolveMediator.Dispose();
         }
+        #endregion
 
+        #region # 测试解析实例 —— void TestResolveType()
         /// <summary>
-        /// 测试解析实例方法
+        /// 测试解析实例
         /// </summary>
         [TestMethod]
         public void TestResolveType()
@@ -46,9 +51,11 @@ namespace SD.IOC.Core.Tests.TestCases
 
             Assert.IsNotNull(productContract);
         }
+        #endregion
 
+        #region # 测试解析泛型实例 —— void TestResolveGeneric()
         /// <summary>
-        /// 测试解析实例泛型方法
+        /// 测试解析泛型实例
         /// </summary>
         [TestMethod]
         public void TestResolveGeneric()
@@ -59,5 +66,6 @@ namespace SD.IOC.Core.Tests.TestCases
             Assert.IsNotNull(productContract1);
             Assert.IsNotNull(productContract2);
         }
+        #endregion
     }
 }

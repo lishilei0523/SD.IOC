@@ -11,11 +11,12 @@ using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 namespace SD.IOC.Core.Tests.TestCases
 {
     /// <summary>
-    /// 测试解析实例
+    /// 解析实例测试
     /// </summary>
     [TestClass]
     public class ResolveTests
     {
+        #region # 测试初始化 —— void Initialize()
         /// <summary>
         /// 测试初始化
         /// </summary>
@@ -35,7 +36,9 @@ namespace SD.IOC.Core.Tests.TestCases
                 ResolveMediator.Build();
             }
         }
+        #endregion
 
+        #region # 测试清理 —— void Cleanup()
         /// <summary>
         /// 测试清理
         /// </summary>
@@ -44,9 +47,11 @@ namespace SD.IOC.Core.Tests.TestCases
         {
             ResolveMediator.Dispose();
         }
+        #endregion
 
+        #region # 测试解析实例 —— void TestResolveType()
         /// <summary>
-        /// 测试解析实例方法
+        /// 测试解析实例
         /// </summary>
         [TestMethod]
         public void TestResolveType()
@@ -55,9 +60,11 @@ namespace SD.IOC.Core.Tests.TestCases
 
             Assert.IsNotNull(productContract);
         }
+        #endregion
 
+        #region # 测试解析实例 —— void TestResolveOptionalType()
         /// <summary>
-        /// 测试解析实例方法
+        /// 测试解析实例
         /// </summary>
         [TestMethod]
         public void TestResolveOptionalType()
@@ -66,9 +73,11 @@ namespace SD.IOC.Core.Tests.TestCases
 
             Assert.IsNull(productContract);
         }
+        #endregion
 
+        #region # 测试解析泛型实例 —— void TestResolveGeneric()
         /// <summary>
-        /// 测试解析实例泛型方法
+        /// 测试解析泛型实例
         /// </summary>
         [TestMethod]
         public void TestResolveGeneric()
@@ -77,9 +86,11 @@ namespace SD.IOC.Core.Tests.TestCases
 
             Assert.IsNotNull(productContract);
         }
+        #endregion
 
+        #region # 测试解析泛型实例 —— void TestResolveOptionalGeneric()
         /// <summary>
-        /// 测试解析实例泛型方法
+        /// 测试解析泛型实例
         /// </summary>
         [TestMethod]
         public void TestResolveOptionalGeneric()
@@ -88,7 +99,9 @@ namespace SD.IOC.Core.Tests.TestCases
 
             Assert.IsNull(productContract);
         }
+        #endregion
 
+        #region # 测试实例代理 —— void TestProxy()
         /// <summary>
         /// 测试实例代理
         /// </summary>
@@ -98,5 +111,6 @@ namespace SD.IOC.Core.Tests.TestCases
             string products = Proxy<IProductContract>.Instance.GetProducts();
             Assert.IsNotNull(products);
         }
+        #endregion
     }
 }

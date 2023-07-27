@@ -8,6 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="..\SD.IOC.Extension.NetCore.Tests\StubAppServices\OrderContract.cs">
+      <Link>StubAppServices\OrderContract.cs</Link>
+    </Compile>
+    <Compile Include="..\SD.IOC.Extension.NetCore.Tests\StubIAppServices\IOrderContract.cs">
+      <Link>StubIAppServices\IOrderContract.cs</Link>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.3" />
     <PackageReference Include="MSTest.TestAdapter" Version="3.1.1" />
     <PackageReference Include="MSTest.TestFramework" Version="3.1.1" />

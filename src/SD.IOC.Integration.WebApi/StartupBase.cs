@@ -12,7 +12,6 @@ namespace SD.IOC.Integration.WebApi
         /// <summary>
         /// 配置应用程序
         /// </summary>
-        /// <param name="appBuilder">应用程序建造者</param>
         public void Configuration(IAppBuilder appBuilder)
         {
             HttpConfiguration httpConfiguration = new HttpConfiguration();
@@ -29,8 +28,6 @@ namespace SD.IOC.Integration.WebApi
         /// <summary>
         /// 配置应用程序
         /// </summary>
-        /// <param name="appBuilder">应用程序建造者</param>
-        /// <param name="httpConfiguration">Http配置</param>
         protected abstract void Configuration(IAppBuilder appBuilder, HttpConfiguration httpConfiguration);
     }
 }

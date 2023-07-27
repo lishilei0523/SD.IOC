@@ -3,8 +3,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SD.Common;
 using SD.IOC.Core;
 using SD.IOC.Core.Mediators;
-using SD.IOC.Extension.NetCore.Tests.StubAppServices;
-using SD.IOC.Extension.NetCore.Tests.StubIAppServices;
+using SD.IOC.Extension.Tests.StubAppServices;
+using SD.IOC.Extension.Tests.StubIAppServices;
 using System.Configuration;
 using System.Reflection;
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
@@ -12,11 +12,12 @@ using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 namespace SD.IOC.Extension.NetCore.Tests.TestCases
 {
     /// <summary>
-    /// 测试解析本地
+    /// 解析本地服务测试
     /// </summary>
     [TestClass]
     public class ResolveLocalTests
     {
+        #region # 测试初始化 —— void Initialize()
         /// <summary>
         /// 测试初始化
         /// </summary>
@@ -37,7 +38,9 @@ namespace SD.IOC.Extension.NetCore.Tests.TestCases
                 ResolveMediator.Build();
             }
         }
+        #endregion
 
+        #region # 测试清理 —— void Cleanup()
         /// <summary>
         /// 测试清理
         /// </summary>
@@ -46,9 +49,11 @@ namespace SD.IOC.Extension.NetCore.Tests.TestCases
         {
             ResolveMediator.Dispose();
         }
+        #endregion
 
+        #region # 测试解析实例 —— void TestResolveType()
         /// <summary>
-        /// 测试解析实例方法
+        /// 测试解析实例
         /// </summary>
         [TestMethod]
         public void TestResolveType()
@@ -57,9 +62,11 @@ namespace SD.IOC.Extension.NetCore.Tests.TestCases
 
             Assert.IsNotNull(orderContract);
         }
+        #endregion
 
+        #region # 测试解析实例 —— void TestResolveOptionalType()
         /// <summary>
-        /// 测试解析实例方法
+        /// 测试解析实例
         /// </summary>
         [TestMethod]
         public void TestResolveOptionalType()
@@ -68,9 +75,11 @@ namespace SD.IOC.Extension.NetCore.Tests.TestCases
 
             Assert.IsNull(orderContract);
         }
+        #endregion
 
+        #region # 测试解析泛型实例 —— void TestResolveGeneric()
         /// <summary>
-        /// 测试解析实例泛型方法
+        /// 测试解析泛型实例
         /// </summary>
         [TestMethod]
         public void TestResolveGeneric()
@@ -79,9 +88,11 @@ namespace SD.IOC.Extension.NetCore.Tests.TestCases
 
             Assert.IsNotNull(orderContract);
         }
+        #endregion
 
+        #region # 测试解析泛型实例 —— void TestResolveOptionalGeneric()
         /// <summary>
-        /// 测试解析实例泛型方法
+        /// 测试解析泛型实例
         /// </summary>
         [TestMethod]
         public void TestResolveOptionalGeneric()
@@ -90,7 +101,9 @@ namespace SD.IOC.Extension.NetCore.Tests.TestCases
 
             Assert.IsNull(orderContract);
         }
+        #endregion
 
+        #region # 测试实例代理 —— void TestProxy()
         /// <summary>
         /// 测试实例代理
         /// </summary>
@@ -100,5 +113,6 @@ namespace SD.IOC.Extension.NetCore.Tests.TestCases
             string order = Proxy<IOrderContract>.Instance.GetOrder();
             Assert.IsNotNull(order);
         }
+        #endregion
     }
 }
