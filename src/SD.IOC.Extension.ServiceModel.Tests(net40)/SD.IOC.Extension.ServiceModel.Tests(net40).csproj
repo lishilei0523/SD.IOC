@@ -2,8 +2,8 @@
   <PropertyGroup>
     <TargetFrameworks>net462;net472</TargetFrameworks>
     <IsPackable>false</IsPackable>
-    <AssemblyName>SD.IOC.Core.Tests</AssemblyName>
-    <RootNamespace>SD.IOC.Core.Tests</RootNamespace>
+    <AssemblyName>SD.IOC.Extension.ServiceModel.Tests</AssemblyName>
+    <RootNamespace>SD.IOC.Extension.ServiceModel.Tests</RootNamespace>
     <Authors>Lee</Authors>
     <Company>SD</Company>
     <Copyright>Copyright © SD 2023</Copyright>

@@ -4,7 +4,7 @@ using SD.IOC.Core.Extensions;
 using SD.IOC.Core.Mediators;
 using SD.IOC.StubIAppService.Interfaces;
 
-namespace SD.IOC.Core.Tests.TestCases
+namespace SD.IOC.Extension.ServiceModel.Tests.TestCases
 {
     /// <summary>
     /// 解析远程服务测试
