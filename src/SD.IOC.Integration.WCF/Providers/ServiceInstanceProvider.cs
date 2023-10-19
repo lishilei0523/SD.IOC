@@ -83,7 +83,7 @@ namespace SD.IOC.Integration.WCF.Providers
         {
             OnReleaseInstance?.Invoke(instanceContext, instance);
 
-            ResolveMediator.Dispose();
+            ResolveMediator.DisposeDisposables();
         }
         #endregion
     }

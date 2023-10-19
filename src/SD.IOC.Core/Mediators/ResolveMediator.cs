@@ -235,17 +235,10 @@ namespace SD.IOC.Core.Mediators
         /// <returns>实例</returns>
         public static T Resolve<T>()
         {
-            try
-            {
-                IServiceScope serviceScope = GetServiceScope();
-                T instance = serviceScope.ServiceProvider.GetRequiredService<T>();
+            IServiceScope serviceScope = GetServiceScope();
+            T instance = serviceScope.ServiceProvider.GetRequiredService<T>();
 
-                return instance;
-            }
-            catch (ObjectDisposedException)
-            {
-                return Resolve<T>();
-            }
+            return instance;
         }
         #endregion
 
@@ -257,17 +250,10 @@ namespace SD.IOC.Core.Mediators
         /// <returns>实例</returns>
         public static object Resolve(Type type)
         {
-            try
-            {
-                IServiceScope serviceScope = GetServiceScope();
-                object instance = serviceScope.ServiceProvider.GetRequiredService(type);
+            IServiceScope serviceScope = GetServiceScope();
+            object instance = serviceScope.ServiceProvider.GetRequiredService(type);
 
-                return instance;
-            }
-            catch (ObjectDisposedException)
-            {
-                return Resolve(type);
-            }
+            return instance;
         }
         #endregion
 
@@ -280,17 +266,10 @@ namespace SD.IOC.Core.Mediators
         /// <remarks>如未注册则返回null</remarks>
         public static T ResolveOptional<T>() where T : class
         {
-            try
-            {
-                IServiceScope serviceScope = GetServiceScope();
-                T instance = serviceScope.ServiceProvider.GetService<T>();
+            IServiceScope serviceScope = GetServiceScope();
+            T instance = serviceScope.ServiceProvider.GetService<T>();
 
-                return instance;
-            }
-            catch (ObjectDisposedException)
-            {
-                return ResolveOptional<T>();
-            }
+            return instance;
         }
         #endregion
 
@@ -303,17 +282,10 @@ namespace SD.IOC.Core.Mediators
         /// <remarks>如未注册则返回null</remarks>
         public static object ResolveOptional(Type type)
         {
-            try
-            {
-                IServiceScope serviceScope = GetServiceScope();
-                object instance = serviceScope.ServiceProvider.GetService(type);
+            IServiceScope serviceScope = GetServiceScope();
+            object instance = serviceScope.ServiceProvider.GetService(type);
 
-                return instance;
-            }
-            catch (ObjectDisposedException)
-            {
-                return ResolveOptional(type);
-            }
+            return instance;
         }
         #endregion
 
@@ -325,17 +297,10 @@ namespace SD.IOC.Core.Mediators
         /// <returns>实例列表</returns>
         public static IEnumerable<T> ResolveAll<T>()
         {
-            try
-            {
-                IServiceScope serviceScope = GetServiceScope();
-                IEnumerable<T> instances = serviceScope.ServiceProvider.GetServices<T>();
+            IServiceScope serviceScope = GetServiceScope();
+            IEnumerable<T> instances = serviceScope.ServiceProvider.GetServices<T>();
 
-                return instances;
-            }
-            catch (ObjectDisposedException)
-            {
-                return ResolveAll<T>();
-            }
+            return instances;
         }
         #endregion
 
@@ -347,17 +312,10 @@ namespace SD.IOC.Core.Mediators
         /// <returns>实例列表</returns>
         public static IEnumerable<object> ResolveAll(Type type)
         {
-            try
-            {
-                IServiceScope serviceScope = GetServiceScope();
-                IEnumerable<object> instances = serviceScope.ServiceProvider.GetServices(type);
+            IServiceScope serviceScope = GetServiceScope();
+            IEnumerable<object> instances = serviceScope.ServiceProvider.GetServices(type);
 
-                return instances;
-            }
-            catch (ObjectDisposedException)
-            {
-                return ResolveAll(type);
-            }
+            return instances;
         }
         #endregion
 
@@ -374,6 +332,23 @@ namespace SD.IOC.Core.Mediators
                 {
                     Dispose(_ServiceScope.Value);
                     _ServiceScope.Value = null;
+                }
+            }
+        }
+        #endregion
+
+        #region # 释放可释放资源 —— static void DisposeDisposables()
+        /// <summary>
+        /// 释放可释放资源
+        /// </summary>
+        public static void DisposeDisposables()
+        {
+            lock (_Sync)
+            {
+                if (_ServiceScope.Value != null)
+                {
+                    IList<IDisposable> disposables = GetDisposableInstances(_ServiceScope.Value);
+                    OnDispose?.Invoke(disposables);
                 }
             }
         }

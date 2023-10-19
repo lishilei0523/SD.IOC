@@ -100,17 +100,5 @@ namespace SD.IOC.Core.Tests.TestCases
             Assert.IsNull(productContract);
         }
         #endregion
-
-        #region # 测试实例代理 —— void TestProxy()
-        /// <summary>
-        /// 测试实例代理
-        /// </summary>
-        [TestMethod]
-        public void TestProxy()
-        {
-            string products = Proxy<IProductContract>.Instance.GetProducts();
-            Assert.IsNotNull(products);
-        }
-        #endregion
     }
 }

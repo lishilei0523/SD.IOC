@@ -43,12 +43,6 @@
       <Link>Configurations\%(Filename)%(Extension)</Link>
     </Compile>
   </ItemGroup>
-  <!--Mediators-->
-  <ItemGroup>
-    <Compile Include="..\SD.IOC.Core\Mediators\Proxy.cs">
-      <Link>Mediators\Proxy.cs</Link>
-    </Compile>
-  </ItemGroup>
   <!--ServiceModels-->
   <ItemGroup>
     <Compile Include="..\SD.IOC.Extension.NetFx\ServiceModels\*.cs">

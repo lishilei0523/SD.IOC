@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.ServiceModel;
 using System.ServiceModel.Extensions;
 
 namespace SD.IOC.Extension.NetCore.ServiceModel
@@ -69,13 +70,16 @@ namespace SD.IOC.Extension.NetCore.ServiceModel
             {
                 foreach (IDisposable disposable in disposables)
                 {
-                    try
+                    if (disposable is ICommunicationObject)
                     {
-                        disposable.Dispose();
-                    }
-                    finally
-                    {
-                        disposable.CloseChannel();
+                        try
+                        {
+                            disposable.Dispose();
+                        }
+                        finally
+                        {
+                            disposable.CloseChannel();
+                        }
                     }
                 }
             };

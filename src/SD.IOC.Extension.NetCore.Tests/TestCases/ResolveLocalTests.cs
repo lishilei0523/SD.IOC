@@ -102,17 +102,5 @@ namespace SD.IOC.Extension.NetCore.Tests.TestCases
             Assert.IsNull(orderContract);
         }
         #endregion
-
-        #region # 测试实例代理 —— void TestProxy()
-        /// <summary>
-        /// 测试实例代理
-        /// </summary>
-        [TestMethod]
-        public void TestProxy()
-        {
-            string order = Proxy<IOrderContract>.Instance.GetOrder();
-            Assert.IsNotNull(order);
-        }
-        #endregion
     }
 }
