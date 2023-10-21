@@ -5,9 +5,9 @@
     <Company>SD</Company>
     <Description>SD.IOC 依赖注入组件 - 集成WCF服务端</Description>
     <Copyright>Copyright © SD 2023</Copyright>
-    <Version>2.2.1</Version>
-    <AssemblyVersion>2.2.1</AssemblyVersion>
-    <FileVersion>2.2.1.0</FileVersion>
+    <Version>2.2.2</Version>
+    <AssemblyVersion>2.2.2</AssemblyVersion>
+    <FileVersion>2.2.2.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -20,7 +20,7 @@
   <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
     <Reference Include="System.Configuration" />
     <Reference Include="System.ServiceModel" />
-    <ProjectReference Include="..\SD.IOC.Extension.NetFx\SD.IOC.Extension.NetFx.csproj" />
+    <ProjectReference Include="..\SD.IOC.Extension.NetFramework\SD.IOC.Extension.NetFramework.csproj" />
   </ItemGroup>
 
   <ItemGroup Condition="$(TargetFramework.Equals('netstandard2.0'))">

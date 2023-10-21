@@ -28,7 +28,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SD.IOC.Core\SD.IOC.Core.csproj" />
-    <ProjectReference Include="..\SD.IOC.Extension.NetFx\SD.IOC.Extension.NetFx.csproj" />
+    <ProjectReference Include="..\SD.IOC.Extension.NetFramework\SD.IOC.Extension.NetFramework.csproj" />
     <ProjectReference Include="..\SD.IOC.StubIAppService\SD.IOC.StubIAppService.csproj" />
     <ProjectReference Include="..\SD.IOC.StubAppService\SD.IOC.StubAppService.csproj" />
   </ItemGroup>

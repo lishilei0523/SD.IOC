@@ -1,9 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using SD.IOC.Core.Mediators;
-using SD.IOC.Integration.WCF.Providers;
+﻿using SD.IOC.Integration.WCF.Providers;
 using System.Collections.ObjectModel;
 #if NET40_OR_GREATER
-using SD.IOC.Extension.NetFx;
+using Microsoft.Extensions.DependencyInjection;
+using SD.IOC.Core.Mediators;
+using SD.IOC.Extension.NetFramework;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
@@ -14,7 +14,6 @@ using CoreWCF;
 using CoreWCF.Channels;
 using CoreWCF.Description;
 using CoreWCF.Dispatcher;
-using SD.IOC.Extension.NetCore;
 #endif
 
 namespace SD.IOC.Integration.WCF.Behaviors
@@ -32,6 +31,7 @@ namespace SD.IOC.Integration.WCF.Behaviors
         /// <param name="serviceHostBase">服务主机</param>
         public void ApplyDispatchBehavior(ServiceDescription serviceDescription, ServiceHostBase serviceHostBase)
         {
+#if NET40_OR_GREATER
             //初始化容器
             if (!ResolveMediator.ContainerBuilt)
             {
@@ -40,7 +40,7 @@ namespace SD.IOC.Integration.WCF.Behaviors
 
                 ResolveMediator.Build();
             }
-
+#endif
             foreach (ChannelDispatcherBase channelDispatcherBase in serviceHostBase.ChannelDispatchers)
             {
                 ChannelDispatcher dispatcher = (ChannelDispatcher)channelDispatcherBase;

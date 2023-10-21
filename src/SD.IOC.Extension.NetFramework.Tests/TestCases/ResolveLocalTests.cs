@@ -4,7 +4,7 @@ using SD.IOC.Core.Mediators;
 using SD.IOC.Extension.Tests.StubAppServices;
 using SD.IOC.Extension.Tests.StubIAppServices;
 
-namespace SD.IOC.Extension.NetFx.Tests.TestCases
+namespace SD.IOC.Extension.NetFramework.Tests.TestCases
 {
     /// <summary>
     /// 解析本地服务测试

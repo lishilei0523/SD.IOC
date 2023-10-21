@@ -9,7 +9,7 @@ using System.Reflection;
 using System.ServiceModel;
 using System.ServiceModel.Extensions;
 
-namespace SD.IOC.Extension.NetFx
+namespace SD.IOC.Extension.NetFramework
 {
     /// <summary>
     /// 容器建造者扩展

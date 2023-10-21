@@ -82,8 +82,12 @@ namespace SD.IOC.Integration.WCF.Providers
         public void ReleaseInstance(InstanceContext instanceContext, object instance)
         {
             OnReleaseInstance?.Invoke(instanceContext, instance);
-
+#if NET40_OR_GREATER
+            ResolveMediator.Dispose();
+#endif
+#if NETSTANDARD2_0_OR_GREATER
             ResolveMediator.DisposeDisposables();
+#endif
         }
         #endregion
     }

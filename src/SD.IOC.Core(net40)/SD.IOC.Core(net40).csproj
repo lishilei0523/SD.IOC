@@ -45,7 +45,7 @@
   </ItemGroup>
   <!--ServiceModels-->
   <ItemGroup>
-    <Compile Include="..\SD.IOC.Extension.NetFx\ServiceModels\*.cs">
+    <Compile Include="..\SD.IOC.Extension.NetFramework\ServiceModels\*.cs">
       <Link>ServiceModels\%(Filename)%(Extension)</Link>
     </Compile>
   </ItemGroup>

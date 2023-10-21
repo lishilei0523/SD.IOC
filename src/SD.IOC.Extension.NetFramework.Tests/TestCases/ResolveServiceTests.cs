@@ -4,7 +4,7 @@ using SD.IOC.Core.Mediators;
 using SD.IOC.StubAppService.Implements;
 using SD.IOC.StubIAppService.Interfaces;
 
-namespace SD.IOC.Extension.NetFx.Tests.TestCases
+namespace SD.IOC.Extension.NetFramework.Tests.TestCases
 {
     /// <summary>
     /// 解析远程服务测试

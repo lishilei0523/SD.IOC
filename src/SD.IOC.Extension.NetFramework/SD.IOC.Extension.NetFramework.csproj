@@ -11,10 +11,10 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\$(TargetFramework)\SD.IOC.Extension.NetFx.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\$(TargetFramework)\SD.IOC.Extension.NetFramework.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\$(TargetFramework)\SD.IOC.Extension.NetFx.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\$(TargetFramework)\SD.IOC.Extension.NetFramework.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
