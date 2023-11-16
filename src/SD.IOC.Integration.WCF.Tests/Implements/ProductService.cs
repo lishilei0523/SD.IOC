@@ -9,7 +9,7 @@ using CoreWCF;
 namespace SD.IOC.Integration.WCF.Tests.Implements
 {
     /// <summary>
-    /// 产品管理服务实现
+    /// 产品管理服务契约实现
     /// </summary>
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall, IncludeExceptionDetailInFaults = true)]
     public class ProductService : IProductService

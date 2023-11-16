@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using SD.IOC.StubIAppService.Interfaces;
+﻿using SD.IOC.StubIAppService.Interfaces;
 #if NET40_OR_GREATER
 using System.ServiceModel;
 #endif
@@ -20,8 +19,6 @@ namespace SD.IOC.StubAppService.Implements
         /// </summary>
         public string GetProducts()
         {
-            Thread.Sleep(500);
-
             return "Hello World";
         }
     }

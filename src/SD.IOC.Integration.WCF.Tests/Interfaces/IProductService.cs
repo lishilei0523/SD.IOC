@@ -3,7 +3,7 @@
 namespace SD.IOC.Integration.WCF.Tests.Interfaces
 {
     /// <summary>
-    /// 产品管理服务接口
+    /// 产品管理服务契约接口
     /// </summary>
     [ServiceContract]
     public interface IProductService
