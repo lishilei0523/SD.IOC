@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net40;netstandard2.0;net6.0</TargetFrameworks>
+    <TargetFrameworks>net40;netstandard2.0;net6.0;net8.0</TargetFrameworks>
     <Authors>Lee</Authors>
     <Company>SD</Company>
-    <Copyright>Copyright © SD 2023</Copyright>
+    <Copyright>Copyright © SD 2024</Copyright>
   </PropertyGroup>
 
   <ItemGroup Condition="$(TargetFramework.Equals('net40'))">
@@ -16,5 +16,9 @@
 
   <ItemGroup Condition="$(TargetFramework.Equals('net6.0'))">
     <PackageReference Include="System.ServiceModel.Primitives" Version="6.2.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="$(TargetFramework.Equals('net8.0'))">
+    <PackageReference Include="System.ServiceModel.Primitives" Version="8.0.0" />
   </ItemGroup>
 </Project>

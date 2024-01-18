@@ -6,7 +6,7 @@
     <RootNamespace>SD.IOC.Integration.WCF.Tests</RootNamespace>
     <Authors>Lee</Authors>
     <Company>SD</Company>
-    <Copyright>Copyright © SD 2023</Copyright>
+    <Copyright>Copyright © SD 2024</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
     <PackageReference Include="CoreWCF.Primitives" Version="1.5.1" />
     <PackageReference Include="CoreWCF.Http" Version="1.5.1" />
     <PackageReference Include="CoreWCF.NetTcp" Version="1.5.1" />
