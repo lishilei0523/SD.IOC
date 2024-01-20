@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net462;net472</TargetFrameworks>
+    <TargetFrameworks>net462;net48</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <AssemblyName>SD.IOC.Extension.ServiceModel.Tests</AssemblyName>
     <RootNamespace>SD.IOC.Extension.ServiceModel.Tests</RootNamespace>
