@@ -14,7 +14,7 @@ using CoreWCF.Dispatcher;
 namespace SD.IOC.Integration.WCF.Providers
 {
     /// <summary>
-    /// WCF实例提供者
+    /// WCF服务实例提供者
     /// </summary>
     public class ServiceInstanceProvider : IInstanceProvider
     {

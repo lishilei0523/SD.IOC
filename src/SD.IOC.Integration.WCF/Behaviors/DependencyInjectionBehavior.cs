@@ -32,12 +32,10 @@ namespace SD.IOC.Integration.WCF.Behaviors
         public void ApplyDispatchBehavior(ServiceDescription serviceDescription, ServiceHostBase serviceHostBase)
         {
 #if NET40_OR_GREATER
-            //初始化容器
             if (!ResolveMediator.ContainerBuilt)
             {
                 IServiceCollection builder = ResolveMediator.GetServiceCollection();
                 builder.RegisterConfigs();
-
                 ResolveMediator.Build();
             }
 #endif

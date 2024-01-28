@@ -2,7 +2,8 @@
 using SD.IOC.StubIAppService.Interfaces;
 #if NET40_OR_GREATER
 using System.ServiceModel;
-#else
+#endif
+#if NETCOREAPP3_1_OR_GREATER
 using CoreWCF;
 #endif
 

@@ -24,7 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SD.IOC.Core\SD.IOC.Core.csproj" />
-    <ProjectReference Include="..\SD.IOC.StubIAppService\SD.IOC.StubIAppService.csproj" />
     <ProjectReference Include="..\SD.IOC.StubAppService\SD.IOC.StubAppService.csproj" />
+    <ProjectReference Include="..\SD.IOC.StubIAppService\SD.IOC.StubIAppService.csproj" />
   </ItemGroup>
 </Project>

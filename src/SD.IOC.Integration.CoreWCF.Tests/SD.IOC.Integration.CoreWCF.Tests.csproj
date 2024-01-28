@@ -10,11 +10,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\SD.IOC.Integration.WCF.Tests\Interfaces\IProductService.cs">
-      <Link>Interfaces\IProductService.cs</Link>
-    </Compile>
     <Compile Include="..\SD.IOC.Integration.WCF.Tests\Implements\ProductService.cs">
       <Link>Implements\ProductService.cs</Link>
+    </Compile>
+    <Compile Include="..\SD.IOC.Integration.WCF.Tests\Interfaces\IProductService.cs">
+      <Link>Interfaces\IProductService.cs</Link>
     </Compile>
   </ItemGroup>
 
@@ -35,7 +35,7 @@
     <ProjectReference Include="..\SD.IOC.Extension.NetCore\SD.IOC.Extension.NetCore.csproj" />
     <ProjectReference Include="..\SD.IOC.Extension.NetCore.ServiceModel\SD.IOC.Extension.NetCore.ServiceModel.csproj" />
     <ProjectReference Include="..\SD.IOC.Integration.WCF\SD.IOC.Integration.WCF.csproj" />
-    <ProjectReference Include="..\SD.IOC.StubIAppService\SD.IOC.StubIAppService.csproj" />
     <ProjectReference Include="..\SD.IOC.StubAppService\SD.IOC.StubAppService.csproj" />
+    <ProjectReference Include="..\SD.IOC.StubIAppService\SD.IOC.StubIAppService.csproj" />
   </ItemGroup>
 </Project>
