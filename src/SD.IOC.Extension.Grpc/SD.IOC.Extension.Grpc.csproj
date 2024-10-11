@@ -18,7 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ServiceModel.Grpc" Version="1.9.0" />
+    <PackageReference Include="ServiceModel.Grpc" Version="1.9.1" />
     <PackageReference Include="SD.Toolkits.Grpc.Client" Version="1.0.0" />
   </ItemGroup>
 
