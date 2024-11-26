@@ -7,6 +7,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Reflection;
 
 namespace SD.IOC.Extension.Grpc.ServiceModels
@@ -107,6 +108,8 @@ namespace SD.IOC.Extension.Grpc.ServiceModels
             }
 
             //构造gRPC信道选项
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            httpClientHandler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
             GrpcChannelOptions channelOptions = new GrpcChannelOptions
             {
                 MaxSendMessageSize = endpointConfiguration?.MaxSendMessageSize,
@@ -115,7 +118,8 @@ namespace SD.IOC.Extension.Grpc.ServiceModels
                 MaxRetryBufferSize = endpointConfiguration?.MaxRetryBufferSize,
                 MaxRetryBufferPerCallSize = endpointConfiguration?.MaxRetryBufferPerCallSize,
                 DisposeHttpClient = endpointConfiguration?.DisposeHttpClient ?? false,
-                ThrowOperationCanceledOnCancellation = endpointConfiguration?.ThrowOperationCanceledOnCancellation ?? false
+                ThrowOperationCanceledOnCancellation = endpointConfiguration?.ThrowOperationCanceledOnCancellation ?? false,
+                HttpClient = new HttpClient(httpClientHandler)
             };
             if (credentials != null)
             {
