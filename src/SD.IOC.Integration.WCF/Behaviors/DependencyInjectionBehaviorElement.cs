@@ -1,4 +1,4 @@
-﻿#if NET40_OR_GREATER
+﻿#if NET462_OR_GREATER
 using SD.IOC.Integration.WCF.Behaviors;
 using System;
 using System.ServiceModel.Configuration;

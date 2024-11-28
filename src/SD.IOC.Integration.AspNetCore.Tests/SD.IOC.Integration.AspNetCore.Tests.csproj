@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SD.Toolkits.AspNet" Version="1.1.3" />
-    <PackageReference Include="SD.Toolkits.CoreWCF.Client" Version="1.2.1" />
+    <PackageReference Include="SD.Toolkits.AspNet" Version="1.2.0" />
+    <PackageReference Include="SD.Toolkits.CoreWCF.Client" Version="1.3.0" />
   </ItemGroup>
 
   <ItemGroup>

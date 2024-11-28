@@ -1,6 +1,6 @@
 ﻿using SD.IOC.Integration.WCF.Providers;
 using System.Collections.ObjectModel;
-#if NET40_OR_GREATER
+#if NET462_OR_GREATER
 using Microsoft.Extensions.DependencyInjection;
 using SD.IOC.Core.Mediators;
 using SD.IOC.Extension.NetFramework;
@@ -31,7 +31,7 @@ namespace SD.IOC.Integration.WCF.Behaviors
         /// <param name="serviceHostBase">服务主机</param>
         public void ApplyDispatchBehavior(ServiceDescription serviceDescription, ServiceHostBase serviceHostBase)
         {
-#if NET40_OR_GREATER
+#if NET462_OR_GREATER
             if (!ResolveMediator.ContainerBuilt)
             {
                 IServiceCollection builder = ResolveMediator.GetServiceCollection();

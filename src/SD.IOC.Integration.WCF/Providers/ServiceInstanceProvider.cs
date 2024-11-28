@@ -1,6 +1,6 @@
 ﻿using SD.IOC.Core.Mediators;
 using System;
-#if NET40_OR_GREATER
+#if NET462_OR_GREATER
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Dispatcher;
@@ -82,7 +82,7 @@ namespace SD.IOC.Integration.WCF.Providers
         public void ReleaseInstance(InstanceContext instanceContext, object instance)
         {
             OnReleaseInstance?.Invoke(instanceContext, instance);
-#if NET40_OR_GREATER
+#if NET462_OR_GREATER
             ResolveMediator.Dispose();
 #endif
 #if NETSTANDARD2_0_OR_GREATER

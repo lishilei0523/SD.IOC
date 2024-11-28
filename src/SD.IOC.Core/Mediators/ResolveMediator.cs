@@ -51,11 +51,7 @@ namespace SD.IOC.Core.Mediators
         {
             _Sync = new object();
             _ServiceCollection = new ServiceCollection();
-#if !NET45
             _ServiceScope = new AsyncLocal<IServiceScope>(OnServiceScopeValueChange);
-#else
-            _ServiceScope = new AsyncLocal<IServiceScope>();
-#endif
             _ContainerBuilt = false;
         }
 
@@ -166,12 +162,8 @@ namespace SD.IOC.Core.Mediators
             #endregion
 
             bool disposed;
-            string filedName;
-#if NET45
-            filedName = "_disposeCalled";
-#else
-            filedName = "_disposed";
-#endif
+
+            const string filedName = "_disposed";
             Type type = serviceProvider.GetType();
             FieldInfo field = type.GetField(filedName, BindingFlags.NonPublic | BindingFlags.Instance);
             if (field != null)
@@ -205,23 +197,12 @@ namespace SD.IOC.Core.Mediators
 
             #endregion
 
-            bool disposed;
             Type type = serviceScope.GetType();
-#if NET45
-            const string scopedProviderFieldName = "_scopedProvider";
-            const string disposeCalledFieldName = "_disposeCalled";
-            FieldInfo scopedProviderField = type.GetField(scopedProviderFieldName, BindingFlags.NonPublic | BindingFlags.Instance);
-            object scopedProvider = scopedProviderField.GetValue(serviceScope);
-            Type scopedProviderType = scopedProviderField.FieldType;
-            FieldInfo disposeCalledField = scopedProviderType.GetField(disposeCalledFieldName, BindingFlags.NonPublic | BindingFlags.Instance);
-            object value = disposeCalledField.GetValue(scopedProvider);
-            disposed = (bool)value;
-#else
             const string disposedFieldName = "_disposed";
             FieldInfo disposedField = type.GetField(disposedFieldName, BindingFlags.NonPublic | BindingFlags.Instance);
-            object value = disposedField.GetValue(serviceScope);
-            disposed = (bool)value;
-#endif
+            object value = disposedField!.GetValue(serviceScope);
+            bool disposed = (bool)value;
+
             return disposed;
         }
         #endregion
@@ -402,31 +383,19 @@ namespace SD.IOC.Core.Mediators
 
             IList<IDisposable> disposables = new List<IDisposable>();
             Type serviceScopeType = serviceScope.GetType();
-#if NET45
-            const string scopeProviderFieldName = "_scopedProvider";
-            const string transientDisposablesFieldName = "_transientDisposables";
-            FieldInfo scopeProviderField = serviceScopeType.GetField(scopeProviderFieldName, BindingFlags.NonPublic | BindingFlags.Instance);
-            object scopeProvider = scopeProviderField?.GetValue(serviceScope);
-            Type scopeProviderType = scopeProvider?.GetType();
-            FieldInfo transientDisposablesField = scopeProviderType?.GetField(transientDisposablesFieldName, BindingFlags.NonPublic | BindingFlags.Instance);
-            if (transientDisposablesField?.GetValue(scopeProvider) is List<IDisposable> list)
-            {
-                disposables = list;
-            }
-#else
+
             const string disposablesFieldName = "_disposables";
             FieldInfo disposablesField = serviceScopeType.GetField(disposablesFieldName, BindingFlags.NonPublic | BindingFlags.Instance);
             if (disposablesField?.GetValue(serviceScope) is List<object> list)
             {
                 disposables = list.Select(x => (IDisposable)x).ToList();
             }
-#endif
+
             return disposables;
         }
         #endregion
 
         #region # AsyncLocal值变化事件 —— static void OnServiceScopeValueChange(...
-#if !NET45
         /// <summary>
         /// AsyncLocal值变化事件
         /// </summary>
@@ -437,7 +406,6 @@ namespace SD.IOC.Core.Mediators
                 _ServiceScope.Value = eventArgs.PreviousValue;
             }
         }
-#endif 
         #endregion
     }
 }

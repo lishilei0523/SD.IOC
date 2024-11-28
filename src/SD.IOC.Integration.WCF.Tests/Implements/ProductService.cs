@@ -1,6 +1,6 @@
 ﻿using SD.IOC.Integration.WCF.Tests.Interfaces;
 using SD.IOC.StubIAppService.Interfaces;
-#if NET40_OR_GREATER
+#if NET462_OR_GREATER
 using System.ServiceModel;
 #endif
 #if NETCOREAPP3_1_OR_GREATER
