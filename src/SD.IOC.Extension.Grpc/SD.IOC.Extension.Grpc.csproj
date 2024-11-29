@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net462;netstandard2.1</TargetFrameworks>
+    <TargetFrameworks>net462;netstandard2.1;net8.0</TargetFrameworks>
     <Authors>Lee</Authors>
     <Company>SD</Company>
     <Description>SD.IOC 依赖注入组件 - .NET Core gRPC扩展</Description>
     <Copyright>Copyright © SD 2024</Copyright>
-    <Version>2.3.0</Version>
-    <AssemblyVersion>2.3.0</AssemblyVersion>
-    <FileVersion>2.3.0.0</FileVersion>
+    <Version>2.3.1</Version>
+    <AssemblyVersion>2.3.1</AssemblyVersion>
+    <FileVersion>2.3.1.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <PackageReference Include="ServiceModel.Grpc" Version="1.11.0" />
+    <PackageReference Include="ServiceModel.Grpc.MessagePackMarshaller" Version="1.11.0" />
     <PackageReference Include="SD.Toolkits.Grpc.Client" Version="1.1.0" />
   </ItemGroup>
 

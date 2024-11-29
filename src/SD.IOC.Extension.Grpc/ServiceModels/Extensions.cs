@@ -1,5 +1,6 @@
 ﻿using Grpc.Core;
 using ServiceModel.Grpc.Client;
+using ServiceModel.Grpc.Configuration;
 
 namespace SD.IOC.Extension.Grpc.ServiceModels
 {
@@ -16,7 +17,11 @@ namespace SD.IOC.Extension.Grpc.ServiceModels
         /// <returns>gRPC服务实例</returns>
         public static T CreateGrpcService<T>(this ChannelBase channel) where T : class
         {
-            IClientFactory clientFactory = new ClientFactory();
+            ServiceModelGrpcClientOptions clientOptions = new ServiceModelGrpcClientOptions
+            {
+                MarshallerFactory = MessagePackMarshallerFactory.Default
+            };
+            IClientFactory clientFactory = new ClientFactory(clientOptions);
             T serviceInstance = clientFactory.CreateClient<T>(channel);
 
             return serviceInstance;
