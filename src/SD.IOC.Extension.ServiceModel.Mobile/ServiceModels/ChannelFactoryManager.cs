@@ -1,6 +1,6 @@
-﻿using SD.Toolkits.CoreWCF.Xamarin.Configurations.Behaviors;
-using SD.Toolkits.CoreWCF.Xamarin.Configurations.Bindings;
-using SD.Toolkits.CoreWCF.Xamarin.Configurations.Clients;
+﻿using SD.Toolkits.CoreWCF.Mobile.Configurations.Behaviors;
+using SD.Toolkits.CoreWCF.Mobile.Configurations.Bindings;
+using SD.Toolkits.CoreWCF.Mobile.Configurations.Clients;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel.Channels;

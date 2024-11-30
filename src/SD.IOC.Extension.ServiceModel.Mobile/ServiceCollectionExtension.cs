@@ -9,7 +9,7 @@ using System.Reflection;
 using System.ServiceModel;
 using System.ServiceModel.Extensions;
 
-namespace SD.IOC.Extension.NetCore.ServiceModel
+namespace SD.IOC.Extension.ServiceModel.Mobile
 {
     /// <summary>
     /// 容器建造者扩展

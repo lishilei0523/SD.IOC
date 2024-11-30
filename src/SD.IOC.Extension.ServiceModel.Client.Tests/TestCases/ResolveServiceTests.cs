@@ -9,7 +9,7 @@ using System.Reflection;
 using System.ServiceModel;
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
-namespace SD.IOC.Extension.NetCore.ServiceModel.Tests.TestCases
+namespace SD.IOC.Extension.ServiceModel.Client.Tests.TestCases
 {
     /// <summary>
     /// 解析远程服务测试

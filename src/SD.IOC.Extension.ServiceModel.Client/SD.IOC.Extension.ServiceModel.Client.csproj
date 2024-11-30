@@ -3,7 +3,7 @@
     <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
     <Authors>Lee</Authors>
     <Company>SD</Company>
-    <Description>SD.IOC 依赖注入组件 - .NET Core WCF客户端扩展</Description>
+    <Description>SD.IOC 依赖注入组件 - WCF客户端扩展</Description>
     <Copyright>Copyright © SD 2024</Copyright>
     <Version>2.3.0</Version>
     <AssemblyVersion>2.3.0</AssemblyVersion>
@@ -11,10 +11,10 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\$(TargetFramework)\SD.IOC.Extension.NetCore.ServiceModel.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\$(TargetFramework)\SD.IOC.Extension.ServiceModel.Client.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\$(TargetFramework)\SD.IOC.Extension.NetCore.ServiceModel.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\$(TargetFramework)\SD.IOC.Extension.ServiceModel.Client.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

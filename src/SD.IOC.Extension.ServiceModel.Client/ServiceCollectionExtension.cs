@@ -9,7 +9,7 @@ using System.Reflection;
 using System.ServiceModel;
 using System.ServiceModel.Extensions;
 
-namespace SD.IOC.Extension.Xamarin.ServiceModel
+namespace SD.IOC.Extension.ServiceModel.Client
 {
     /// <summary>
     /// 容器建造者扩展
