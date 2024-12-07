@@ -2,7 +2,8 @@
 using ServiceModel.Grpc.Client;
 using ServiceModel.Grpc.Configuration;
 
-namespace SD.IOC.Extension.Grpc.ServiceModels
+// ReSharper disable once CheckNamespace
+namespace System.ServiceModel.Extensions
 {
     /// <summary>
     /// gRPC扩展

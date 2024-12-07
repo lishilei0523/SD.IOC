@@ -3,14 +3,14 @@ using Grpc.Net.Client;
 using SD.Toolkits.Grpc;
 using SD.Toolkits.Grpc.Client.Configurations;
 using SD.Toolkits.Grpc.Client.Interfaces;
-using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Reflection;
 
-namespace SD.IOC.Extension.Grpc.ServiceModels
+// ReSharper disable once CheckNamespace
+namespace System.ServiceModel.Extensions
 {
     /// <summary>
     /// gRPC ChannelFactory管理者
