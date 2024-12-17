@@ -31,12 +31,6 @@
       <Link>Web.config.transform</Link>
     </None>
   </ItemGroup>
-  <!--Compatibilities-->
-  <ItemGroup>
-    <Compile Include="..\SD.IOC.Core\Compatibilities\*.cs">
-      <Link>Compatibilities\%(Filename)%(Extension)</Link>
-    </Compile>
-  </ItemGroup>
   <!--Configurations-->
   <ItemGroup>
     <Compile Include="..\SD.IOC.Core\Configurations\*.cs">
