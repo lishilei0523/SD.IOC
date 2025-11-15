@@ -1,0 +1,30 @@
+<Solution>
+  <Folder Name="/01 - Core/">
+    <Project Path="src/SD.IOC.Core(net40)/SD.IOC.Core(net40).csproj" />
+    <Project Path="src/SD.IOC.Core/SD.IOC.Core.csproj" />
+  </Folder>
+  <Folder Name="/02 - Extensions/">
+    <Project Path="src/SD.IOC.Extension.Grpc/SD.IOC.Extension.Grpc.csproj" />
+    <Project Path="src/SD.IOC.Extension.NetCore/SD.IOC.Extension.NetCore.csproj" />
+    <Project Path="src/SD.IOC.Extension.NetFramework/SD.IOC.Extension.NetFramework.csproj" />
+    <Project Path="src/SD.IOC.Extension.ServiceModel.Client/SD.IOC.Extension.ServiceModel.Client.csproj" />
+    <Project Path="src/SD.IOC.Extension.ServiceModel.Mobile/SD.IOC.Extension.ServiceModel.Mobile.csproj" />
+  </Folder>
+  <Folder Name="/03 - Integrations/">
+    <Project Path="src/SD.IOC.Integration.WCF/SD.IOC.Integration.WCF.csproj" />
+  </Folder>
+  <Folder Name="/04 - Tests/">
+    <Project Path="src/SD.IOC.Core.Tests(net40)/SD.IOC.Core.Tests(net40).csproj" />
+    <Project Path="src/SD.IOC.Core.Tests/SD.IOC.Core.Tests.csproj" />
+    <Project Path="src/SD.IOC.Extension.NetCore.Tests/SD.IOC.Extension.NetCore.Tests.csproj" />
+    <Project Path="src/SD.IOC.Extension.NetFramework.Tests/SD.IOC.Extension.NetFramework.Tests.csproj" />
+    <Project Path="src/SD.IOC.Extension.ServiceModel.Client.Tests/SD.IOC.Extension.ServiceModel.Client.Tests.csproj" />
+    <Project Path="src/SD.IOC.Extension.ServiceModel.Tests(net40)/SD.IOC.Extension.ServiceModel.Tests(net40).csproj" />
+    <Project Path="src/SD.IOC.Integration.AspNetCore.Tests/SD.IOC.Integration.AspNetCore.Tests.csproj" />
+    <Project Path="src/SD.IOC.Integration.CoreWCF.Tests/SD.IOC.Integration.CoreWCF.Tests.csproj" />
+    <Project Path="src/SD.IOC.Integration.WCF.Tests/SD.IOC.Integration.WCF.Tests.csproj" />
+    <Project Path="src/SD.IOC.StubAppService.Host/SD.IOC.StubAppService.Host.csproj" />
+    <Project Path="src/SD.IOC.StubAppService/SD.IOC.StubAppService.csproj" />
+    <Project Path="src/SD.IOC.StubIAppService/SD.IOC.StubIAppService.csproj" />
+  </Folder>
+</Solution>
