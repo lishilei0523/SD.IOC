@@ -3,18 +3,8 @@
     <TargetFrameworks>net40;net45;net461;net462</TargetFrameworks>
     <AssemblyName>SD.IOC.Core</AssemblyName>
     <RootNamespace>SD.IOC.Core</RootNamespace>
-    <Authors>Lee</Authors>
-    <Company>SD</Company>
-    <Description>SD.IOC 依赖注入基础</Description>
-    <Copyright>Copyright © SD 2025</Copyright>
     <Version>1.3.3</Version>
-    <AssemblyVersion>1.3.3</AssemblyVersion>
-    <FileVersion>1.3.3.0</FileVersion>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <BaseOutputPath>bin\</BaseOutputPath>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <Description>SD.IOC 依赖注入基础</Description>
   </PropertyGroup>
 
   <!--Configs-->

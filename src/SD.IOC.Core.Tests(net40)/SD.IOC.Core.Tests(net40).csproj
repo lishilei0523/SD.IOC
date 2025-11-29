@@ -1,12 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
-    <IsPackable>false</IsPackable>
+    <IsPackable>False</IsPackable>
     <AssemblyName>SD.IOC.Core.Tests</AssemblyName>
     <RootNamespace>SD.IOC.Core.Tests</RootNamespace>
-    <Authors>Lee</Authors>
-    <Company>SD</Company>
-    <Copyright>Copyright © SD 2025</Copyright>
   </PropertyGroup>
 
   <ItemGroup>

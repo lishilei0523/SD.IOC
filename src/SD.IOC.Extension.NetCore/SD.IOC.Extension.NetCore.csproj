@@ -1,18 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Authors>Lee</Authors>
-    <Company>SD</Company>
-    <Description>SD.IOC 依赖注入组件 - .NET Core扩展</Description>
-    <Copyright>Copyright © SD 2025</Copyright>
     <Version>2.3.3</Version>
-    <AssemblyVersion>2.3.3</AssemblyVersion>
-    <FileVersion>2.3.3.0</FileVersion>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <BaseOutputPath>bin\</BaseOutputPath>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <Description>SD.IOC 依赖注入组件 - .NET Core扩展</Description>
   </PropertyGroup>
 
   <ItemGroup>
