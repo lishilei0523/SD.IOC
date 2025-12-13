@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net40;net45;net461;net462</TargetFrameworks>
+    <TargetFrameworks>net40;net45;net461;net462;net48</TargetFrameworks>
     <AssemblyName>SD.IOC.Core</AssemblyName>
     <RootNamespace>SD.IOC.Core</RootNamespace>
     <Version>1.3.3</Version>
@@ -51,7 +51,7 @@
     <PackageReference Include="Autofac" Version="5.2.0" />
   </ItemGroup>
 
-  <ItemGroup Condition="$(TargetFramework.Equals('net462'))">
+  <ItemGroup Condition="$(TargetFramework.Equals('net462')) Or $(TargetFramework.Equals('net48'))">
     <PackageReference Include="Autofac" Version="9.0.0" />
   </ItemGroup>
 </Project>

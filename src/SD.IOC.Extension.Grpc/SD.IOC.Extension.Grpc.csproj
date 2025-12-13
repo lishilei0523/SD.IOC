@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net462;netstandard2.1;net8.0</TargetFrameworks>
+    <TargetFrameworks>net462;netstandard2.1;net8.0;net10.0</TargetFrameworks>
     <Description>SD.IOC 依赖注入组件 - .NET Core gRPC扩展</Description>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="ServiceModel.Grpc" Version="1.20.0" />
     <PackageReference Include="ServiceModel.Grpc.MessagePackMarshaller" Version="1.20.0" />
-    <PackageReference Include="SD.Toolkits.Grpc.Client" Version="1.1.1" />
+    <PackageReference Include="SD.Toolkits.Grpc.Client" Version="4.0.0" />
   </ItemGroup>
 
   <ItemGroup>
