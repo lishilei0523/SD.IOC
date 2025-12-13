@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net462;netstandard2.0</TargetFrameworks>
-    <Version>2.3.3</Version>
     <Description>SD.IOC 依赖注入组件 - 集成WCF服务端</Description>
   </PropertyGroup>
 

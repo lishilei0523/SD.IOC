@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
-    <Version>2.3.3</Version>
     <Description>SD.IOC 依赖注入组件 - WCF移动端扩展</Description>
   </PropertyGroup>
 

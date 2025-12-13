@@ -1,8 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net462;netstandard2.0</TargetFrameworks>
-    <LangVersion>8.0</LangVersion>
-    <Version>2.3.3</Version>
     <Description>SD.IOC 依赖注入基础</Description>
   </PropertyGroup>
 

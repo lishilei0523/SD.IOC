@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
-    <Version>2.3.3</Version>
     <Description>SD.IOC 依赖注入组件 - .NET Framework扩展</Description>
   </PropertyGroup>
 
