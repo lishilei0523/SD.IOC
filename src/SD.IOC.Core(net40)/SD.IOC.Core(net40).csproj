@@ -3,7 +3,7 @@
     <TargetFrameworks>net40;net45;net461;net462;net48</TargetFrameworks>
     <AssemblyName>SD.IOC.Core</AssemblyName>
     <RootNamespace>SD.IOC.Core</RootNamespace>
-    <Version>1.4.0</Version>
+    <Version>1.4.1</Version>
     <Description>SD.IOC 依赖注入基础</Description>
   </PropertyGroup>
 
