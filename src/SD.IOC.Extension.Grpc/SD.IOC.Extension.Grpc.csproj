@@ -5,9 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ServiceModel.Grpc" Version="1.21.0" />
-    <PackageReference Include="ServiceModel.Grpc.MessagePackMarshaller" Version="1.21.0" />
-    <PackageReference Include="SD.Toolkits.Grpc.Client" Version="4.0.1" />
+    <PackageReference Include="ServiceModel.Grpc" Version="1.24.0" />
+    <PackageReference Include="ServiceModel.Grpc.MessagePackMarshaller" Version="1.24.0" />
+    <PackageReference Include="SD.Toolkits.Grpc.Client" Version="4.0.2" />
   </ItemGroup>
 
   <ItemGroup>
