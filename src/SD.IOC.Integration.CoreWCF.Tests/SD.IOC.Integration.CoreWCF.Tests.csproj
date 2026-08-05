@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="10.0.9" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="10.0.10" />
     <PackageReference Include="CoreWCF.Primitives" Version="1.9.1" />
     <PackageReference Include="CoreWCF.Http" Version="1.9.1" />
     <PackageReference Include="CoreWCF.NetTcp" Version="1.9.1" />
