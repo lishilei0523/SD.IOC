@@ -3,7 +3,7 @@
     <TargetFrameworks>net40;net45;net461;net462;net48</TargetFrameworks>
     <AssemblyName>SD.IOC.Core</AssemblyName>
     <RootNamespace>SD.IOC.Core</RootNamespace>
-    <Version>1.4.2</Version>
+    <Version>1.4.3</Version>
     <Description>SD.IOC 依赖注入基础</Description>
   </PropertyGroup>
 
@@ -50,6 +50,6 @@
   </ItemGroup>
 
   <ItemGroup Condition="$(TargetFramework.Equals('net462')) Or $(TargetFramework.Equals('net48'))">
-    <PackageReference Include="Autofac" Version="9.3.2" />
+    <PackageReference Include="Autofac" Version="9.3.4" />
   </ItemGroup>
 </Project>

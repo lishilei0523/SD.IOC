@@ -15,15 +15,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="10.0.10" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="10.0.12" />
     <PackageReference Include="CoreWCF.Primitives" Version="1.9.1" />
     <PackageReference Include="CoreWCF.Http" Version="1.9.1" />
     <PackageReference Include="CoreWCF.NetTcp" Version="1.9.1" />
     <PackageReference Include="CoreWCF.ConfigurationManager" Version="1.9.1">
       <ExcludeAssets>contentFiles</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="SD.Toolkits.AspNet" Version="4.0.2" />
-    <PackageReference Include="SD.Toolkits.CoreWCF.Client" Version="4.0.2" />
+    <PackageReference Include="SD.Toolkits.AspNet" Version="4.0.5" />
+    <PackageReference Include="SD.Toolkits.CoreWCF.Client" Version="4.0.5" />
   </ItemGroup>
 
   <ItemGroup>
